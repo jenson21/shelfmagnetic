@@ -16,14 +16,13 @@
 		D1D9E8052483D0C500F2957A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8042483D0C500F2957A /* main.m */; };
 		D1D9E80F2483D0C600F2957A /* ShelfMagneticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */; };
 		D1D9E81A2483D0C600F2957A /* ShelfMagneticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */; };
-		D1D9E8692483EC3C00F2957A /* CardTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E85A2483EC3C00F2957A /* CardTableView.m */; };
-		D1D9E86A2483EC3C00F2957A /* CardTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E85B2483EC3C00F2957A /* CardTableFooterView.m */; };
-		D1D9E86C2483EC3C00F2957A /* CardErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E85D2483EC3C00F2957A /* CardErrorCell.m */; };
-		D1D9E86D2483EC3C00F2957A /* CardCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8612483EC3C00F2957A /* CardCollectionController.m */; };
-		D1D9E86E2483EC3C00F2957A /* CardController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8622483EC3C00F2957A /* CardController.m */; };
-		D1D9E86F2483EC3C00F2957A /* CardsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8642483EC3C00F2957A /* CardsController.m */; };
-		D1D9E8702483EC3C00F2957A /* CardContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8682483EC3C00F2957A /* CardContext.m */; };
 		D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */; };
+		D1D9E8842484100F00F2957A /* MagneticController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8782484100E00F2957A /* MagneticController.m */; };
+		D1D9E8852484100F00F2957A /* MagneticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8792484100E00F2957A /* MagneticsController.m */; };
+		D1D9E8862484100F00F2957A /* MagneticErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E87B2484100E00F2957A /* MagneticErrorCell.m */; };
+		D1D9E8872484100F00F2957A /* MagneticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E87C2484100E00F2957A /* MagneticTableView.m */; };
+		D1D9E8882484100F00F2957A /* MagneticableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8802484100E00F2957A /* MagneticableFooterView.m */; };
+		D1D9E8892484100F00F2957A /* MagneticContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8832484100F00F2957A /* MagneticContext.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,23 +61,21 @@
 		D1D9E8152483D0C600F2957A /* ShelfMagneticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShelfMagneticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfMagneticUITests.m; sourceTree = "<group>"; };
 		D1D9E81B2483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1D9E8562483EC3C00F2957A /* CardTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTableView.h; sourceTree = "<group>"; };
-		D1D9E8572483EC3C00F2957A /* CardTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTableFooterView.h; sourceTree = "<group>"; };
-		D1D9E8582483EC3C00F2957A /* CardErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardErrorCell.h; sourceTree = "<group>"; };
-		D1D9E85A2483EC3C00F2957A /* CardTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTableView.m; sourceTree = "<group>"; };
-		D1D9E85B2483EC3C00F2957A /* CardTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTableFooterView.m; sourceTree = "<group>"; };
-		D1D9E85D2483EC3C00F2957A /* CardErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardErrorCell.m; sourceTree = "<group>"; };
-		D1D9E85F2483EC3C00F2957A /* CardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardController.h; sourceTree = "<group>"; };
-		D1D9E8602483EC3C00F2957A /* CardsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsController.h; sourceTree = "<group>"; };
-		D1D9E8612483EC3C00F2957A /* CardCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionController.m; sourceTree = "<group>"; };
-		D1D9E8622483EC3C00F2957A /* CardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardController.m; sourceTree = "<group>"; };
-		D1D9E8632483EC3C00F2957A /* CardCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionController.h; sourceTree = "<group>"; };
-		D1D9E8642483EC3C00F2957A /* CardsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsController.m; sourceTree = "<group>"; };
-		D1D9E8652483EC3C00F2957A /* CardsControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsControllerProtocol.h; sourceTree = "<group>"; };
-		D1D9E8672483EC3C00F2957A /* CardContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardContext.h; sourceTree = "<group>"; };
-		D1D9E8682483EC3C00F2957A /* CardContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardContext.m; sourceTree = "<group>"; };
 		D1D9E8712483ECDC00F2957A /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+		D1D9E8752484100E00F2957A /* MagneticsControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsControllerProtocol.h; sourceTree = "<group>"; };
+		D1D9E8762484100E00F2957A /* MagneticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsController.h; sourceTree = "<group>"; };
+		D1D9E8772484100E00F2957A /* MagneticController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticController.h; sourceTree = "<group>"; };
+		D1D9E8782484100E00F2957A /* MagneticController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticController.m; sourceTree = "<group>"; };
+		D1D9E8792484100E00F2957A /* MagneticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticsController.m; sourceTree = "<group>"; };
+		D1D9E87B2484100E00F2957A /* MagneticErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticErrorCell.m; sourceTree = "<group>"; };
+		D1D9E87C2484100E00F2957A /* MagneticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticTableView.m; sourceTree = "<group>"; };
+		D1D9E87D2484100E00F2957A /* MagneticableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticableFooterView.h; sourceTree = "<group>"; };
+		D1D9E87E2484100E00F2957A /* MagneticErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticErrorCell.h; sourceTree = "<group>"; };
+		D1D9E87F2484100E00F2957A /* MagneticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticTableView.h; sourceTree = "<group>"; };
+		D1D9E8802484100E00F2957A /* MagneticableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticableFooterView.m; sourceTree = "<group>"; };
+		D1D9E8822484100F00F2957A /* MagneticContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticContext.h; sourceTree = "<group>"; };
+		D1D9E8832484100F00F2957A /* MagneticContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticContext.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +126,9 @@
 		D1D9E7F12483D0C400F2957A /* ShelfMagnetic */ = {
 			isa = PBXGroup;
 			children = (
-				D1D9E85E2483EC3C00F2957A /* Controller */,
-				D1D9E8662483EC3C00F2957A /* Model */,
-				D1D9E8552483EC3C00F2957A /* View */,
+				D1D9E8742484100E00F2957A /* Controller */,
+				D1D9E8812484100F00F2957A /* Model */,
+				D1D9E87A2484100E00F2957A /* View */,
 				D1D9E7F22483D0C400F2957A /* AppDelegate.h */,
 				D1D9E7F32483D0C400F2957A /* AppDelegate.m */,
 				D1D9E7F52483D0C400F2957A /* SceneDelegate.h */,
@@ -167,38 +164,36 @@
 			path = ShelfMagneticUITests;
 			sourceTree = "<group>";
 		};
-		D1D9E8552483EC3C00F2957A /* View */ = {
+		D1D9E8742484100E00F2957A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1D9E8562483EC3C00F2957A /* CardTableView.h */,
-				D1D9E8572483EC3C00F2957A /* CardTableFooterView.h */,
-				D1D9E8582483EC3C00F2957A /* CardErrorCell.h */,
-				D1D9E85A2483EC3C00F2957A /* CardTableView.m */,
-				D1D9E85B2483EC3C00F2957A /* CardTableFooterView.m */,
-				D1D9E85D2483EC3C00F2957A /* CardErrorCell.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D1D9E85E2483EC3C00F2957A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D1D9E85F2483EC3C00F2957A /* CardController.h */,
-				D1D9E8602483EC3C00F2957A /* CardsController.h */,
-				D1D9E8612483EC3C00F2957A /* CardCollectionController.m */,
-				D1D9E8622483EC3C00F2957A /* CardController.m */,
-				D1D9E8632483EC3C00F2957A /* CardCollectionController.h */,
-				D1D9E8642483EC3C00F2957A /* CardsController.m */,
-				D1D9E8652483EC3C00F2957A /* CardsControllerProtocol.h */,
+				D1D9E8752484100E00F2957A /* MagneticsControllerProtocol.h */,
+				D1D9E8762484100E00F2957A /* MagneticsController.h */,
+				D1D9E8772484100E00F2957A /* MagneticController.h */,
+				D1D9E8782484100E00F2957A /* MagneticController.m */,
+				D1D9E8792484100E00F2957A /* MagneticsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D1D9E8662483EC3C00F2957A /* Model */ = {
+		D1D9E87A2484100E00F2957A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D1D9E8672483EC3C00F2957A /* CardContext.h */,
-				D1D9E8682483EC3C00F2957A /* CardContext.m */,
+				D1D9E87B2484100E00F2957A /* MagneticErrorCell.m */,
+				D1D9E87C2484100E00F2957A /* MagneticTableView.m */,
+				D1D9E87D2484100E00F2957A /* MagneticableFooterView.h */,
+				D1D9E87E2484100E00F2957A /* MagneticErrorCell.h */,
+				D1D9E87F2484100E00F2957A /* MagneticTableView.h */,
+				D1D9E8802484100E00F2957A /* MagneticableFooterView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1D9E8812484100F00F2957A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E8822484100F00F2957A /* MagneticContext.h */,
+				D1D9E8832484100F00F2957A /* MagneticContext.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,18 +328,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D9E86A2483EC3C00F2957A /* CardTableFooterView.m in Sources */,
+				D1D9E8862484100F00F2957A /* MagneticErrorCell.m in Sources */,
+				D1D9E8892484100F00F2957A /* MagneticContext.m in Sources */,
+				D1D9E8882484100F00F2957A /* MagneticableFooterView.m in Sources */,
 				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
+				D1D9E8852484100F00F2957A /* MagneticsController.m in Sources */,
 				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
-				D1D9E86F2483EC3C00F2957A /* CardsController.m in Sources */,
-				D1D9E8692483EC3C00F2957A /* CardTableView.m in Sources */,
 				D1D9E8052483D0C500F2957A /* main.m in Sources */,
-				D1D9E8702483EC3C00F2957A /* CardContext.m in Sources */,
-				D1D9E86C2483EC3C00F2957A /* CardErrorCell.m in Sources */,
+				D1D9E8842484100F00F2957A /* MagneticController.m in Sources */,
 				D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */,
+				D1D9E8872484100F00F2957A /* MagneticTableView.m in Sources */,
 				D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */,
-				D1D9E86D2483EC3C00F2957A /* CardCollectionController.m in Sources */,
-				D1D9E86E2483EC3C00F2957A /* CardController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
