@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F32483D0C400F2957A /* AppDelegate.m */; };
+		D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F62483D0C400F2957A /* SceneDelegate.m */; };
+		D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F92483D0C400F2957A /* ViewController.m */; };
+		D1D9E7FD2483D0C400F2957A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D9E7FB2483D0C400F2957A /* Main.storyboard */; };
+		D1D9E7FF2483D0C500F2957A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D9E7FE2483D0C500F2957A /* Assets.xcassets */; };
+		D1D9E8022483D0C500F2957A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D9E8002483D0C500F2957A /* LaunchScreen.storyboard */; };
+		D1D9E8052483D0C500F2957A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8042483D0C500F2957A /* main.m */; };
+		D1D9E80F2483D0C600F2957A /* ShelfMagneticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */; };
+		D1D9E81A2483D0C600F2957A /* ShelfMagneticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */; };
+		D1D9E8692483EC3C00F2957A /* CardTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E85A2483EC3C00F2957A /* CardTableView.m */; };
+		D1D9E86A2483EC3C00F2957A /* CardTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E85B2483EC3C00F2957A /* CardTableFooterView.m */; };
+		D1D9E86C2483EC3C00F2957A /* CardErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E85D2483EC3C00F2957A /* CardErrorCell.m */; };
+		D1D9E86D2483EC3C00F2957A /* CardCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8612483EC3C00F2957A /* CardCollectionController.m */; };
+		D1D9E86E2483EC3C00F2957A /* CardController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8622483EC3C00F2957A /* CardController.m */; };
+		D1D9E86F2483EC3C00F2957A /* CardsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8642483EC3C00F2957A /* CardsController.m */; };
+		D1D9E8702483EC3C00F2957A /* CardContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8682483EC3C00F2957A /* CardContext.m */; };
+		D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1D9E80B2483D0C600F2957A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1D9E7E72483D0C400F2957A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1D9E7EE2483D0C400F2957A;
+			remoteInfo = ShelfMagnetic;
+		};
+		D1D9E8162483D0C600F2957A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1D9E7E72483D0C400F2957A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1D9E7EE2483D0C400F2957A;
+			remoteInfo = ShelfMagnetic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D1D9E7EF2483D0C400F2957A /* ShelfMagnetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShelfMagnetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1D9E7F22483D0C400F2957A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D1D9E7F32483D0C400F2957A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D1D9E7F52483D0C400F2957A /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		D1D9E7F62483D0C400F2957A /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		D1D9E7F82483D0C400F2957A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D1D9E7F92483D0C400F2957A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D1D9E7FC2483D0C400F2957A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1D9E7FE2483D0C500F2957A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1D9E8012483D0C500F2957A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D1D9E8032483D0C500F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1D9E8042483D0C500F2957A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D1D9E80A2483D0C600F2957A /* ShelfMagneticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShelfMagneticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfMagneticTests.m; sourceTree = "<group>"; };
+		D1D9E8102483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1D9E8152483D0C600F2957A /* ShelfMagneticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShelfMagneticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfMagneticUITests.m; sourceTree = "<group>"; };
+		D1D9E81B2483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1D9E8562483EC3C00F2957A /* CardTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTableView.h; sourceTree = "<group>"; };
+		D1D9E8572483EC3C00F2957A /* CardTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTableFooterView.h; sourceTree = "<group>"; };
+		D1D9E8582483EC3C00F2957A /* CardErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardErrorCell.h; sourceTree = "<group>"; };
+		D1D9E85A2483EC3C00F2957A /* CardTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTableView.m; sourceTree = "<group>"; };
+		D1D9E85B2483EC3C00F2957A /* CardTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTableFooterView.m; sourceTree = "<group>"; };
+		D1D9E85D2483EC3C00F2957A /* CardErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardErrorCell.m; sourceTree = "<group>"; };
+		D1D9E85F2483EC3C00F2957A /* CardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardController.h; sourceTree = "<group>"; };
+		D1D9E8602483EC3C00F2957A /* CardsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsController.h; sourceTree = "<group>"; };
+		D1D9E8612483EC3C00F2957A /* CardCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCollectionController.m; sourceTree = "<group>"; };
+		D1D9E8622483EC3C00F2957A /* CardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardController.m; sourceTree = "<group>"; };
+		D1D9E8632483EC3C00F2957A /* CardCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCollectionController.h; sourceTree = "<group>"; };
+		D1D9E8642483EC3C00F2957A /* CardsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsController.m; sourceTree = "<group>"; };
+		D1D9E8652483EC3C00F2957A /* CardsControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsControllerProtocol.h; sourceTree = "<group>"; };
+		D1D9E8672483EC3C00F2957A /* CardContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardContext.h; sourceTree = "<group>"; };
+		D1D9E8682483EC3C00F2957A /* CardContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardContext.m; sourceTree = "<group>"; };
+		D1D9E8712483ECDC00F2957A /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
+		D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1D9E7EC2483D0C400F2957A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D9E8072483D0C600F2957A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D9E8122483D0C600F2957A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D1D9E7E62483D0C400F2957A = {
+			isa = PBXGroup;
+			children = (
+				D1D9E7F12483D0C400F2957A /* ShelfMagnetic */,
+				D1D9E80D2483D0C600F2957A /* ShelfMagneticTests */,
+				D1D9E8182483D0C600F2957A /* ShelfMagneticUITests */,
+				D1D9E7F02483D0C400F2957A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1D9E7F02483D0C400F2957A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E7EF2483D0C400F2957A /* ShelfMagnetic.app */,
+				D1D9E80A2483D0C600F2957A /* ShelfMagneticTests.xctest */,
+				D1D9E8152483D0C600F2957A /* ShelfMagneticUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1D9E7F12483D0C400F2957A /* ShelfMagnetic */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E85E2483EC3C00F2957A /* Controller */,
+				D1D9E8662483EC3C00F2957A /* Model */,
+				D1D9E8552483EC3C00F2957A /* View */,
+				D1D9E7F22483D0C400F2957A /* AppDelegate.h */,
+				D1D9E7F32483D0C400F2957A /* AppDelegate.m */,
+				D1D9E7F52483D0C400F2957A /* SceneDelegate.h */,
+				D1D9E7F62483D0C400F2957A /* SceneDelegate.m */,
+				D1D9E7F82483D0C400F2957A /* ViewController.h */,
+				D1D9E7F92483D0C400F2957A /* ViewController.m */,
+				D1D9E8712483ECDC00F2957A /* NSObject+Runtime.h */,
+				D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */,
+				D1D9E7FB2483D0C400F2957A /* Main.storyboard */,
+				D1D9E7FE2483D0C500F2957A /* Assets.xcassets */,
+				D1D9E8002483D0C500F2957A /* LaunchScreen.storyboard */,
+				D1D9E8032483D0C500F2957A /* Info.plist */,
+				D1D9E8042483D0C500F2957A /* main.m */,
+			);
+			path = ShelfMagnetic;
+			sourceTree = "<group>";
+		};
+		D1D9E80D2483D0C600F2957A /* ShelfMagneticTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */,
+				D1D9E8102483D0C600F2957A /* Info.plist */,
+			);
+			path = ShelfMagneticTests;
+			sourceTree = "<group>";
+		};
+		D1D9E8182483D0C600F2957A /* ShelfMagneticUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */,
+				D1D9E81B2483D0C600F2957A /* Info.plist */,
+			);
+			path = ShelfMagneticUITests;
+			sourceTree = "<group>";
+		};
+		D1D9E8552483EC3C00F2957A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E8562483EC3C00F2957A /* CardTableView.h */,
+				D1D9E8572483EC3C00F2957A /* CardTableFooterView.h */,
+				D1D9E8582483EC3C00F2957A /* CardErrorCell.h */,
+				D1D9E85A2483EC3C00F2957A /* CardTableView.m */,
+				D1D9E85B2483EC3C00F2957A /* CardTableFooterView.m */,
+				D1D9E85D2483EC3C00F2957A /* CardErrorCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1D9E85E2483EC3C00F2957A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E85F2483EC3C00F2957A /* CardController.h */,
+				D1D9E8602483EC3C00F2957A /* CardsController.h */,
+				D1D9E8612483EC3C00F2957A /* CardCollectionController.m */,
+				D1D9E8622483EC3C00F2957A /* CardController.m */,
+				D1D9E8632483EC3C00F2957A /* CardCollectionController.h */,
+				D1D9E8642483EC3C00F2957A /* CardsController.m */,
+				D1D9E8652483EC3C00F2957A /* CardsControllerProtocol.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D1D9E8662483EC3C00F2957A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1D9E8672483EC3C00F2957A /* CardContext.h */,
+				D1D9E8682483EC3C00F2957A /* CardContext.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1D9E7EE2483D0C400F2957A /* ShelfMagnetic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1D9E81E2483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagnetic" */;
+			buildPhases = (
+				D1D9E7EB2483D0C400F2957A /* Sources */,
+				D1D9E7EC2483D0C400F2957A /* Frameworks */,
+				D1D9E7ED2483D0C400F2957A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShelfMagnetic;
+			productName = ShelfMagnetic;
+			productReference = D1D9E7EF2483D0C400F2957A /* ShelfMagnetic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D1D9E8092483D0C600F2957A /* ShelfMagneticTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1D9E8212483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagneticTests" */;
+			buildPhases = (
+				D1D9E8062483D0C600F2957A /* Sources */,
+				D1D9E8072483D0C600F2957A /* Frameworks */,
+				D1D9E8082483D0C600F2957A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1D9E80C2483D0C600F2957A /* PBXTargetDependency */,
+			);
+			name = ShelfMagneticTests;
+			productName = ShelfMagneticTests;
+			productReference = D1D9E80A2483D0C600F2957A /* ShelfMagneticTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D1D9E8142483D0C600F2957A /* ShelfMagneticUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1D9E8242483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagneticUITests" */;
+			buildPhases = (
+				D1D9E8112483D0C600F2957A /* Sources */,
+				D1D9E8122483D0C600F2957A /* Frameworks */,
+				D1D9E8132483D0C600F2957A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1D9E8172483D0C600F2957A /* PBXTargetDependency */,
+			);
+			name = ShelfMagneticUITests;
+			productName = ShelfMagneticUITests;
+			productReference = D1D9E8152483D0C600F2957A /* ShelfMagneticUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1D9E7E72483D0C400F2957A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = Jenson;
+				TargetAttributes = {
+					D1D9E7EE2483D0C400F2957A = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					D1D9E8092483D0C600F2957A = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = D1D9E7EE2483D0C400F2957A;
+					};
+					D1D9E8142483D0C600F2957A = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = D1D9E7EE2483D0C400F2957A;
+					};
+				};
+			};
+			buildConfigurationList = D1D9E7EA2483D0C400F2957A /* Build configuration list for PBXProject "ShelfMagnetic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1D9E7E62483D0C400F2957A;
+			productRefGroup = D1D9E7F02483D0C400F2957A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1D9E7EE2483D0C400F2957A /* ShelfMagnetic */,
+				D1D9E8092483D0C600F2957A /* ShelfMagneticTests */,
+				D1D9E8142483D0C600F2957A /* ShelfMagneticUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1D9E7ED2483D0C400F2957A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1D9E8022483D0C500F2957A /* LaunchScreen.storyboard in Resources */,
+				D1D9E7FF2483D0C500F2957A /* Assets.xcassets in Resources */,
+				D1D9E7FD2483D0C400F2957A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D9E8082483D0C600F2957A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D9E8132483D0C600F2957A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1D9E7EB2483D0C400F2957A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1D9E86A2483EC3C00F2957A /* CardTableFooterView.m in Sources */,
+				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
+				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
+				D1D9E86F2483EC3C00F2957A /* CardsController.m in Sources */,
+				D1D9E8692483EC3C00F2957A /* CardTableView.m in Sources */,
+				D1D9E8052483D0C500F2957A /* main.m in Sources */,
+				D1D9E8702483EC3C00F2957A /* CardContext.m in Sources */,
+				D1D9E86C2483EC3C00F2957A /* CardErrorCell.m in Sources */,
+				D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */,
+				D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */,
+				D1D9E86D2483EC3C00F2957A /* CardCollectionController.m in Sources */,
+				D1D9E86E2483EC3C00F2957A /* CardController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D9E8062483D0C600F2957A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1D9E80F2483D0C600F2957A /* ShelfMagneticTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1D9E8112483D0C600F2957A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1D9E81A2483D0C600F2957A /* ShelfMagneticUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1D9E80C2483D0C600F2957A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1D9E7EE2483D0C400F2957A /* ShelfMagnetic */;
+			targetProxy = D1D9E80B2483D0C600F2957A /* PBXContainerItemProxy */;
+		};
+		D1D9E8172483D0C600F2957A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1D9E7EE2483D0C400F2957A /* ShelfMagnetic */;
+			targetProxy = D1D9E8162483D0C600F2957A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D1D9E7FB2483D0C400F2957A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1D9E7FC2483D0C400F2957A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D1D9E8002483D0C500F2957A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1D9E8012483D0C500F2957A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1D9E81C2483D0C600F2957A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D1D9E81D2483D0C600F2957A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1D9E81F2483D0C600F2957A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShelfMagnetic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagnetic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1D9E8202483D0C600F2957A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShelfMagnetic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagnetic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D1D9E8222483D0C600F2957A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShelfMagneticTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagneticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShelfMagnetic.app/ShelfMagnetic";
+			};
+			name = Debug;
+		};
+		D1D9E8232483D0C600F2957A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShelfMagneticTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagneticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShelfMagnetic.app/ShelfMagnetic";
+			};
+			name = Release;
+		};
+		D1D9E8252483D0C600F2957A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShelfMagneticUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagneticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShelfMagnetic;
+			};
+			name = Debug;
+		};
+		D1D9E8262483D0C600F2957A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ShelfMagneticUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagneticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ShelfMagnetic;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1D9E7EA2483D0C400F2957A /* Build configuration list for PBXProject "ShelfMagnetic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1D9E81C2483D0C600F2957A /* Debug */,
+				D1D9E81D2483D0C600F2957A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1D9E81E2483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagnetic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1D9E81F2483D0C600F2957A /* Debug */,
+				D1D9E8202483D0C600F2957A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1D9E8212483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagneticTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1D9E8222483D0C600F2957A /* Debug */,
+				D1D9E8232483D0C600F2957A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1D9E8242483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagneticUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1D9E8252483D0C600F2957A /* Debug */,
+				D1D9E8262483D0C600F2957A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1D9E7E72483D0C400F2957A /* Project object */;
+}
