@@ -1,2 +1,2 @@
 # shelfmagnetic
-MAC protocol framework
+MVP protocol framework
