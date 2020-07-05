@@ -6,17 +6,18 @@
 //  Copyright © 2020 Jenson. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MagneticController.h"
+#import "UIView+NetWorkError.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-#import "MagneticController.h"
-
 @interface MagneticErrorCell : UITableViewCell
-@property (nonatomic, weak) MagneticController *MagneticController;
+
+@property (nonatomic, weak) MagneticController *magneticController;
 
 ///刷新错误视图
 - (void)refreshMagneticErrorView;
+
 @end
 
 NS_ASSUME_NONNULL_END

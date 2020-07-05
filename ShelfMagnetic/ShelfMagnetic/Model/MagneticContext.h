@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jenson. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, MagneticErrorCode) {
 @property (nonatomic) MagneticState state;
 
 ///磁片信息（CMS配置的原始数据）
-@property (nonatomic) NSDictionary *MagneticInfo;
+@property (nonatomic) NSDictionary *magneticInfo;
 
 ///数据源,可为model
 @property (nonatomic) id json;

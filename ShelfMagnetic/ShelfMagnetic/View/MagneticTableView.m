@@ -10,7 +10,10 @@
 #import "MagneticController.h"
 #import "MagneticsController.h"
 
-#define HEIGHT_ERROR        100.0   //错误提示高度
+#define HEIGHT_ERROR        120.0   //错误提示高度
+
+@interface MagneticTableView ()
+@end
 
 @implementation MagneticTableView
 
@@ -32,7 +35,7 @@
 
 - (void)reloadData
 {
-    for (int i = 0; i < _MagneticControllersArray.count; i++) {
+    for (int i = 0; i < _magneticControllersArray.count; i++) {
         [self setupCacheDataWithSection:i];
     }
     
@@ -94,69 +97,69 @@
 //重置指定section的缓存数据
 - (void)setupCacheDataWithSection:(NSInteger)section
 {
-    if (section < 0 || section >= _MagneticControllersArray.count) return;
+    if (section < 0 || section >= _magneticControllersArray.count) return;
     
-    MagneticsController *MagneticsController = (MagneticsController *)self.delegate;
-    MagneticController *MagneticController = _MagneticControllersArray[section];
+    MagneticsController *magneticsController = (MagneticsController *)self.delegate;
+    MagneticController *magneticController = _magneticControllersArray[section];
     
     //是否显示错误视图
-    MagneticController.showMagneticError = NO;
-    if (MagneticController.MagneticContext.error) { //数据错误
-        if ([MagneticController respondsToSelector:@selector(MagneticsController:shouldShowMagneticErrorWithCode:)]) {
-            MagneticController.showMagneticError = [MagneticController MagneticsController:MagneticsController shouldShowMagneticErrorWithCode:MagneticController.MagneticContext.error.code];
+    magneticController.showMagneticError = NO;
+    if (magneticController.magneticContext.error) { //数据错误
+        if ([magneticController respondsToSelector:@selector(magneticsController:shouldShowMagneticErrorWithCode:)]) {
+            magneticController.showMagneticError = [magneticController magneticsController:magneticsController shouldShowMagneticErrorWithCode:magneticController.magneticContext.error.code];
         }
     }
     
     //是否显示头部视图
-    MagneticController.showMagneticHeader = NO;
-    if ([MagneticController respondsToSelector:@selector(MagneticsController:shouldShowMagneticHeaderInTableView:)]) {
-        MagneticController.showMagneticHeader = [MagneticController MagneticsController:MagneticsController shouldShowMagneticHeaderInTableView:self];
+    magneticController.showMagneticHeader = NO;
+    if ([magneticController respondsToSelector:@selector(magneticsController:shouldShowMagneticHeaderInTableView:)]) {
+        magneticController.showMagneticHeader = [magneticController magneticsController:magneticsController shouldShowMagneticHeaderInTableView:self];
     }
-    if (MagneticController.showMagneticError) { //显示错误视图时隐藏头部视图
-        MagneticController.showMagneticHeader = NO;
+    if (magneticController.showMagneticError) { //显示错误视图时隐藏头部视图
+        magneticController.showMagneticHeader = NO;
     }
     
     //是否显示尾部视图
-    MagneticController.showMagneticFooter = NO;
-    if ([MagneticController respondsToSelector:@selector(MagneticsController:shouldShowMagneticFooterInTableView:)]) {
-        MagneticController.showMagneticFooter = [MagneticController MagneticsController:MagneticsController shouldShowMagneticFooterInTableView:self];
+    magneticController.showMagneticFooter = NO;
+    if ([MagneticController respondsToSelector:@selector(magneticsController:shouldShowMagneticFooterInTableView:)]) {
+        magneticController.showMagneticFooter = [magneticController magneticsController:magneticsController shouldShowMagneticFooterInTableView:self];
     }
-    if (MagneticController.showMagneticError) { //显示错误视图时隐藏尾部视图
-        MagneticController.showMagneticFooter = NO;
+    if (magneticController.showMagneticError) { //显示错误视图时隐藏尾部视图
+        magneticController.showMagneticFooter = NO;
     }
     
-    //是否显示卡片间距
-    MagneticController.showMagneticSpacing = NO;
+    //是否显示磁片间距
+    magneticController.showMagneticSpacing = NO;
     
-    CGFloat MagneticSpacing = 0.0;
-    if ([MagneticController respondsToSelector:@selector(MagneticsController:heightForMagneticSpacingInTableView:)]) {
-        MagneticSpacing = [MagneticController MagneticsController:MagneticsController heightForMagneticSpacingInTableView:self];
-        if (MagneticSpacing <= 0.1) {
-            MagneticSpacing = 0.0;
+    CGFloat magneticSpacing = 0.0;
+    if ([MagneticController respondsToSelector:@selector(magneticsController:heightForMagneticSpacingInTableView:)]) {
+        magneticSpacing = [magneticController magneticsController:magneticsController heightForMagneticSpacingInTableView:self];
+        if (magneticSpacing <= 0.1) {
+            magneticSpacing = 0.0;
         }
     }
-    if (MagneticSpacing > 0.0) {
-        MagneticController.showMagneticSpacing = YES;
+    if (magneticSpacing > 0.0) {
+        magneticController.showMagneticSpacing = YES;
     }
     
     //行数缓存
-    MagneticController.extensionRowIndex = 0;
+    magneticController.extensionRowIndex = 0;
     
     NSInteger rowCount = 0;
-    if (MagneticController.MagneticContext.error) { //数据错误
-        if (MagneticController.showMagneticError) rowCount++; //显示错误视图
+    if (magneticController.magneticContext.error) { //数据错误
+        if (magneticController.showMagneticError) rowCount++; //显示错误视图
     } else { //数据正常
         //内容行数
-        NSInteger count = [MagneticController MagneticsController:MagneticsController rowCountForMagneticContentInTableView:self];
+        NSInteger count = [magneticController magneticsController:magneticsController rowCountForMagneticContentInTableView:self];
         if (count > 0) {
             rowCount += count;
         }
         
         //扩展行数
-        MagneticController.extensionRowIndex = rowCount + (MagneticController.showMagneticHeader ? 1 : 0);
+        magneticController.extensionRowIndex = rowCount + (magneticController.showMagneticHeader ? 1 : 0);
         
-        if (!MagneticController.isFold) { //折叠状态不显示扩展区
-            count = [MagneticController.extensionController MagneticsController:MagneticsController rowCountForMagneticContentInTableView:self];
+        if (!magneticController.isFold) { //折叠状态不显示扩展区
+            count = [magneticController.extensionController magneticsController:magneticsController rowCountForMagneticContentInTableView:self];
             if (count > 0) {
                 rowCount += count;
             }
@@ -164,55 +167,55 @@
     }
     
     if (rowCount > 0) { //有可显示的数据
-        if (MagneticController.showMagneticHeader)  rowCount++; //显示头部视图
-        if (MagneticController.showMagneticFooter)  rowCount++; //显示尾部视图
-        if (MagneticController.showMagneticSpacing) rowCount++; //显示卡片间距
+        if (magneticController.showMagneticHeader)  rowCount++; //显示头部视图
+        if (magneticController.showMagneticFooter)  rowCount++; //显示尾部视图
+        if (magneticController.showMagneticSpacing) rowCount++; //显示磁片间距
     }
-    MagneticController.rowCountCache = rowCount;
-
+    magneticController.rowCountCache = rowCount;
+    
     //行高缓存
     NSMutableArray *rowHeights = [NSMutableArray array];
     for (int row = 0; row < rowCount; row++) {
         CGFloat rowHeight = 0.0;
         
-        BOOL isMagneticSpacing = (MagneticController.showMagneticSpacing && row == rowCount - 1); //卡片间距
-        BOOL isMagneticHeader = (MagneticController.showMagneticHeader && row == 0); //头部视图
+        BOOL isMagneticSpacing = (magneticController.showMagneticSpacing && row == rowCount - 1); //磁片间距
+        BOOL isMagneticHeader = (magneticController.showMagneticHeader && row == 0); //头部视图
         BOOL isMagneticFooter = NO; //尾部视图
-        if (MagneticController.showMagneticFooter) {
-            if (MagneticController.showMagneticSpacing && row == rowCount - 2) {
+        if (magneticController.showMagneticFooter) {
+            if (magneticController.showMagneticSpacing && row == rowCount - 2) {
                 isMagneticFooter = YES;
             }
-            if (!MagneticController.showMagneticSpacing && row == rowCount - 1) {
+            if (!magneticController.showMagneticSpacing && row == rowCount - 1) {
                 isMagneticFooter = YES;
             }
         }
         
-        if (isMagneticSpacing) { //卡片间距
-            rowHeight = MagneticSpacing;
+        if (isMagneticSpacing) { //磁片间距
+            rowHeight = magneticSpacing;
         } else if (isMagneticHeader) { //头部视图
-            if ([MagneticController respondsToSelector:@selector(MagneticsController:heightForMagneticHeaderInTableView:)]) {
-                rowHeight = [MagneticController MagneticsController:MagneticsController heightForMagneticHeaderInTableView:self];
+            if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticHeaderInTableView:)]) {
+                rowHeight = [magneticController magneticsController:magneticsController heightForMagneticHeaderInTableView:self];
             }
         } else if (isMagneticFooter) { //尾部视图
-            if ([MagneticController respondsToSelector:@selector(MagneticsController:heightForMagneticFooterInTableView:)]) {
-                rowHeight = [MagneticController MagneticsController:MagneticsController heightForMagneticFooterInTableView:self];
+            if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticFooterInTableView:)]) {
+                rowHeight = [magneticController magneticsController:magneticsController heightForMagneticFooterInTableView:self];
             }
         } else {
-            if (MagneticController.showMagneticError) { //错误视图
+            if (magneticController.showMagneticError) { //错误视图
                 rowHeight = HEIGHT_ERROR;
             } else { //数据源
-                if (row < MagneticController.extensionRowIndex) { //卡片内容
-                    NSInteger rowIndex = MagneticController.showMagneticHeader ? row - 1 : row; //数据源对应的index
-                    rowHeight = [MagneticController MagneticsController:MagneticsController rowHeightForMagneticContentAtIndex:rowIndex];
-                } else { //卡片扩展
-                    NSInteger rowIndex = row - MagneticController.extensionRowIndex; //数据源对应的index
-                    rowHeight = [MagneticController.extensionController MagneticsController:MagneticsController rowHeightForMagneticContentAtIndex:rowIndex];
+                if (row < magneticController.extensionRowIndex) { //磁片内容
+                    NSInteger rowIndex = magneticController.showMagneticHeader ? row - 1 : row; //数据源对应的index
+                    rowHeight = [magneticController magneticsController:magneticsController rowHeightForMagneticContentAtIndex:rowIndex];
+                } else { //磁片扩展
+                    NSInteger rowIndex = row - magneticController.extensionRowIndex; //数据源对应的index
+                    rowHeight = [magneticController.extensionController magneticsController:magneticsController rowHeightForMagneticContentAtIndex:rowIndex];
                 }
             }
         }
         [rowHeights addObject:@(rowHeight)];
     }
-    MagneticController.rowHeightsCache = rowHeights;
+    magneticController.rowHeightsCache = rowHeights;
 }
 
 @end

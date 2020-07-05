@@ -11,17 +11,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MagneticsController;
-
 @interface MagneticTableView : UITableView
 
-@property (nonatomic, weak) NSArray *MagneticControllersArray;
-@property (nonatomic, weak) MagneticsController *MagneticsController;
+@property (nonatomic, weak) NSArray *magneticControllersArray;
+@property (nonatomic, weak) MagneticsController *magneticsController;
 
 ///更新指定section缓存并刷新
 - (void)reloadSection:(NSInteger)section;
 
 ///更新指定section组缓存并刷新
 - (void)reloadSections:(NSArray *)sections;
+
 @end
 
 @interface NSIndexPath (MagneticTableView)

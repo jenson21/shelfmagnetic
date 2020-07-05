@@ -6,30 +6,28 @@
 //  Copyright © 2020 Jenson. All rights reserved.
 //
 
-NS_ASSUME_NONNULL_BEGIN
-
 #import "MagneticsControllerProtocol.h"
 #import "MagneticContext.h"
 
 @class MagneticsController;
-@class NXHttpManager;
+@class JEHttpManager;
 
 @protocol MagneticControllerDelegate;
 
 @interface MagneticController : NSObject <MagneticsControllerDelegate>
 
-@property (nonatomic, strong)   NXHttpManager    *httpManager;
+@property (nonatomic, strong)   JEHttpManager    *httpManager;
 
 @property (nonatomic, weak)     id<MagneticControllerDelegate> delegate;
 
-///卡片列表控制器
-@property (nonatomic, weak)     MagneticsController *MagneticsController;
+///磁片列表控制器
+@property (nonatomic, weak)     MagneticsController *magneticsController;
 
 ///扩展控制器
 @property (nonatomic, strong)   MagneticController  *extensionController;
 
-///卡片数据源
-@property (nonatomic, strong)   MagneticContext     *MagneticContext;
+///磁片数据源
+@property (nonatomic, strong)   MagneticContext     *magneticContext;
 
 ///是否为扩展
 @property (nonatomic)           BOOL            isExtension;
@@ -41,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic)           BOOL            isPrepared;
 
 
-///请求错误卡片数据
+///请求错误磁片数据
 - (void)requestErrorMagneticData;
 
 
@@ -63,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///是否显示尾部视图
 @property (nonatomic)           BOOL        showMagneticFooter;
 
-///是否显示卡片间距
+///是否显示磁片间距
 @property (nonatomic)           BOOL        showMagneticSpacing;
 
 ///行数缓存
@@ -93,36 +91,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MagneticControllerDelegate <NSObject>
 
-///刷新指定类型的卡片
+///刷新指定类型的磁片
 - (void)refreshMagneticWithType:(MagneticType)type animation:(UITableViewRowAnimation)animation;
-///刷新指定类型的卡片
+///刷新指定类型的磁片
 - (void)refreshMagneticWithType:(MagneticType)type;
-//刷新指定类型卡片的数据源
+//刷新指定类型磁片的数据源
 - (void)refreshMagneticWithType:(MagneticType)type json:(id)json;
 
 /**
- *  @brief  添加指定Section卡片
- *  @param  MagneticType    卡片类型
- *  @param  MagneticContext    刷新数据模型
- *  @param  MagneticController 刷新controller
+ *  @brief  添加指定Section磁片
+ *  @param  magneticType    磁片类型
+ *  @param  magneticContext    刷新数据模型
+ *  @param  magneticController 刷新controller
  *  @param  index    指定位置
  */
-- (void)addSectionWithType:(MagneticType)MagneticType
-           withMagneticContext:(MagneticContext *)MagneticContext
-        withMagneticController:(MagneticController *)MagneticController
+- (void)addSectionWithType:(MagneticType)magneticType
+           withMagneticContext:(MagneticContext *)magneticContext
+        withMagneticController:(MagneticController *)magneticController
                  withIndex:(NSUInteger)index
              withAnimation:(UITableViewRowAnimation)animation;
 
 /**
- *  @brief  删除指定Section卡片
- *  @param  MagneticType    卡片类型
+ *  @brief  删除指定Section磁片
+ *  @param  magneticType    磁片类型
  *  @param  index    指定位置
  */
-- (void)deleteSectionWithType:(MagneticType)MagneticType
+- (void)deleteSectionWithType:(MagneticType)magneticType
                     withIndex:(NSUInteger)index
                 withAnimation:(UITableViewRowAnimation)animation;
 
 @optional
 
 ///通用参数字典。用于请求参数、统计埋点等。
-- (NSDictionary *)generalParameters;NS_ASSUME_NONNULL_END
+- (NSDictionary *)generalParameters;
+
+@end

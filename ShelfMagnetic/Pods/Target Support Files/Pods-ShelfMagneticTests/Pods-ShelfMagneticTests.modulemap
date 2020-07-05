@@ -1,0 +1,6 @@
+framework module Pods_ShelfMagneticTests {
+  umbrella header "Pods-ShelfMagneticTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

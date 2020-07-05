@@ -3,10 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41A13F89FB7F8A77CA5AEB5D /* Pods_ShelfMagnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */; };
+		4FCA4813B6421092D1B3BADE /* Pods_ShelfMagneticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */; };
+		87309F228107F82C7606277B /* Pods_ShelfMagneticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */; };
+		D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */; };
+		D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */; };
+		D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37624B230E500DEB477 /* JEBaseLoadingView.m */; };
+		D1B8A38024B230E500DEB477 /* MagneticTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37924B230E500DEB477 /* MagneticTableFooterView.m */; };
+		D1B8A38424B230EF00DEB477 /* MagneticContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A38324B230EF00DEB477 /* MagneticContext.m */; };
+		D1B8A39424B234F400DEB477 /* MagneticErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A39224B234F400DEB477 /* MagneticErrorCell.m */; };
+		D1B8A39D24B2356700DEB477 /* UIView+NetWorkError.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A39924B2356700DEB477 /* UIView+NetWorkError.m */; };
+		D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A39F24B235AC00DEB477 /* MagneticController.m */; };
+		D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A524B2371A00DEB477 /* MagneticsController.m */; };
+		D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */; };
 		D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F32483D0C400F2957A /* AppDelegate.m */; };
 		D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F62483D0C400F2957A /* SceneDelegate.m */; };
 		D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F92483D0C400F2957A /* ViewController.m */; };
@@ -17,12 +30,6 @@
 		D1D9E80F2483D0C600F2957A /* ShelfMagneticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */; };
 		D1D9E81A2483D0C600F2957A /* ShelfMagneticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */; };
 		D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */; };
-		D1D9E8842484100F00F2957A /* MagneticController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8782484100E00F2957A /* MagneticController.m */; };
-		D1D9E8852484100F00F2957A /* MagneticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8792484100E00F2957A /* MagneticsController.m */; };
-		D1D9E8862484100F00F2957A /* MagneticErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E87B2484100E00F2957A /* MagneticErrorCell.m */; };
-		D1D9E8872484100F00F2957A /* MagneticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E87C2484100E00F2957A /* MagneticTableView.m */; };
-		D1D9E8882484100F00F2957A /* MagneticableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8802484100E00F2957A /* MagneticableFooterView.m */; };
-		D1D9E8892484100F00F2957A /* MagneticContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8832484100F00F2957A /* MagneticContext.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +50,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShelfMagneticUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShelfMagnetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DA29060E0CDACFC9DAC2C02 /* Pods-ShelfMagneticTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticTests.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticTests/Pods-ShelfMagneticTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A28446C7AD8200E284F333E /* Pods-ShelfMagneticTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticTests.release.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticTests/Pods-ShelfMagneticTests.release.xcconfig"; sourceTree = "<group>"; };
+		865EF70E3310D48C9067775B /* Pods-ShelfMagneticUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticUITests.release.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticUITests/Pods-ShelfMagneticUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8C973470D6363E337784DFDC /* Pods-ShelfMagneticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticUITests/Pods-ShelfMagneticUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		96E7AFBD68CBF6B4A5C1B03E /* Pods-ShelfMagnetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.debug.xcconfig"; sourceTree = "<group>"; };
+		BCC103CDAB73EF04BEEE094F /* Pods-ShelfMagnetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.release.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.release.xcconfig"; sourceTree = "<group>"; };
+		D1B8A35224B1E6AD00DEB477 /* JEHttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHttpManager.h; sourceTree = "<group>"; };
+		D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JEHttpManager.m; sourceTree = "<group>"; };
+		D1B8A37324B230CF00DEB477 /* JEBaseEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBaseEmptyView.h; sourceTree = "<group>"; };
+		D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEBaseEmptyView.m; sourceTree = "<group>"; };
+		D1B8A37624B230E500DEB477 /* JEBaseLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JEBaseLoadingView.m; sourceTree = "<group>"; };
+		D1B8A37924B230E500DEB477 /* MagneticTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticTableFooterView.m; sourceTree = "<group>"; };
+		D1B8A37B24B230E500DEB477 /* JEBaseLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBaseLoadingView.h; sourceTree = "<group>"; };
+		D1B8A37D24B230E500DEB477 /* MagneticTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticTableFooterView.h; sourceTree = "<group>"; };
+		D1B8A38224B230EF00DEB477 /* MagneticContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticContext.h; sourceTree = "<group>"; };
+		D1B8A38324B230EF00DEB477 /* MagneticContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticContext.m; sourceTree = "<group>"; };
+		D1B8A39224B234F400DEB477 /* MagneticErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticErrorCell.m; sourceTree = "<group>"; };
+		D1B8A39324B234F400DEB477 /* MagneticErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticErrorCell.h; sourceTree = "<group>"; };
+		D1B8A39924B2356700DEB477 /* UIView+NetWorkError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NetWorkError.m"; sourceTree = "<group>"; };
+		D1B8A39A24B2356700DEB477 /* UIView+NetWorkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NetWorkError.h"; sourceTree = "<group>"; };
+		D1B8A39E24B2359800DEB477 /* MagneticsControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsControllerProtocol.h; sourceTree = "<group>"; };
+		D1B8A39F24B235AC00DEB477 /* MagneticController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticController.m; sourceTree = "<group>"; };
+		D1B8A3A124B235AC00DEB477 /* MagneticController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticController.h; sourceTree = "<group>"; };
+		D1B8A3A524B2371A00DEB477 /* MagneticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticsController.m; sourceTree = "<group>"; };
+		D1B8A3A624B2371A00DEB477 /* MagneticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsController.h; sourceTree = "<group>"; };
+		D1B8A3A824B2377A00DEB477 /* MagneticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticTableView.h; sourceTree = "<group>"; };
+		D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticTableView.m; sourceTree = "<group>"; };
 		D1D9E7EF2483D0C400F2957A /* ShelfMagnetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShelfMagnetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D9E7F22483D0C400F2957A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1D9E7F32483D0C400F2957A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,19 +99,7 @@
 		D1D9E81B2483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D9E8712483ECDC00F2957A /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
-		D1D9E8752484100E00F2957A /* MagneticsControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsControllerProtocol.h; sourceTree = "<group>"; };
-		D1D9E8762484100E00F2957A /* MagneticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsController.h; sourceTree = "<group>"; };
-		D1D9E8772484100E00F2957A /* MagneticController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticController.h; sourceTree = "<group>"; };
-		D1D9E8782484100E00F2957A /* MagneticController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticController.m; sourceTree = "<group>"; };
-		D1D9E8792484100E00F2957A /* MagneticsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticsController.m; sourceTree = "<group>"; };
-		D1D9E87B2484100E00F2957A /* MagneticErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticErrorCell.m; sourceTree = "<group>"; };
-		D1D9E87C2484100E00F2957A /* MagneticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticTableView.m; sourceTree = "<group>"; };
-		D1D9E87D2484100E00F2957A /* MagneticableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticableFooterView.h; sourceTree = "<group>"; };
-		D1D9E87E2484100E00F2957A /* MagneticErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticErrorCell.h; sourceTree = "<group>"; };
-		D1D9E87F2484100E00F2957A /* MagneticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticTableView.h; sourceTree = "<group>"; };
-		D1D9E8802484100E00F2957A /* MagneticableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticableFooterView.m; sourceTree = "<group>"; };
-		D1D9E8822484100F00F2957A /* MagneticContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticContext.h; sourceTree = "<group>"; };
-		D1D9E8832484100F00F2957A /* MagneticContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticContext.m; sourceTree = "<group>"; };
+		E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShelfMagneticTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A13F89FB7F8A77CA5AEB5D /* Pods_ShelfMagnetic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87309F228107F82C7606277B /* Pods_ShelfMagneticTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +123,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCA4813B6421092D1B3BADE /* Pods_ShelfMagneticUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C5257F6CC5A00D65F1EFF7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */,
+				E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */,
+				055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C7489DE8825CB8726F6CD51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96E7AFBD68CBF6B4A5C1B03E /* Pods-ShelfMagnetic.debug.xcconfig */,
+				BCC103CDAB73EF04BEEE094F /* Pods-ShelfMagnetic.release.xcconfig */,
+				1DA29060E0CDACFC9DAC2C02 /* Pods-ShelfMagneticTests.debug.xcconfig */,
+				5A28446C7AD8200E284F333E /* Pods-ShelfMagneticTests.release.xcconfig */,
+				8C973470D6363E337784DFDC /* Pods-ShelfMagneticUITests.debug.xcconfig */,
+				865EF70E3310D48C9067775B /* Pods-ShelfMagneticUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D1B8A35024B1E5C200DEB477 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D1B8A35224B1E6AD00DEB477 /* JEHttpManager.h */,
+				D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		D1B8A35124B1E5D300DEB477 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D1B8A39A24B2356700DEB477 /* UIView+NetWorkError.h */,
+				D1B8A39924B2356700DEB477 /* UIView+NetWorkError.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		D1D9E7E62483D0C400F2957A = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +178,8 @@
 				D1D9E80D2483D0C600F2957A /* ShelfMagneticTests */,
 				D1D9E8182483D0C600F2957A /* ShelfMagneticUITests */,
 				D1D9E7F02483D0C400F2957A /* Products */,
+				3C7489DE8825CB8726F6CD51 /* Pods */,
+				3C5257F6CC5A00D65F1EFF7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +196,8 @@
 		D1D9E7F12483D0C400F2957A /* ShelfMagnetic */ = {
 			isa = PBXGroup;
 			children = (
+				D1B8A35124B1E5D300DEB477 /* Category */,
+				D1B8A35024B1E5C200DEB477 /* Request */,
 				D1D9E8742484100E00F2957A /* Controller */,
 				D1D9E8812484100F00F2957A /* Model */,
 				D1D9E87A2484100E00F2957A /* View */,
@@ -167,11 +239,11 @@
 		D1D9E8742484100E00F2957A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1D9E8752484100E00F2957A /* MagneticsControllerProtocol.h */,
-				D1D9E8762484100E00F2957A /* MagneticsController.h */,
-				D1D9E8772484100E00F2957A /* MagneticController.h */,
-				D1D9E8782484100E00F2957A /* MagneticController.m */,
-				D1D9E8792484100E00F2957A /* MagneticsController.m */,
+				D1B8A3A124B235AC00DEB477 /* MagneticController.h */,
+				D1B8A39F24B235AC00DEB477 /* MagneticController.m */,
+				D1B8A3A624B2371A00DEB477 /* MagneticsController.h */,
+				D1B8A3A524B2371A00DEB477 /* MagneticsController.m */,
+				D1B8A39E24B2359800DEB477 /* MagneticsControllerProtocol.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,12 +251,16 @@
 		D1D9E87A2484100E00F2957A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D1D9E87B2484100E00F2957A /* MagneticErrorCell.m */,
-				D1D9E87C2484100E00F2957A /* MagneticTableView.m */,
-				D1D9E87D2484100E00F2957A /* MagneticableFooterView.h */,
-				D1D9E87E2484100E00F2957A /* MagneticErrorCell.h */,
-				D1D9E87F2484100E00F2957A /* MagneticTableView.h */,
-				D1D9E8802484100E00F2957A /* MagneticableFooterView.m */,
+				D1B8A3A824B2377A00DEB477 /* MagneticTableView.h */,
+				D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */,
+				D1B8A39324B234F400DEB477 /* MagneticErrorCell.h */,
+				D1B8A39224B234F400DEB477 /* MagneticErrorCell.m */,
+				D1B8A37B24B230E500DEB477 /* JEBaseLoadingView.h */,
+				D1B8A37624B230E500DEB477 /* JEBaseLoadingView.m */,
+				D1B8A37D24B230E500DEB477 /* MagneticTableFooterView.h */,
+				D1B8A37924B230E500DEB477 /* MagneticTableFooterView.m */,
+				D1B8A37324B230CF00DEB477 /* JEBaseEmptyView.h */,
+				D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,8 +268,8 @@
 		D1D9E8812484100F00F2957A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D1D9E8822484100F00F2957A /* MagneticContext.h */,
-				D1D9E8832484100F00F2957A /* MagneticContext.m */,
+				D1B8A38224B230EF00DEB477 /* MagneticContext.h */,
+				D1B8A38324B230EF00DEB477 /* MagneticContext.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,9 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1D9E81E2483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagnetic" */;
 			buildPhases = (
+				FF76356FB937DAF961F10651 /* [CP] Check Pods Manifest.lock */,
 				D1D9E7EB2483D0C400F2957A /* Sources */,
 				D1D9E7EC2483D0C400F2957A /* Frameworks */,
 				D1D9E7ED2483D0C400F2957A /* Resources */,
+				FB44D7CB88DB8624CCE6089C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +300,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1D9E8212483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagneticTests" */;
 			buildPhases = (
+				7B51F389DFC44ABCEBDE4A01 /* [CP] Check Pods Manifest.lock */,
 				D1D9E8062483D0C600F2957A /* Sources */,
 				D1D9E8072483D0C600F2957A /* Frameworks */,
 				D1D9E8082483D0C600F2957A /* Resources */,
@@ -240,6 +319,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1D9E8242483D0C600F2957A /* Build configuration list for PBXNativeTarget "ShelfMagneticUITests" */;
 			buildPhases = (
+				2B9F838CEEA95C3A0C1BA42A /* [CP] Check Pods Manifest.lock */,
 				D1D9E8112483D0C600F2957A /* Sources */,
 				D1D9E8122483D0C600F2957A /* Frameworks */,
 				D1D9E8132483D0C600F2957A /* Resources */,
@@ -323,22 +403,112 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B9F838CEEA95C3A0C1BA42A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShelfMagneticUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B51F389DFC44ABCEBDE4A01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShelfMagneticTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB44D7CB88DB8624CCE6089C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF76356FB937DAF961F10651 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShelfMagnetic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D1D9E7EB2483D0C400F2957A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D9E8862484100F00F2957A /* MagneticErrorCell.m in Sources */,
-				D1D9E8892484100F00F2957A /* MagneticContext.m in Sources */,
-				D1D9E8882484100F00F2957A /* MagneticableFooterView.m in Sources */,
+				D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */,
+				D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */,
+				D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */,
+				D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */,
 				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
-				D1D9E8852484100F00F2957A /* MagneticsController.m in Sources */,
 				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
 				D1D9E8052483D0C500F2957A /* main.m in Sources */,
-				D1D9E8842484100F00F2957A /* MagneticController.m in Sources */,
+				D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */,
+				D1B8A39D24B2356700DEB477 /* UIView+NetWorkError.m in Sources */,
+				D1B8A38024B230E500DEB477 /* MagneticTableFooterView.m in Sources */,
 				D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */,
-				D1D9E8872484100F00F2957A /* MagneticTableView.m in Sources */,
+				D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */,
+				D1B8A39424B234F400DEB477 /* MagneticErrorCell.m in Sources */,
 				D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */,
+				D1B8A38424B230EF00DEB477 /* MagneticContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +675,7 @@
 		};
 		D1D9E81F2483D0C600F2957A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96E7AFBD68CBF6B4A5C1B03E /* Pods-ShelfMagnetic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -521,6 +692,7 @@
 		};
 		D1D9E8202483D0C600F2957A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCC103CDAB73EF04BEEE094F /* Pods-ShelfMagnetic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -537,6 +709,7 @@
 		};
 		D1D9E8222483D0C600F2957A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DA29060E0CDACFC9DAC2C02 /* Pods-ShelfMagneticTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +729,7 @@
 		};
 		D1D9E8232483D0C600F2957A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A28446C7AD8200E284F333E /* Pods-ShelfMagneticTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -575,6 +749,7 @@
 		};
 		D1D9E8252483D0C600F2957A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C973470D6363E337784DFDC /* Pods-ShelfMagneticUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ShelfMagneticUITests/Info.plist;
@@ -592,6 +767,7 @@
 		};
 		D1D9E8262483D0C600F2957A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 865EF70E3310D48C9067775B /* Pods-ShelfMagneticUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ShelfMagneticUITests/Info.plist;

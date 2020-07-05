@@ -1,0 +1,6 @@
+framework module Pods_ShelfMagnetic {
+  umbrella header "Pods-ShelfMagnetic-umbrella.h"
+
+  export *
+  module * { export * }
+}

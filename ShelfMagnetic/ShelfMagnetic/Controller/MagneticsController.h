@@ -7,10 +7,12 @@
 //
 
 #import "MagneticController.h"
-//#import "MagneticErrorCell.h"
+#import "MagneticErrorCell.h"
 #import "MagneticTableView.h"
 
-///卡片列表刷新方式
+NS_ASSUME_NONNULL_BEGIN
+
+///磁片列表刷新方式
 typedef NS_OPTIONS(NSUInteger, MagneticsRefreshType) {
     ///无刷新方式
     MagneticsRefreshTypeNone                = 0,
@@ -22,7 +24,7 @@ typedef NS_OPTIONS(NSUInteger, MagneticsRefreshType) {
     MagneticsRefreshTypeLoadingView         = 1 << 2,
 };
 
-///卡片数据清除方式
+///磁片数据清除方式
 typedef NS_ENUM(NSUInteger, MagneticsClearType) {
     ///请求前清除
     MagneticsClearTypeBeforeRequest     = 0,
@@ -30,67 +32,69 @@ typedef NS_ENUM(NSUInteger, MagneticsClearType) {
     MagneticsClearTypeAfterRequest      = 1,
 };
 
+@class MagneticController;
+
 @interface MagneticsController : UIViewController<UITableViewDataSource, UITableViewDelegate, MagneticControllerDelegate>
 
 ///父视图控制器。内部监控页面显示隐藏，应使用业务子类。
-@property (nonatomic, weak)             UIViewController *superViewController;
+@property (nonatomic, weak) UIViewController *superViewController;
 
-///卡片表视图
+///磁片表视图
 @property (nonatomic, strong, readonly) MagneticTableView *tableView;
 
-///卡片数据源
-@property (nonatomic, strong, readonly) NSMutableArray <MagneticContext *> *MagneticsArray;
+///磁片数据源
+@property (nonatomic, strong, readonly) NSMutableArray <MagneticContext *> *magneticsArray;
 
-///卡片控制器数据源
-@property (nonatomic, strong, readonly) NSMutableArray <MagneticController *> *MagneticControllersArray;
+///磁片控制器数据源
+@property (nonatomic, strong, readonly) NSMutableArray <MagneticController *> *magneticControllersArray;
 
-///获取指定类型的卡片控制器
+///获取指定类型的磁片控制器
 - (NSArray *)queryMagneticControllersWithType:(MagneticType)type;
 
-///滚动到指定类型的卡片
+///滚动到指定类型的磁片
 - (void)scrollToMagneticType:(MagneticType)type animated:(BOOL)animated;
 @end
 
 
 
-@class NXHttpManager;
+@class JEHttpManager;
 
 @interface MagneticsController (Request)
 
-@property (nonatomic, strong)   NXHttpManager        *httpManager;
+@property (nonatomic) JEHttpManager *httpManager;
 
-///卡片列表刷新方式
-@property (nonatomic)           MagneticsRefreshType    refreshType;
+///磁片列表刷新方式
+@property (nonatomic) MagneticsRefreshType refreshType;
 
-///卡片数据清除方式
-@property (nonatomic)           MagneticsClearType      clearType;
+///磁片数据清除方式
+@property (nonatomic) MagneticsClearType clearType;
 
 ///使用默认错误提示,default YES
-@property (nonatomic)           BOOL                enableNetworkError;
+@property (nonatomic, assign) BOOL enableNetworkError;
 
-///请求卡片列表（继承实现）
+///请求磁片列表（继承实现）
 - (void)requestMagnetics;
-///加载更多数据。默认回调卡片-didTriggerRequestMoreDataActionInMagneticsController协议，可继承重写事件。
+///加载更多数据。默认回调磁片-didTriggerRequestMoreDataActionInMagneticsController协议，可继承重写事件。
 - (void)requestMoreData;
-///请求单卡片数据（继承实现）
-- (void)requestMagneticDataWithController:(MagneticController *)MagneticController;
+///请求单磁片数据（继承实现）
+- (void)requestMagneticDataWithController:(MagneticController *)magneticController;
 
-///卡片列表请求将开始
+///磁片列表请求将开始
 - (void)requestMagneticsWillStart;
-///卡片列表请求成功
-- (void)requestMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray;
-///卡片列表请求失败
+///磁片列表请求成功
+- (void)requestMagneticsDidSucceedWithMagneticsArray:(NSArray *)magneticsArray;
+///磁片列表请求失败
 - (void)requestMagneticsDidFailWithError:(NSError *)error;
 
-///加载更多卡片请求成功
-- (void)requestMoreMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray;
-///加载更多卡片失败
+///加载更多磁片请求成功
+- (void)requestMoreMagneticsDidSucceedWithMagneticsArray:(NSArray *)magneticsArray;
+///加载更多磁片失败
 - (void)requestMoreMagneticsDidFailWithError:(NSError *)error;
 
-///卡片数据请求成功
-- (void)requestMagneticDataDidSucceedWithMagneticContext:(MagneticContext *)MagneticContext;
-///卡片列表请求失败
-- (void)requestMagneticDataDidFailWithMagneticContext:(MagneticContext *)MagneticContext error:(NSError *)error;
+///磁片数据请求成功
+- (void)requestMagneticDataDidSucceedWithMagneticContext:(MagneticContext *)magneticContext;
+///磁片列表请求失败
+- (void)requestMagneticDataDidFailWithMagneticContext:(MagneticContext *)magneticContext error:(NSError *)error;
 
 - (void)triggerRefreshAction;
 @end
@@ -99,9 +103,9 @@ typedef NS_ENUM(NSUInteger, MagneticsClearType) {
 @interface MagneticsController (Bottom)
 
 ///显示表视图封底。默认为NO。若取值为YES且刷新方式不支持MagneticsRefreshTypeInfiniteScrolling，tableFooterView自动显示封底视图。
-@property (nonatomic)           BOOL    enableTableBottomView;
+@property (nonatomic, assign) BOOL enableTableBottomView;
 ///封底自定义视图。默认为nil，提示“没有更多了”+LOGO。
-@property (nonatomic, strong)   UIView  *tableBottomCustomView;
+@property (nonatomic) UIView *tableBottomCustomView;
 
 ///触发加载更多事件，启动加载动画
 - (void)triggerInfiniteScrollingAction;
@@ -118,3 +122,5 @@ typedef NS_ENUM(NSUInteger, MagneticsClearType) {
 - (void)refreshTableBottomView; //刷新封底视图
 
 @end
+
+NS_ASSUME_NONNULL_END
