@@ -16,27 +16,27 @@
 
 @interface MagneticController : NSObject <MagneticsControllerDelegate>
 
-@property (nonatomic, strong)   JEHttpManager    *httpManager;
-
-@property (nonatomic, weak)     id<MagneticControllerDelegate> delegate;
-
-///磁片列表控制器
-@property (nonatomic, weak)     MagneticsController *magneticsController;
+@property (nonatomic)                   JEHttpManager                   *httpManager;
 
 ///扩展控制器
-@property (nonatomic, strong)   MagneticController  *extensionController;
+@property (nonatomic)                   MagneticController              *extensionController;
 
 ///磁片数据源
-@property (nonatomic, strong)   MagneticContext     *magneticContext;
+@property (nonatomic)                   MagneticContext                 *magneticContext;
+
+@property (nonatomic, weak)             id<MagneticControllerDelegate>  delegate;
+
+///磁片列表控制器
+@property (nonatomic, weak)             MagneticsController             *magneticsController;
 
 ///是否为扩展
-@property (nonatomic)           BOOL            isExtension;
+@property (nonatomic, assign)           BOOL                            isExtension;
 
 ///折叠状态。默认为NO。
-@property (nonatomic)           BOOL            isFold;
+@property (nonatomic, assign)           BOOL                            isFold;
 
 ///是否完成准备，可渲染
-@property (nonatomic)           BOOL            isPrepared;
+@property (nonatomic, assign)           BOOL                            isPrepared;
 
 
 ///请求错误磁片数据
@@ -53,26 +53,25 @@
 @interface MagneticController (Cache)
 
 ///是否显示错误视图
-@property (nonatomic)           BOOL        showMagneticError;
+@property (nonatomic, assign)           BOOL        showMagneticError;
 
 ///是否显示头部视图
-@property (nonatomic)           BOOL        showMagneticHeader;
+@property (nonatomic, assign)           BOOL        showMagneticHeader;
 
 ///是否显示尾部视图
-@property (nonatomic)           BOOL        showMagneticFooter;
+@property (nonatomic, assign)           BOOL        showMagneticFooter;
 
 ///是否显示磁片间距
-@property (nonatomic)           BOOL        showMagneticSpacing;
+@property (nonatomic, assign)           BOOL        showMagneticSpacing;
 
 ///行数缓存
-@property (nonatomic)           NSInteger   rowCountCache;
-
-///行高缓存
-@property (nonatomic, strong)   NSArray     *rowHeightsCache;
+@property (nonatomic, assign)           NSInteger   rowCountCache;
 
 ///扩展行数起始index
-@property (nonatomic)           NSInteger   extensionRowIndex;
+@property (nonatomic, assign)           NSInteger   extensionRowIndex;
 
+///行高缓存
+@property (nonatomic, copy)             NSArray     *rowHeightsCache;
 @end
 
 
@@ -83,7 +82,7 @@
 @interface MagneticController (RequestMore)
 
 ///是否可加载更多。默认为NO。开启后可响应-didTriggerRequestMoreDataActionInMagneticsController:协议。
-@property (nonatomic)           BOOL        canRequestMoreData;
+@property (nonatomic, assign)           BOOL        canRequestMoreData;
 
 @end
 

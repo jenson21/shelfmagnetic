@@ -18,7 +18,7 @@
 @interface JEHttpManager () {
 
 }
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+@property (nonatomic) AFHTTPSessionManager *manager;
 @property (nonatomic, assign) BOOL hasNetWork;
 @property (nonatomic, copy, readwrite) NSString * reachabilityStatus;
 

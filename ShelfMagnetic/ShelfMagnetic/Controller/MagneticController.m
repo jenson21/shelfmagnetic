@@ -13,13 +13,13 @@
 @interface MagneticController ()
 
 /* Cache */
-@property (nonatomic) BOOL showMagneticError;
-@property (nonatomic) BOOL showMagneticHeader;
-@property (nonatomic) BOOL showMagneticFooter;
-@property (nonatomic) BOOL showMagneticSpacing;
-@property (nonatomic, copy) NSArray *rowHeightsCache;
+@property (nonatomic, assign) BOOL showMagneticError;
+@property (nonatomic, assign) BOOL showMagneticHeader;
+@property (nonatomic, assign) BOOL showMagneticFooter;
+@property (nonatomic, assign) BOOL showMagneticSpacing;
 @property (nonatomic, assign) NSInteger rowCountCache;
 @property (nonatomic, assign) NSInteger extensionRowIndex;
+@property (nonatomic, copy)   NSArray *rowHeightsCache;
 /* RequestMore */
 @property (nonatomic) BOOL canRequestMoreData;
 

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (NetWorkError)
-@property (nonatomic, strong) JEBaseEmptyView *errorView;
+@property (nonatomic) JEBaseEmptyView *errorView;
 
 
 - (void)showFailedError:(id)target selector:(SEL)selector;

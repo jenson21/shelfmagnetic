@@ -25,13 +25,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 @property (nonatomic) JEBaseLoadingView *loadingView;
 /* Request */
 @property (nonatomic) JEHttpManager *httpManager;
-@property (nonatomic) MagneticsRefreshType refreshType;            //磁片列表刷新方式
-@property (nonatomic) MagneticsClearType clearType;              //磁片数据清除方式
+@property (nonatomic) MagneticsRefreshType refreshType;    //磁片列表刷新方式
+@property (nonatomic) MagneticsClearType clearType;        //磁片数据清除方式
 @property (nonatomic, assign) BOOL enableNetworkError;     //使用默认错误提示
 
 /* Bottom */
 @property (nonatomic, assign) BOOL enableTableBottomView;  //显示表视图封底
-@property (nonatomic) UIView *tableBottomCustomView; //封底自定义视图
+@property (nonatomic) UIView *tableBottomCustomView;       //封底自定义视图
 @end
 
 @implementation MagneticsController

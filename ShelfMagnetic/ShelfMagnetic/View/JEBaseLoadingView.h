@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JEBaseLoadingView : UIView
 ///旋转动画的图片。若未设置，默认加载通用loading动画。
-@property (nonatomic, strong) UIImage *loadingImage;
+@property (nonatomic) UIImage *loadingImage;
 
 ///开始动画
 - (void)startAnimating;
