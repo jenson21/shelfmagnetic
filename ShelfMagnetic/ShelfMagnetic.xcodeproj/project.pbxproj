@@ -10,6 +10,7 @@
 		41A13F89FB7F8A77CA5AEB5D /* Pods_ShelfMagnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */; };
 		4FCA4813B6421092D1B3BADE /* Pods_ShelfMagneticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */; };
 		87309F228107F82C7606277B /* Pods_ShelfMagneticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */; };
+		D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D152165624B4875100B027C1 /* NSObject+Runtime.m */; };
 		D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */; };
 		D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */; };
 		D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37624B230E500DEB477 /* JEBaseLoadingView.m */; };
@@ -29,7 +30,6 @@
 		D1D9E8052483D0C500F2957A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8042483D0C500F2957A /* main.m */; };
 		D1D9E80F2483D0C600F2957A /* ShelfMagneticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */; };
 		D1D9E81A2483D0C600F2957A /* ShelfMagneticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */; };
-		D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +58,8 @@
 		8C973470D6363E337784DFDC /* Pods-ShelfMagneticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticUITests/Pods-ShelfMagneticUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		96E7AFBD68CBF6B4A5C1B03E /* Pods-ShelfMagnetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC103CDAB73EF04BEEE094F /* Pods-ShelfMagnetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.release.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.release.xcconfig"; sourceTree = "<group>"; };
+		D152165524B4875100B027C1 /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
+		D152165624B4875100B027C1 /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 		D1B8A35224B1E6AD00DEB477 /* JEHttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHttpManager.h; sourceTree = "<group>"; };
 		D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JEHttpManager.m; sourceTree = "<group>"; };
 		D1B8A37324B230CF00DEB477 /* JEBaseEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBaseEmptyView.h; sourceTree = "<group>"; };
@@ -97,8 +99,6 @@
 		D1D9E8152483D0C600F2957A /* ShelfMagneticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShelfMagneticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfMagneticUITests.m; sourceTree = "<group>"; };
 		D1D9E81B2483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1D9E8712483ECDC00F2957A /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
-		D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 		E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShelfMagneticTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -165,6 +165,8 @@
 		D1B8A35124B1E5D300DEB477 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D152165524B4875100B027C1 /* NSObject+Runtime.h */,
+				D152165624B4875100B027C1 /* NSObject+Runtime.m */,
 				D1B8A39A24B2356700DEB477 /* UIView+NetWorkError.h */,
 				D1B8A39924B2356700DEB477 /* UIView+NetWorkError.m */,
 			);
@@ -207,8 +209,6 @@
 				D1D9E7F62483D0C400F2957A /* SceneDelegate.m */,
 				D1D9E7F82483D0C400F2957A /* ViewController.h */,
 				D1D9E7F92483D0C400F2957A /* ViewController.m */,
-				D1D9E8712483ECDC00F2957A /* NSObject+Runtime.h */,
-				D1D9E8722483ECDC00F2957A /* NSObject+Runtime.m */,
 				D1D9E7FB2483D0C400F2957A /* Main.storyboard */,
 				D1D9E7FE2483D0C500F2957A /* Assets.xcassets */,
 				D1D9E8002483D0C500F2957A /* LaunchScreen.storyboard */,
@@ -504,8 +504,8 @@
 				D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */,
 				D1B8A39D24B2356700DEB477 /* UIView+NetWorkError.m in Sources */,
 				D1B8A38024B230E500DEB477 /* MagneticTableFooterView.m in Sources */,
-				D1D9E8732483ECDC00F2957A /* NSObject+Runtime.m in Sources */,
 				D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */,
+				D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */,
 				D1B8A39424B234F400DEB477 /* MagneticErrorCell.m in Sources */,
 				D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */,
 				D1B8A38424B230EF00DEB477 /* MagneticContext.m in Sources */,
@@ -613,7 +613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -665,7 +665,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

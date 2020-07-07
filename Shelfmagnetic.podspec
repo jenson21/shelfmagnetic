@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint ShelfMagnetic.podspec' to ensure this is a
+#  Be sure to run `pod spec lint Shelfmagnetic.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
@@ -15,9 +15,9 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "ShelfMagnetic"
+  spec.name         = "Shelfmagnetic"
   spec.version      = "0.0.1"
-  spec.summary      = "Architecture design"
+  spec.summary      = "Shelfmagnetic"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -56,7 +56,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "Jenson" => "jenson.pitaya@outlook.com" }
   # Or just: spec.author    = "Jenson"
   # spec.authors            = { "Jenson" => "jenson.pitaya@outlook.com" }
-  # spec.social_media_url   = "https://twitter.com/Jian Dong"
+  # spec.social_media_url   = "https://twitter.com/Jenson"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -65,7 +65,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+  spec.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -91,8 +91,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Shelfmagnetic", "Shelfmagnetic/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "ShelfMagnetic", "shelfMagnetic/ShelfMagnetic/**/*.{h,m}"
+  #spec.exclude_files = "ShelfMagnetic/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -117,11 +117,11 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  spec.framework  = "SomeFramework"
-  spec.frameworks = "SomeFramework", "AnotherFramework"
+  # spec.framework  = "SomeFramework"
+  spec.frameworks = "UIKit","UIKit", "AnotherFramework"
 
-  spec.library   = "iconv"
-  spec.libraries = "iconv", "xml2"
+  # spec.library   = "iconv"
+  # spec.libraries = "iconv", "xml2"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -133,7 +133,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  #spec.dependency "AFNetworking", "~> 4.0.0"
-  #spec.dependency "MJRefresh", "~> 3.4.3"
+  spec.dependency "AFNetworking", "~> 4.0.0"
+  spec.dependency "MJRefresh", "~> 3.0.0"
 
 end
