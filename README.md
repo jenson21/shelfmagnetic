@@ -13,14 +13,15 @@ To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it i
 
 # Usage
 
-1. MagneticContext.h
+## Register the controller
+* MagneticContext.h
 ```
 typedef NS_ENUM(NSInteger, MagneticType) {
 MagneticTypeDemo = 1000,
 };
 ```
 
-1. MagneticContext.m
+* MagneticContext.m
 ```
 - (NSString *)parseClassName:(MagneticType)type
 {
@@ -36,9 +37,10 @@ MagneticTypeDemo = 1000,
 }
 ```
 
-3. ViewController
+## ViewController inherit MagneticsController And implement some functions. Can contain multiple MagneticDemoController.
+* ViewController
 ```
-@interface ViewController : MagneticsController ...
+@interface ViewController : MagneticsController
 
 NSMutableArray *dataArr = [NSMutableArray array];
 MagneticContext *context = [[MagneticContext alloc]init];
@@ -50,7 +52,9 @@ context.type = MagneticTypeDemo;
  */
 [self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
 ```
-4. MagneticDemoController
+
+## MagneticDemoController inherit MagneticController And implement some functions.
+* MagneticDemoController
 
 ```
 - (void)didFinishInitConfigurationInCardsController:(CardsController *)cardsController {
@@ -68,7 +72,7 @@ context.type = MagneticTypeDemo;
 }
 ```
 
-# Work contact
+# contact
 * jenson.pitaya@outlook.com
 
 # License
