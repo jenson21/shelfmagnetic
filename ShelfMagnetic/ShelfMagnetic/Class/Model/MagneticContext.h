@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //磁片类型
 typedef NS_ENUM(NSInteger, MagneticType) {
-    MagneticTypeNormal = 1000,
+    MagneticTypeDemo = 1000,
 };
 ///磁片状态
 typedef NS_ENUM(NSInteger, MagneticState) {

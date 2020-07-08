@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSMutableArray *dataArr = [NSMutableArray array];
+    MagneticContext *context = [[MagneticContext alloc]init];
+    context.type = MagneticTypeDemo;
+    [dataArr addObject:context];
+    /**
+     dataArr add more VC
+     */
+    [self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
 }
 
 

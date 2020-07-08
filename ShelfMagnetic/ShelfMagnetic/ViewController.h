@@ -6,9 +6,9 @@
 //  Copyright © 2020 Jenson. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MagneticsController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : MagneticsController
 
 
 @end

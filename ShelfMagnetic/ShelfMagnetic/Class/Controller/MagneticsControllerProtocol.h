@@ -221,7 +221,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Expose
- * @brief 曝光统计
+ * @brief 埋点上报
  */
 
 - (NSArray *)magneticsController:(MagneticsController *)magneticsController exposureforMagneticHeaderAtIndex:(NSInteger)index;

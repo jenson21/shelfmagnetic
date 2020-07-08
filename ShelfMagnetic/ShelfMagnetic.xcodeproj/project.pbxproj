@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4FCA4813B6421092D1B3BADE /* Pods_ShelfMagneticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */; };
 		87309F228107F82C7606277B /* Pods_ShelfMagneticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */; };
+		D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */; };
 		D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D152165624B4875100B027C1 /* NSObject+Runtime.m */; };
 		D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */; };
 		D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */; };
@@ -58,6 +59,8 @@
 		8C973470D6363E337784DFDC /* Pods-ShelfMagneticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticUITests/Pods-ShelfMagneticUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		96E7AFBD68CBF6B4A5C1B03E /* Pods-ShelfMagnetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC103CDAB73EF04BEEE094F /* Pods-ShelfMagnetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.release.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.release.xcconfig"; sourceTree = "<group>"; };
+		D1411D2124B5EA53000A0C53 /* MagneticDemoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemoController.h; sourceTree = "<group>"; };
+		D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemoController.m; sourceTree = "<group>"; };
 		D152165524B4875100B027C1 /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		D152165624B4875100B027C1 /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 		D1B8A35224B1E6AD00DEB477 /* JEHttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHttpManager.h; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				D133751124B59EEC00DF1392 /* Class */,
 				D1D9E7F22483D0C400F2957A /* AppDelegate.h */,
 				D1D9E7F32483D0C400F2957A /* AppDelegate.m */,
+				D1411D2124B5EA53000A0C53 /* MagneticDemoController.h */,
+				D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */,
 				D1D9E7F52483D0C400F2957A /* SceneDelegate.h */,
 				D1D9E7F62483D0C400F2957A /* SceneDelegate.m */,
 				D1D9E7F82483D0C400F2957A /* ViewController.h */,
@@ -508,6 +513,7 @@
 				D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */,
 				D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */,
 				D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */,
+				D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */,
 				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
 				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
 				D1D9E8052483D0C500F2957A /* main.m in Sources */,

@@ -62,8 +62,8 @@
 {
     NSString *className = nil;
     switch (type) {
-        case MagneticTypeNormal:
-            className = @"MagneticTypeNormal";
+        case MagneticTypeDemo:
+            className = @"MagneticDemoController";
             break;
         default:
             break;
