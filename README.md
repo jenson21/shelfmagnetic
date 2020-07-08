@@ -3,7 +3,7 @@ Architecture design
 磁片架构是结合了多年开发经验并借鉴了某一线互联网公司总结而成，此框架可以快速搭建程序，以注册继承的方式将VC随意组合，大大提升了开发效率和实现一些复杂的功能。
 
 # Installation with CocoaPods
-To integrate AFNetworking into your Xcode project using CocoaPods, specify it in your Podfile:
+To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it in your Podfile:
 `pod 'Shelfmagnetic', '~> 0.0.1'`
 
 # Architecture
