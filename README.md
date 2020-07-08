@@ -15,8 +15,8 @@ To integrate AFNetworking into your Xcode project using CocoaPods, specify it in
 
 1. MagneticContext.h
 ```
-typedef NS_ENUM(NSInteger, MagneticType) {...
-MagneticTypeDemo = 1000,...
+typedef NS_ENUM(NSInteger, MagneticType) {
+MagneticTypeDemo = 1000,
 };
 ```
 
