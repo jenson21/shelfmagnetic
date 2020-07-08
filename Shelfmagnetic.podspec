@@ -91,7 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "ShelfMagnetic", "ShelfMagnetic/Class/**/*.{h,m}"
+  spec.source_files  = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/**/*.{h,m}"
   #spec.exclude_files = "ShelfMagnetic/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -118,7 +118,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-  spec.frameworks = "UIKit","runtime", "AnotherFramework"
+  spec.frameworks = "UIKit","Foundation"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"

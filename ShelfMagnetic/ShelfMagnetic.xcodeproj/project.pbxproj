@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41A13F89FB7F8A77CA5AEB5D /* Pods_ShelfMagnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */; };
 		4FCA4813B6421092D1B3BADE /* Pods_ShelfMagneticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */; };
 		87309F228107F82C7606277B /* Pods_ShelfMagneticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */; };
 		D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D152165624B4875100B027C1 /* NSObject+Runtime.m */; };
@@ -21,6 +20,7 @@
 		D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A39F24B235AC00DEB477 /* MagneticController.m */; };
 		D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A524B2371A00DEB477 /* MagneticsController.m */; };
 		D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */; };
+		D1D393CD24B5B59400514613 /* Pods_ShelfMagnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */; };
 		D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F32483D0C400F2957A /* AppDelegate.m */; };
 		D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F62483D0C400F2957A /* SceneDelegate.m */; };
 		D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F92483D0C400F2957A /* ViewController.m */; };
@@ -99,6 +99,7 @@
 		D1D9E8152483D0C600F2957A /* ShelfMagneticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShelfMagneticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfMagneticUITests.m; sourceTree = "<group>"; };
 		D1D9E81B2483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1DE620124B5BA07001E81B1 /* ShelfMagnetic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShelfMagnetic.h; sourceTree = "<group>"; };
 		E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShelfMagneticTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A13F89FB7F8A77CA5AEB5D /* Pods_ShelfMagnetic.framework in Frameworks */,
+				D1D393CD24B5B59400514613 /* Pods_ShelfMagnetic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +162,7 @@
 				D1D9E8742484100E00F2957A /* Controller */,
 				D1D9E8812484100F00F2957A /* Model */,
 				D1D9E87A2484100E00F2957A /* View */,
+				D1DE620124B5BA07001E81B1 /* ShelfMagnetic.h */,
 			);
 			path = Class;
 			sourceTree = "<group>";
