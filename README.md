@@ -1,7 +1,9 @@
 # shelfmagnetic
-Architecture design
-磁片架构是结合了多年开发经验并借鉴了某一线互联网公司总结而成，此框架可以快速搭建程序，以注册继承的方式将VC随意组合，大大提升了开发效率和实现一些复杂的功能。
+Shelfmagnetic architecture is a combination of years of development experience
 
+# Background
+During the development process, you will encounter a page that displays a variety of different styles of content, or dynamically displays a certain section. If you put them in VC, then VC will be very bloated and inconvenient to manage. Then this framework came into being to solve this problem.
+This framework includes multi-page integration and matching, network requests, data buried points, asynchronous UI rendering, etc. Easy to use, just use VC inheritance.
 
 # Installation with CocoaPods
 To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it in your Podfile:
@@ -12,7 +14,6 @@ To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it i
 * MagneticContext
 * MagneticsControllerProtocol
 * MagneticsController
-
 
 # Usage
 
@@ -40,9 +41,6 @@ MagneticTypeDemo = 1000,
 }
 ```
 
-
-
-
 ## ViewController inherit MagneticsController And implement some functions. Can contain multiple MagneticDemoController.
 * ViewController
 ```
@@ -58,9 +56,6 @@ context.type = MagneticTypeDemo;
  */
 [self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
 ```
-
-
-
 
 ## MagneticDemoController inherit MagneticController And implement some functions.
 * MagneticDemoController
@@ -80,8 +75,6 @@ context.type = MagneticTypeDemo;
     return nil;
 }
 ```
-
-
 
 # contact
 * jenson.pitaya@outlook.com
