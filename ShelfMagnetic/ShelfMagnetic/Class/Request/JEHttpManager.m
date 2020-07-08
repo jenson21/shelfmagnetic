@@ -8,7 +8,7 @@
 
 #import "JEHttpManager.h"
 #import "AFHTTPSessionManager.h"
-#import "AFNetworkReachabilityManager.h"
+@class AFNetworkReachabilityManager;
 
 #ifdef DEBUG
 #define URLLog(FORMAT, ...)  fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);

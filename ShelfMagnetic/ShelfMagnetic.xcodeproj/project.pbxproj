@@ -153,6 +153,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D133751124B59EEC00DF1392 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				D1B8A35124B1E5D300DEB477 /* Category */,
+				D1B8A35024B1E5C200DEB477 /* Request */,
+				D1D9E8742484100E00F2957A /* Controller */,
+				D1D9E8812484100F00F2957A /* Model */,
+				D1D9E87A2484100E00F2957A /* View */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		D1B8A35024B1E5C200DEB477 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,11 +210,7 @@
 		D1D9E7F12483D0C400F2957A /* ShelfMagnetic */ = {
 			isa = PBXGroup;
 			children = (
-				D1B8A35124B1E5D300DEB477 /* Category */,
-				D1B8A35024B1E5C200DEB477 /* Request */,
-				D1D9E8742484100E00F2957A /* Controller */,
-				D1D9E8812484100F00F2957A /* Model */,
-				D1D9E87A2484100E00F2957A /* View */,
+				D133751124B59EEC00DF1392 /* Class */,
 				D1D9E7F22483D0C400F2957A /* AppDelegate.h */,
 				D1D9E7F32483D0C400F2957A /* AppDelegate.m */,
 				D1D9E7F52483D0C400F2957A /* SceneDelegate.h */,
