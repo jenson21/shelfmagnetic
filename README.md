@@ -14,14 +14,14 @@ To integrate AFNetworking into your Xcode project using CocoaPods, specify it in
 # Usage
 
 1. MagneticContext.h
-(```)
-typedef NS_ENUM(NSInteger, MagneticType) {
-    MagneticTypeDemo = 1000,
+```
+typedef NS_ENUM(NSInteger, MagneticType) {...
+MagneticTypeDemo = 1000,...
 };
-(```)
+```
 
 1. MagneticContext.m
-(```)
+```
 - (NSString *)parseClassName:(MagneticType)type
 {
     NSString *className = nil;
@@ -34,34 +34,39 @@ typedef NS_ENUM(NSInteger, MagneticType) {
     }
     return className;
 }
-(```)
+```
 
 3. ViewController
-(```)
+```
 @interface ViewController : MagneticsController ...
+
 NSMutableArray *dataArr = [NSMutableArray array];
 MagneticContext *context = [[MagneticContext alloc]init];
 context.type = MagneticTypeDemo;
 [dataArr addObject:context];
+
 /**
  dataArr add more VC
  */
 [self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
-(```)
+```
 4. MagneticDemoController
-(```)
+
+```
 - (void)didFinishInitConfigurationInCardsController:(CardsController *)cardsController {
     // After completing initial monitoring, data processing, and successful interface request
 }
+
 - (NSString *)magneticRequestURLInMagneticsController:(MagneticsController *)magneticsController{
     //Request url, asynchronous request must be implemented
     return @"https://github.com/jenson21/shelfmagnetic";
 }
+
 - (NSDictionary *)magneticRequestParametersInMagneticsController:(MagneticsController *)magneticsController{
     //Requested parameters
     return nil;
 }
-(```)
+```
 
 # Work contact
 * jenson.pitaya@outlook.com
