@@ -16,7 +16,7 @@ To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it i
 * MagneticsController
 
 # Image
-![image](https://github.com/jenson21/shelfmagnetic/blob/master/shelfmagenticGuide.pdf)
+![image](https://github.com/jenson21/shelfmagnetic/blob/master/shelfmagenticGuide.png)
 
 # Usage
 
