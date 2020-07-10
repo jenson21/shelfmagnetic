@@ -19,65 +19,64 @@ To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it i
 ![image](https://github.com/jenson21/shelfmagnetic/blob/master/shelfmagenticGuide.png)
 
 # Usage
+- Register the controller
+   - MagneticContext.h
+   ```
+   typedef NS_ENUM(NSInteger, MagneticType) {
+   MagneticTypeDemo = 1000,
+   };
+   ```
 
-## Register the controller
-* MagneticContext.h
-```
-typedef NS_ENUM(NSInteger, MagneticType) {
-MagneticTypeDemo = 1000,
-};
-```
+   - MagneticContext.m
+   ```
+   - (NSString *)parseClassName:(MagneticType)type
+   {
+       NSString *className = nil;
+       switch (type) {
+           case MagneticTypeNormal:
+               className = @"MagneticTypeDemo";
+               break;
+           default:
+               break;
+       }
+       return className;
+   }
+   ```
 
-* MagneticContext.m
-```
-- (NSString *)parseClassName:(MagneticType)type
-{
-    NSString *className = nil;
-    switch (type) {
-        case MagneticTypeNormal:
-            className = @"MagneticTypeDemo";
-            break;
-        default:
-            break;
-    }
-    return className;
-}
-```
+- ViewController inherit MagneticsController And implement some functions. Can contain multiple MagneticDemoController.
+   - ViewController
+   ```
+   @interface ViewController : MagneticsController
 
-## ViewController inherit MagneticsController And implement some functions. Can contain multiple MagneticDemoController.
-* ViewController
-```
-@interface ViewController : MagneticsController
+   NSMutableArray *dataArr = [NSMutableArray array];
+   MagneticContext *context = [[MagneticContext alloc]init];
+   context.type = MagneticTypeDemo;
+   [dataArr addObject:context];
 
-NSMutableArray *dataArr = [NSMutableArray array];
-MagneticContext *context = [[MagneticContext alloc]init];
-context.type = MagneticTypeDemo;
-[dataArr addObject:context];
+   /**
+    dataArr add more VC
+    */
+   [self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
+   ```
 
-/**
- dataArr add more VC
- */
-[self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
-```
+- MagneticDemoController inherit MagneticController And implement some functions.
+   - MagneticDemoController
 
-## MagneticDemoController inherit MagneticController And implement some functions.
-* MagneticDemoController
+   ```
+   - (void)didFinishInitConfigurationInCardsController:(CardsController *)cardsController {
+       // After completing initial monitoring, data processing, and successful interface request
+   }
 
-```
-- (void)didFinishInitConfigurationInCardsController:(CardsController *)cardsController {
-    // After completing initial monitoring, data processing, and successful interface request
-}
+   - (NSString *)magneticRequestURLInMagneticsController:(MagneticsController *)magneticsController{
+       //Request url, asynchronous request must be implemented
+       return @"https://github.com/jenson21/shelfmagnetic";
+   }
 
-- (NSString *)magneticRequestURLInMagneticsController:(MagneticsController *)magneticsController{
-    //Request url, asynchronous request must be implemented
-    return @"https://github.com/jenson21/shelfmagnetic";
-}
-
-- (NSDictionary *)magneticRequestParametersInMagneticsController:(MagneticsController *)magneticsController{
-    //Requested parameters
-    return nil;
-}
-```
+   - (NSDictionary *)magneticRequestParametersInMagneticsController:(MagneticsController *)magneticsController{
+       //Requested parameters
+       return nil;
+   }
+   ```
 
 # contact
 * jenson.pitaya@outlook.com
