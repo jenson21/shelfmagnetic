@@ -13,7 +13,7 @@
 #pragma mark Magnetic Content
 
 ///完成初始化监听
-- (void)didFinishInitConfigurationInCardsController:(CardsController *)cardsController {
+- (void)didFinishInitConfigurationInMagneticsController:(MagneticsController *)magneticsController {
     
     //数据处理，接口请求成功后
     
