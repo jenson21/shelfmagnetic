@@ -9,30 +9,19 @@ This framework includes multi-page integration and matching, network requests, d
 To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it in your Podfile:
 `pod 'Shelfmagnetic', '~> 0.0.1'`
 
-# Flow chart
-	```
-	shelfmagnetic
-		 . Model
-			#FF00ff MagneticContext
-			#44ff00 2. 温馨的话
-			#229933 3. 关怀的话
-			#ff3300 4. 强硬的话
-       . View
-			#44ff00 MagneticTableView
-			#229933 MagneticErrorCell
-			#ff3300 JEBaseLoadingView
-         #FF00ff MagneticTableFooterView
-         #229933 JEBaseEmptyView
-		 . Controller
-			#ff00ff MagneticController
-			#ff9900 MagneticsController
-			#00ff88 MagneticsControllerProtocol
-	``` 
-
 # Architecture
-* MagneticContext
-* MagneticsControllerProtocol
-* MagneticsController
+- Model
+  - MagneticContext
+- View
+  - MagneticTableView
+  - MagneticErrorCell
+  - JEBaseLoadingView
+  - MagneticTableFooterView
+  - JEBaseEmptyView
+- Controller
+  - MagneticController
+  - MagneticsController
+  - MagneticsControllerProtocol
 
 # Image
 ![image](https://github.com/jenson21/shelfmagnetic/blob/master/shelfmagenticGuide.png)
