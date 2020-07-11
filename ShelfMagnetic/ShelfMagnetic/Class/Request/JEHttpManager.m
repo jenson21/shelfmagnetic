@@ -8,6 +8,8 @@
 
 #import "JEHttpManager.h"
 #import "AFHTTPSessionManager.h"
+#import "JELoadingManager.h"
+
 @class AFNetworkReachabilityManager;
 
 #ifdef DEBUG
@@ -120,7 +122,7 @@
                 } else {
                     NSString * errmsg = [NSString stringWithFormat:@"%@",[dic objectForKey:@"errmsg"]];
                     if (errmsg && errmsg.length > 0) {
-//                        [MBProgressHUD showString:errmsg toView:[MBProgressHUD windowView]];
+                        [JELoadingManager showString:errmsg];
                     }
                     if (failure) {
                         failure(dic);
@@ -181,7 +183,7 @@
                 } else {
                     NSString * errmsg = [dic objectForKey:@"errmsg"];
                     if (errmsg && [errmsg isKindOfClass:[NSString class]] && errmsg.length > 0) {
-//                        [MBProgressHUD showString:responseObject[@"errmsg"] toView:[MBProgressHUD windowView]];
+                        [JELoadingManager showString:responseObject[@"errmsg"]];
                     }
                     if (failure) {
                         failure(dic);
@@ -202,7 +204,7 @@
 
 - (NSURLSessionDataTask *)requestHead:(NSString *)url parameters:(NSDictionary *)parameters success:(void (^)(id))success failure:(void (^)(id))failure{
     if (!self.hasNetWork) {
-//        [MBProgressHUD showString:@"当前网络异常,请检查网络设置" toView:[MBProgressHUD windowView]];
+        [JELoadingManager showString:@"当前网络异常,请检查网络设置"];
         failure([NSError errorWithDomain:@"HOST_URL" code:-1012 userInfo:nil]);
         return [NSURLSessionDataTask new];
     }
@@ -228,7 +230,7 @@
                               success:(void (^)(id responseObject))success
                               failure:(void (^)(NSError *error))failure {
     if (!self.hasNetWork) {
-//        [MBProgressHUD showString:@"当前网络异常,请检查网络设置" toView:[MBProgressHUD windowView]];
+        [JELoadingManager showString:@"当前网络异常,请检查网络设置"];
         failure([NSError errorWithDomain:@"HOST_URL" code:-1012 userInfo:nil]);
         return [NSURLSessionDataTask new];
     }
@@ -266,7 +268,7 @@
             } else {
                 failure(nil);
                 if (responseObject[@"errmsg"] && [responseObject[@"errmsg"] length]) {
-//                    [MBProgressHUD showString:responseObject[@"errmsg"] toView:[MBProgressHUD windowView]];
+                    [JELoadingManager showString:responseObject[@"errmsg"]];
                 }
             }
         });
@@ -283,8 +285,8 @@
                       progress:(void (^)(NSProgress *downloadProgress))progress
                        success:(void (^)(id responseObject))success
                        failure:(void (^)(NSError *error))failure {
+    [JELoadingManager showString:@"当前网络异常,请检查网络设置"];
     if (!self.hasNetWork) {
-//        [MBProgressHUD showString:@"当前网络异常,请检查网络设置" toView:[MBProgressHUD windowView]];
         failure([NSError errorWithDomain:@"HOST_URL" code:-1012 userInfo:nil]);
         return;
     }

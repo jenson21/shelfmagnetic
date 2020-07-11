@@ -31,6 +31,7 @@
 		D1D9E8052483D0C500F2957A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8042483D0C500F2957A /* main.m */; };
 		D1D9E80F2483D0C600F2957A /* ShelfMagneticTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E80E2483D0C600F2957A /* ShelfMagneticTests.m */; };
 		D1D9E81A2483D0C600F2957A /* ShelfMagneticUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */; };
+		D1F148FC24B9A7BF003F84B8 /* JELoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F148FB24B9A7BF003F84B8 /* JELoadingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		D1D9E8192483D0C600F2957A /* ShelfMagneticUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShelfMagneticUITests.m; sourceTree = "<group>"; };
 		D1D9E81B2483D0C600F2957A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1DE620124B5BA07001E81B1 /* ShelfMagnetic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShelfMagnetic.h; sourceTree = "<group>"; };
+		D1F148FA24B9A7BF003F84B8 /* JELoadingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JELoadingManager.h; sourceTree = "<group>"; };
+		D1F148FB24B9A7BF003F84B8 /* JELoadingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JELoadingManager.m; sourceTree = "<group>"; };
 		E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShelfMagneticTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,6 +178,8 @@
 			children = (
 				D1B8A35224B1E6AD00DEB477 /* JEHttpManager.h */,
 				D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */,
+				D1F148FA24B9A7BF003F84B8 /* JELoadingManager.h */,
+				D1F148FB24B9A7BF003F84B8 /* JELoadingManager.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */,
+				D1F148FC24B9A7BF003F84B8 /* JELoadingManager.m in Sources */,
 				D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */,
 				D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */,
 				D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */,
