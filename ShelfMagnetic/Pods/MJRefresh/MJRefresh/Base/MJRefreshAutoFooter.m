@@ -9,9 +9,6 @@
 #import "MJRefreshAutoFooter.h"
 
 @interface MJRefreshAutoFooter()
-/** 一个新的拖拽 */
-@property (nonatomic) BOOL triggerByDrag;
-@property (nonatomic) NSInteger leftTriggerTimes;
 @end
 
 @implementation MJRefreshAutoFooter
@@ -56,8 +53,6 @@
     
     // 设置为默认状态
     self.automaticallyRefresh = YES;
-    
-    self.autoTriggerTimes = 1;
 }
 
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change
@@ -65,7 +60,7 @@
     [super scrollViewContentSizeDidChange:change];
     
     // 设置位置
-    self.mj_y = self.scrollView.mj_contentH + self.ignoredScrollViewContentInsetBottom;
+    self.mj_y = self.scrollView.mj_contentH;
 }
 
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
@@ -82,9 +77,6 @@
             CGPoint new = [change[@"new"] CGPointValue];
             if (new.y <= old.y) return;
             
-            if (_scrollView.isDragging) {
-                self.triggerByDrag = YES;
-            }
             // 当底部刷新控件完全出现时，才刷新
             [self beginRefreshing];
         }
@@ -97,46 +89,17 @@
     
     if (self.state != MJRefreshStateIdle) return;
     
-    UIGestureRecognizerState panState = _scrollView.panGestureRecognizer.state;
-    
-    switch (panState) {
-        // 手松开
-        case UIGestureRecognizerStateEnded: {
-            if (_scrollView.mj_insetT + _scrollView.mj_contentH <= _scrollView.mj_h) {  // 不够一个屏幕
-                if (_scrollView.mj_offsetY >= - _scrollView.mj_insetT) { // 向上拽
-                    self.triggerByDrag = YES;
-                    [self beginRefreshing];
-                }
-            } else { // 超出一个屏幕
-                if (_scrollView.mj_offsetY >= _scrollView.mj_contentH + _scrollView.mj_insetB - _scrollView.mj_h) {
-                    self.triggerByDrag = YES;
-                    [self beginRefreshing];
-                }
+    if (_scrollView.panGestureRecognizer.state == UIGestureRecognizerStateEnded) {// 手松开
+        if (_scrollView.mj_insetT + _scrollView.mj_contentH <= _scrollView.mj_h) {  // 不够一个屏幕
+            if (_scrollView.mj_offsetY >= - _scrollView.mj_insetT) { // 向上拽
+                [self beginRefreshing];
+            }
+        } else { // 超出一个屏幕
+            if (_scrollView.mj_offsetY >= _scrollView.mj_contentH + _scrollView.mj_insetB - _scrollView.mj_h) {
+                [self beginRefreshing];
             }
         }
-            break;
-            
-        case UIGestureRecognizerStateBegan: {
-            [self resetTriggerTimes];
-        }
-            break;
-            
-        default:
-            break;
     }
-}
-
-- (BOOL)unlimitedTrigger {
-    return self.leftTriggerTimes == -1;
-}
-
-- (void)beginRefreshing
-{
-    if (self.triggerByDrag && self.leftTriggerTimes <= 0 && !self.unlimitedTrigger) {
-        return;
-    }
-    
-    [super beginRefreshing];
 }
 
 - (void)setState:(MJRefreshState)state
@@ -144,42 +107,10 @@
     MJRefreshCheckState
     
     if (state == MJRefreshStateRefreshing) {
-        [self executeRefreshingCallback];
-    } else if (state == MJRefreshStateNoMoreData || state == MJRefreshStateIdle) {
-        if (self.triggerByDrag) {
-            if (!self.unlimitedTrigger) {
-                self.leftTriggerTimes -= 1;
-            }
-            self.triggerByDrag = NO;
-        }
-        
-        if (MJRefreshStateRefreshing == oldState) {
-            if (self.scrollView.pagingEnabled) {
-                CGPoint offset = self.scrollView.contentOffset;
-                offset.y -= self.scrollView.mj_insetB;
-                [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
-                    self.scrollView.contentOffset = offset;
-                    
-                    if (self.endRefreshingAnimationBeginAction) {
-                        self.endRefreshingAnimationBeginAction();
-                    }
-                } completion:^(BOOL finished) {
-                    if (self.endRefreshingCompletionBlock) {
-                        self.endRefreshingCompletionBlock();
-                    }
-                }];
-                return;
-            }
-            
-            if (self.endRefreshingCompletionBlock) {
-                self.endRefreshingCompletionBlock();
-            }
-        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self executeRefreshingCallback];
+        });
     }
-}
-
-- (void)resetTriggerTimes {
-    self.leftTriggerTimes = self.autoTriggerTimes;
 }
 
 - (void)setHidden:(BOOL)hidden
@@ -198,10 +129,5 @@
         // 设置位置
         self.mj_y = _scrollView.mj_contentH;
     }
-}
-
-- (void)setAutoTriggerTimes:(NSInteger)autoTriggerTimes {
-    _autoTriggerTimes = autoTriggerTimes;
-    self.leftTriggerTimes = autoTriggerTimes;
 }
 @end

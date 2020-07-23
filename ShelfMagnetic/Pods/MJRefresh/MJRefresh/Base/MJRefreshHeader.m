@@ -9,16 +9,13 @@
 
 #import "MJRefreshHeader.h"
 
-NSString * const MJRefreshHeaderRefreshing2IdleBoundsKey = @"MJRefreshHeaderRefreshing2IdleBounds";
-NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshingBounds";
-
-@interface MJRefreshHeader() <CAAnimationDelegate>
+@interface MJRefreshHeader()
 @property (assign, nonatomic) CGFloat insetTDelta;
 @end
 
 @implementation MJRefreshHeader
 #pragma mark - 构造方法
-+ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentAction)refreshingBlock
++ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
 {
     MJRefreshHeader *cmp = [[self alloc] init];
     cmp.refreshingBlock = refreshingBlock;
@@ -51,35 +48,25 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     self.mj_y = - self.mj_h - self.ignoredScrollViewContentInsetTop;
 }
 
-- (void)resetInset {
-    if (@available(iOS 11.0, *)) {
-    } else {
-        // 如果 iOS 10 及以下系统在刷新时, push 新的 VC, 等待刷新完成后回来, 会导致顶部 Insets.top 异常, 不能 resetInset, 检查一下这种特殊情况
-        if (!self.window) { return; }
-    }
-    
-    // sectionheader停留解决
-    CGFloat insetT = - self.scrollView.mj_offsetY > _scrollViewOriginalInset.top ? - self.scrollView.mj_offsetY : _scrollViewOriginalInset.top;
-    insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;
-    self.insetTDelta = _scrollViewOriginalInset.top - insetT;
-    // 避免 CollectionView 在使用根据 Autolayout 和 内容自动伸缩 Cell, 刷新时导致的 Layout 异常渲染问题
-    if (self.scrollView.mj_insetT != insetT) {
-        self.scrollView.mj_insetT = insetT;
-    }
-}
-
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
 {
     [super scrollViewContentOffsetDidChange:change];
     
     // 在刷新的refreshing状态
     if (self.state == MJRefreshStateRefreshing) {
-        [self resetInset];
+        if (self.window == nil) return;
+        
+        // sectionheader停留解决
+        CGFloat insetT = - self.scrollView.mj_offsetY > _scrollViewOriginalInset.top ? - self.scrollView.mj_offsetY : _scrollViewOriginalInset.top;
+        insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;
+        self.scrollView.mj_insetT = insetT;
+        
+        self.insetTDelta = _scrollViewOriginalInset.top - insetT;
         return;
     }
     
     // 跳转到下一个控制器时，contentInset可能会变
-    _scrollViewOriginalInset = self.scrollView.mj_inset;
+     _scrollViewOriginalInset = self.scrollView.contentInset;
     
     // 当前的contentOffset
     CGFloat offsetY = self.scrollView.mj_offsetY;
@@ -119,172 +106,54 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     if (state == MJRefreshStateIdle) {
         if (oldState != MJRefreshStateRefreshing) return;
         
-        [self headerEndingAction];
-    } else if (state == MJRefreshStateRefreshing) {
-        [self headerRefreshingAction];
-    }
-}
-
-- (void)headerEndingAction {
-    // 保存刷新时间
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.lastUpdatedTimeKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // 默认使用 UIViewAnimation 动画
-    if (!self.isCollectionViewAnimationBug) {
+        // 保存刷新时间
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.lastUpdatedTimeKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         // 恢复inset和offset
         [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
             self.scrollView.mj_insetT += self.insetTDelta;
             
-            if (self.endRefreshingAnimationBeginAction) {
-                self.endRefreshingAnimationBeginAction();
-            }
             // 自动调整透明度
             if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
         } completion:^(BOOL finished) {
             self.pullingPercent = 0.0;
-            
-            if (self.endRefreshingCompletionBlock) {
-                self.endRefreshingCompletionBlock();
-            }
         }];
-        
-        return;
-    }
-    
-    /**
-     这个解决方法的思路出自 https://github.com/CoderMJLee/MJRefresh/pull/844
-     修改了用+ [UIView animateWithDuration: animations:]实现的修改contentInset的动画
-     fix issue#225 https://github.com/CoderMJLee/MJRefresh/issues/225
-     另一种解法 pull#737 https://github.com/CoderMJLee/MJRefresh/pull/737
-     
-     同时, 处理了 Refreshing 中的动画替换.
-    */
-    
-    // 由于修改 Inset 会导致 self.pullingPercent 联动设置 self.alpha, 故提前获取 alpha 值, 后续用于还原 alpha 动画
-    CGFloat viewAlpha = self.alpha;
-    
-    self.scrollView.mj_insetT += self.insetTDelta;
-    // 禁用交互, 如果不禁用可能会引起渲染问题.
-    self.scrollView.userInteractionEnabled = NO;
-
-    //CAAnimation keyPath 不支持 contentInset 用Bounds的动画代替
-    CABasicAnimation *boundsAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-    boundsAnimation.fromValue = [NSValue valueWithCGRect:CGRectOffset(self.scrollView.bounds, 0, self.insetTDelta)];
-    boundsAnimation.duration = MJRefreshSlowAnimationDuration;
-    //在delegate里移除
-    boundsAnimation.removedOnCompletion = NO;
-    boundsAnimation.fillMode = kCAFillModeBoth;
-    boundsAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    boundsAnimation.delegate = self;
-    [boundsAnimation setValue:MJRefreshHeaderRefreshing2IdleBoundsKey forKey:@"identity"];
-
-    [self.scrollView.layer addAnimation:boundsAnimation forKey:MJRefreshHeaderRefreshing2IdleBoundsKey];
-    
-    if (self.endRefreshingAnimationBeginAction) {
-        self.endRefreshingAnimationBeginAction();
-    }
-    // 自动调整透明度的动画
-    if (self.isAutomaticallyChangeAlpha) {
-        CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        opacityAnimation.fromValue = @(viewAlpha);
-        opacityAnimation.toValue = @(0.0);
-        opacityAnimation.duration = MJRefreshSlowAnimationDuration;
-        opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        [self.layer addAnimation:opacityAnimation forKey:@"MJRefreshHeaderRefreshing2IdleOpacity"];
-
-        // 由于修改了 inset 导致, pullingPercent 被设置值, alpha 已经被提前修改为 0 了. 所以这里不用置 0, 但为了代码的严谨性, 不依赖其他的特殊实现方式, 这里还是置 0.
-        self.alpha = 0;
-    }
-}
-
-- (void)headerRefreshingAction {
-    // 默认使用 UIViewAnimation 动画
-    if (!self.isCollectionViewAnimationBug) {
-        MJRefreshDispatchAsyncOnMainQueue({
-            [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-                if (self.scrollView.panGestureRecognizer.state != UIGestureRecognizerStateCancelled) {
-                    CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
-                    // 增加滚动区域top
-                    self.scrollView.mj_insetT = top;
-                    // 设置滚动位置
-                    CGPoint offset = self.scrollView.contentOffset;
-                    offset.y = -top;
-                    [self.scrollView setContentOffset:offset animated:NO];
-                }
-            } completion:^(BOOL finished) {
-                [self executeRefreshingCallback];
-            }];
-        })
-        return;
-    }
-    
-    if (self.scrollView.panGestureRecognizer.state != UIGestureRecognizerStateCancelled) {
-        CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
-        // 禁用交互, 如果不禁用可能会引起渲染问题.
-        self.scrollView.userInteractionEnabled = NO;
-
-        // CAAnimation keyPath不支持 contentOffset 用Bounds的动画代替
-        CABasicAnimation *boundsAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-        CGRect bounds = self.scrollView.bounds;
-        bounds.origin.y = -top;
-        boundsAnimation.fromValue = [NSValue valueWithCGRect:self.scrollView.bounds];
-        boundsAnimation.toValue = [NSValue valueWithCGRect:bounds];
-        boundsAnimation.duration = MJRefreshFastAnimationDuration;
-        //在delegate里移除
-        boundsAnimation.removedOnCompletion = NO;
-        boundsAnimation.fillMode = kCAFillModeBoth;
-        boundsAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        boundsAnimation.delegate = self;
-        [boundsAnimation setValue:MJRefreshHeaderRefreshingBoundsKey forKey:@"identity"];
-        [self.scrollView.layer addAnimation:boundsAnimation forKey:MJRefreshHeaderRefreshingBoundsKey];
-    } else {
-        [self executeRefreshingCallback];
-    }
-}
-
-#pragma mark - CAAnimationDelegate
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    NSString *identity = [anim valueForKey:@"identity"];
-    if ([identity isEqualToString:MJRefreshHeaderRefreshing2IdleBoundsKey]) {
-        self.pullingPercent = 0.0;
-        self.scrollView.userInteractionEnabled = YES;
-        if (self.endRefreshingCompletionBlock) {
-            self.endRefreshingCompletionBlock();
-        }
-    } else if ([identity isEqualToString:MJRefreshHeaderRefreshingBoundsKey]) {
-        // 避免出现 end 先于 Refreshing 状态
-        if (self.state != MJRefreshStateIdle) {
+    } else if (state == MJRefreshStateRefreshing) {
+        [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+            // 增加滚动区域
             CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
             self.scrollView.mj_insetT = top;
-            // 设置最终滚动位置
-            CGPoint offset = self.scrollView.contentOffset;
-            offset.y = -top;
-            [self.scrollView setContentOffset:offset animated:NO];
-         }
-        self.scrollView.userInteractionEnabled = YES;
-        [self executeRefreshingCallback];
+            
+            // 设置滚动位置
+            self.scrollView.mj_offsetY = - top;
+        } completion:^(BOOL finished) {
+            [self executeRefreshingCallback];
+        }];
     }
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
     
-    if ([self.scrollView.layer animationForKey:MJRefreshHeaderRefreshing2IdleBoundsKey]) {
-        [self.scrollView.layer removeAnimationForKey:MJRefreshHeaderRefreshing2IdleBoundsKey];
-    }
     
-    if ([self.scrollView.layer animationForKey:MJRefreshHeaderRefreshingBoundsKey]) {
-        [self.scrollView.layer removeAnimationForKey:MJRefreshHeaderRefreshingBoundsKey];
-    }
 }
 
 #pragma mark - 公共方法
+- (void)endRefreshing
+{
+    if ([self.scrollView isKindOfClass:[UICollectionView class]]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [super endRefreshing];
+        });
+    } else {
+        [super endRefreshing];
+    }
+}
+
 - (NSDate *)lastUpdatedTime
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:self.lastUpdatedTimeKey];
 }
-
-- (void)setIgnoredScrollViewContentInsetTop:(CGFloat)ignoredScrollViewContentInsetTop {
-    _ignoredScrollViewContentInsetTop = ignoredScrollViewContentInsetTop;
-    
-    self.mj_y = - self.mj_h - _ignoredScrollViewContentInsetTop;
-}
-
 @end

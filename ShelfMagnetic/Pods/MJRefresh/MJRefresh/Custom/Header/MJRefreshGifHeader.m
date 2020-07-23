@@ -66,14 +66,6 @@
 }
 
 #pragma mark - 实现父类的方法
-- (void)prepare
-{
-    [super prepare];
-    
-    // 初始化间距
-    self.labelLeftInset = 20;
-}
-
 - (void)setPullingPercent:(CGFloat)pullingPercent
 {
     [super setPullingPercent:pullingPercent];
@@ -98,14 +90,7 @@
         self.gifView.contentMode = UIViewContentModeCenter;
     } else {
         self.gifView.contentMode = UIViewContentModeRight;
-        
-        CGFloat stateWidth = self.stateLabel.mj_textWidth;
-        CGFloat timeWidth = 0.0;
-        if (!self.lastUpdatedTimeLabel.hidden) {
-            timeWidth = self.lastUpdatedTimeLabel.mj_textWidth;
-        }
-        CGFloat textWidth = MAX(stateWidth, timeWidth);
-        self.gifView.mj_w = self.mj_w * 0.5 - textWidth * 0.5 - self.labelLeftInset;
+        self.gifView.mj_w = self.mj_w * 0.5 - 90;
     }
 }
 

@@ -14,21 +14,27 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - MJRefresh (3.4.3)
+  - MJRefresh (3.0.8)
+  - Shelfmagnetic (0.0.2):
+    - AFNetworking (~> 4.0.0)
+    - MJRefresh (~> 3.0.0)
 
 DEPENDENCIES:
   - AFNetworking
   - MJRefresh
+  - Shelfmagnetic
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - MJRefresh
+    - Shelfmagnetic
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
+  Shelfmagnetic: ac5f3e784a70b07420fce304d080a4217db047c3
 
-PODFILE CHECKSUM: e8c86b9ffa49d26bc4103b04d6a6cad830619226
+PODFILE CHECKSUM: 0e29fe187bbe87c7d10d5d689fc0026ee1c0db2f
 
 COCOAPODS: 1.7.5
