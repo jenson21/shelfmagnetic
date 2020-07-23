@@ -9,6 +9,7 @@
 #import "JEHttpManager.h"
 #import "AFHTTPSessionManager.h"
 #import "JELoadingManager.h"
+#import "NSDate+Extension.h"
 
 @class AFNetworkReachabilityManager;
 
@@ -96,7 +97,7 @@
         }
         return [NSURLSessionDataTask new];
     }
-    NSString * identifier = [[[NSUUID UUID] UUIDString] stringByAppendingFormat:@"&%@", [NSString stringWithFormat:@"%lld",@"[NSDate getDateTimeTOMilliSeconds]"]];
+    NSString * identifier = [[[NSUUID UUID] UUIDString] stringByAppendingFormat:@"&%@", [NSString stringWithFormat:@"%lld",[NSDate getDateTimeTOMilliSeconds]]];
     NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:parameters];
     return [self.manager GET:url parameters:data headers:@{@"Client-Trace-Id":identifier} progress:^(NSProgress * _Nonnull downloadProgress) {
         
@@ -151,7 +152,7 @@
         }
         return [NSURLSessionDataTask new];
     }
-    NSString * identifier = [[[NSUUID UUID] UUIDString] stringByAppendingFormat:@"&%@", [NSString stringWithFormat:@"%lld",@"[NSDate getDateTimeTOMilliSeconds]"]];
+    NSString * identifier = [[[NSUUID UUID] UUIDString] stringByAppendingFormat:@"&%@", [NSString stringWithFormat:@"%lld",[NSDate getDateTimeTOMilliSeconds]]];
     NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:parameters];
     return [self.manager POST:url parameters:data headers:@{@"Client-Trace-Id":identifier} progress:^(NSProgress * _Nonnull uploadProgress) {
         

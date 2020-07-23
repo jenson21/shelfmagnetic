@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4FCA4813B6421092D1B3BADE /* Pods_ShelfMagneticUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055EA43755EE280ABD8665E4 /* Pods_ShelfMagneticUITests.framework */; };
 		87309F228107F82C7606277B /* Pods_ShelfMagneticTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E538D4EA7C596491A63FD1E2 /* Pods_ShelfMagneticTests.framework */; };
+		D131D77624C9D8330014ADCB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D131D77524C9D8330014ADCB /* NSDate+Extension.m */; };
 		D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */; };
 		D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D152165624B4875100B027C1 /* NSObject+Runtime.m */; };
 		D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */; };
@@ -60,6 +61,8 @@
 		8C973470D6363E337784DFDC /* Pods-ShelfMagneticUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagneticUITests.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagneticUITests/Pods-ShelfMagneticUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		96E7AFBD68CBF6B4A5C1B03E /* Pods-ShelfMagnetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.debug.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC103CDAB73EF04BEEE094F /* Pods-ShelfMagnetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShelfMagnetic.release.xcconfig"; path = "Target Support Files/Pods-ShelfMagnetic/Pods-ShelfMagnetic.release.xcconfig"; sourceTree = "<group>"; };
+		D131D77424C9D8330014ADCB /* NSDate+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		D131D77524C9D8330014ADCB /* NSDate+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		D1411D2124B5EA53000A0C53 /* MagneticDemoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemoController.h; sourceTree = "<group>"; };
 		D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemoController.m; sourceTree = "<group>"; };
 		D152165524B4875100B027C1 /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				D152165624B4875100B027C1 /* NSObject+Runtime.m */,
 				D1B8A39A24B2356700DEB477 /* UIView+NetWorkError.h */,
 				D1B8A39924B2356700DEB477 /* UIView+NetWorkError.m */,
+				D131D77424C9D8330014ADCB /* NSDate+Extension.h */,
+				D131D77524C9D8330014ADCB /* NSDate+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */,
 				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
 				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
+				D131D77624C9D8330014ADCB /* NSDate+Extension.m in Sources */,
 				D1D9E8052483D0C500F2957A /* main.m in Sources */,
 				D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */,
 				D1B8A39D24B2356700DEB477 /* UIView+NetWorkError.m in Sources */,
@@ -706,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagnetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -724,7 +730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagnetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

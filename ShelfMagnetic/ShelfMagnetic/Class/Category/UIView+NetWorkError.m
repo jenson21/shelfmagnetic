@@ -26,7 +26,7 @@
 
 
 - (void)showFailedError:(id)target selector:(SEL)selector {
-    [self showFailedMessage:nil target:target selector:selector];
+    [self showFailedMessage:@"" target:target selector:selector];
 }
 - (void)showFailedMessage:(NSString *)message target:(id)target selector:(SEL)selector {
     [self showMessage:message errorType:EErrorTypeFailed target:target selector:selector];
@@ -39,7 +39,7 @@
  *  按钮：默认为"error_refresh"
  */
 - (void)showNetworkError:(id)target selector:(SEL)selector {
-    [self showNetworkMessage:nil target:target selector:selector];
+    [self showNetworkMessage:@"" target:target selector:selector];
 }
 - (void)showNetworkMessage:(NSString *)message target:(id)target selector:(SEL)selector {
     [self showMessage:message errorType:EErrorTypeNoNetwork target:target selector:selector];
@@ -47,7 +47,7 @@
 
 
 - (void)showEmptyError:(id)target selector:(SEL)selector {
-    [self showEmptyMessage:nil target:target selector:selector];
+    [self showEmptyMessage:@"" target:target selector:selector];
 }
 
 - (void)showEmptyMessage:(NSString *)message target:(id)target selector:(SEL)selector {
