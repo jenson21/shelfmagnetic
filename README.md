@@ -7,7 +7,7 @@ This framework includes multi-page integration and matching, network requests, d
 
 # Installation with CocoaPods
 To integrate Shelfmagnetic into your Xcode project using CocoaPods, specify it in your Podfile:
-`pod 'Shelfmagnetic', '~> 0.0.2'`
+`pod 'Shelfmagnetic', '~> 0.0.3'`
 
 # Architecture
 - Model
