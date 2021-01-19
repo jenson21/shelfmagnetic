@@ -28,14 +28,12 @@
 
 @implementation MagneticController
 
-- (void)dealloc
-{
+- (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
 
-- (instancetype)init
-{
+- (instancetype)init{
     self = [super init];
     if (self) {
     }
@@ -45,13 +43,11 @@
 
 #pragma mark - Property
 
-- (void)setMagneticContext:(MagneticContext *)magneticContext
-{
+- (void)setMagneticContext:(MagneticContext *)magneticContext{
     _magneticContext = magneticContext;
 }
 
-- (void)setIsPrepared:(BOOL)isPrepared
-{
+- (void)setIsPrepared:(BOOL)isPrepared{
     if (_isPrepared != isPrepared) {
         _isPrepared = isPrepared;
         
@@ -63,8 +59,7 @@
 
 #pragma mark - Lazy Loading
 
-- (JEHttpManager *)httpManager
-{
+- (JEHttpManager *)httpManager{
     if (!_httpManager) {
         _httpManager = [JEHttpManager sharedHttpManager];
     }
@@ -76,36 +71,31 @@
 #pragma mark Magnetic Content
 
 //内容行数
-- (NSInteger)MagneticsController:(MagneticsController *)magneticsController rowCountForMagneticContentInTableView:(MagneticTableView *)tableView
-{
+- (NSInteger)magneticsController:(MagneticsController *)magneticsController rowCountForMagneticContentInTableView:(MagneticTableView *)tableView{
     return 0;
 }
 
 //内容行高
-- (CGFloat)MagneticsController:(MagneticsController *)magneticsController rowHeightForMagneticContentAtIndex:(NSInteger)index
-{
+- (CGFloat)magneticsController:(MagneticsController *)magneticsController rowHeightForMagneticContentAtIndex:(NSInteger)index{
     return 0.0;
 }
 
 //复用内容视图
-- (void)MagneticsController:(MagneticsController *)magneticsController reuseCell:(UITableViewCell *)cell forMagneticContentAtIndex:(NSInteger)index
-{
+- (void)magneticsController:(MagneticsController *)magneticsController reuseCell:(UITableViewCell *)cell forMagneticContentAtIndex:(NSInteger)index{
     
 }
 
 #pragma mark Magnetic Spacing
 
 //磁片底部间距
-- (CGFloat)MagneticsController:(MagneticsController *)magneticsController heightForMagneticSpacingInTableView:(MagneticTableView *)tableView
-{
+- (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticSpacingInTableView:(MagneticTableView *)tableView{
     return 10.0;
 }
 
 #pragma mark Magnetic Error
 
 //是否显示磁片错误提示
-- (BOOL)MagneticsController:(MagneticsController *)magneticsController shouldShowMagneticErrorWithCode:(MagneticErrorCode)errorCode
-{
+- (BOOL)magneticsController:(MagneticsController *)magneticsController shouldShowMagneticErrorWithCode:(MagneticErrorCode)errorCode{
     return NO;
 }
 
@@ -114,8 +104,7 @@
 #pragma mark - Error
 
 //请求错误磁片数据
-- (void)requestErrorMagneticData
-{
+- (void)requestErrorMagneticData{
     MagneticErrorCode errorCode = _magneticContext.error.code;
     if (errorCode == MagneticErrorCodeNetwork || errorCode == MagneticErrorCodeFailed) { //磁片请求失败
         //显示加载状态

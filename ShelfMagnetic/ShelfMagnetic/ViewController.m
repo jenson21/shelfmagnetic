@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MagneticsDemoViewController.h"
 
 @interface ViewController ()
 
@@ -16,17 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    NSMutableArray *dataArr = [NSMutableArray array];
-    MagneticContext *context = [[MagneticContext alloc]init];
-    context.type = MagneticTypeDemo;
-    [dataArr addObject:context];
-    /**
-     dataArr add more VC
-     */
-    [self requestMagneticsDidSucceedWithMagneticsArray:dataArr];
 }
 
-
+- (IBAction)pushMagnetic:(id)sender {
+    MagneticsDemoViewController *magnetics = [[MagneticsDemoViewController alloc] init];
+    [self.navigationController pushViewController:magnetics animated:YES];
+}
 @end

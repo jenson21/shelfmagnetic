@@ -54,8 +54,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     return _httpManager;
 }
 
-- (void)loadView
-{
+- (void)loadView{
     [super loadView];
     
     CGRect frame = self.view.bounds;
@@ -79,8 +78,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     self.view.clipsToBounds = YES;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
@@ -101,8 +99,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     _tableView.delegate = nil;
@@ -116,8 +113,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 #pragma mark - Property
 
-- (void)setRefreshType:(MagneticsRefreshType)refreshType
-{
+- (void)setRefreshType:(MagneticsRefreshType)refreshType{
     if (_refreshType != refreshType) {
         _refreshType = refreshType;
         //下拉刷新
@@ -146,8 +142,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
 }
 
-- (void)setSuperViewController:(UIViewController *)superViewController
-{
+- (void)setSuperViewController:(UIViewController *)superViewController{
     if (_superViewController != superViewController) {
         //移除旧控制器页面显示/隐藏通知的监听
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kMagneticsSuperViewWillAppearNotification object:_superViewController];
@@ -208,8 +203,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 #pragma mark - Runtime
 
-- (void)Magnetics_viewWillAppear:(BOOL)animated
-{
+- (void)Magnetics_viewWillAppear:(BOOL)animated{
     [self Magnetics_viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kMagneticsSuperViewWillAppearNotification
@@ -217,8 +211,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
                                                       userInfo:nil];
 }
 
-- (void)Magnetics_viewDidDisappear:(BOOL)animated
-{
+- (void)Magnetics_viewDidDisappear:(BOOL)animated{
     [self Magnetics_viewDidDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kMagneticsSuperViewDidDisappearNotification
@@ -231,8 +224,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark - Notification
 
 //接收到父控制器将显示通知
-- (void)receiveMagneticsSuperViewWillAppearNotification:(NSNotification *)notification
-{
+- (void)receiveMagneticsSuperViewWillAppearNotification:(NSNotification *)notification{
     for (int i = 0; i < _magneticControllersArray.count; i++) {
         MagneticController *magneticController = _magneticControllersArray[i];
         if ([magneticController respondsToSelector:@selector(magneticsController:superViewWillAppear:)]) {
@@ -242,8 +234,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //接收到父控制器已隐藏通知
-- (void)receiveMagneticsSuperViewDidDisappearNotification:(NSNotification *)notification
-{
+- (void)receiveMagneticsSuperViewDidDisappearNotification:(NSNotification *)notification{
     for (int i = 0; i < _magneticControllersArray.count; i++) {
         MagneticController *magneticController = _magneticControllersArray[i];
         if ([magneticController respondsToSelector:@selector(magneticsController:superViewDidDisappear:)]) {
@@ -257,8 +248,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark - Error View
 
 //默认点击提示信息事件
-- (void)touchErrorViewAction
-{
+- (void)touchErrorViewAction{
     if (_refreshType & MagneticsRefreshTypeLoadingView) {
         [self requestMagnetics];
     } else if (_refreshType & MagneticsRefreshTypePullToRefresh) {
@@ -274,26 +264,22 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark - Private Methods
 
 //获取index对应的磁片控制器
-- (MagneticController *)magneticControllerAtIndex:(NSInteger)index
-{
+- (MagneticController *)magneticControllerAtIndex:(NSInteger)index{
     return (index < _magneticControllersArray.count) ? _magneticControllersArray[index] : nil;
 }
 
 //是否为磁片间距
-- (BOOL)isMagneticSpacing:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)isMagneticSpacing:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
     return (magneticController.showMagneticSpacing && indexPath && indexPath.row == magneticController.rowCountCache - 1);
 }
 
 //是否为磁片头部
-- (BOOL)isMagneticHeader:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)isMagneticHeader:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
     return (magneticController.showMagneticHeader && indexPath && indexPath.row == 0);
 }
 
 //是否为磁片尾部
-- (BOOL)isMagneticFooter:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)isMagneticFooter:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
     BOOL isMagneticFooter = NO;
     if (magneticController.showMagneticFooter && indexPath) {
         if (magneticController.showMagneticSpacing && indexPath.row == magneticController.rowCountCache - 2) {
@@ -307,8 +293,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //是否为有效磁片内容
-- (BOOL)isValidMagneticContent:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)isValidMagneticContent:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
     if (!magneticController || !indexPath) return NO;
     
     if ([self isMagneticSpacing:magneticController atIndexPath:indexPath]) return NO; //磁片间距
@@ -324,8 +309,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark - Public Methods
 
 //获取指定类型的磁片控制器
-- (NSArray *)queryMagneticControllersWithType:(MagneticType)type
-{
+- (NSArray *)queryMagneticControllersWithType:(MagneticType)type{
     NSMutableArray *magneticControllersArray = nil;
     for (int i = 0; i < _magneticControllersArray.count; i++) {
         MagneticController *magneticController = _magneticControllersArray[i];
@@ -357,8 +341,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark Parser
 
 //解析磁片数据源，创建磁片控制器
-- (NSArray *)parseMagneticControllersWithMagneticsArray:(NSArray *)MagneticsArray
-{
+- (NSArray *)parseMagneticControllersWithMagneticsArray:(NSArray *)MagneticsArray{
     NSMutableArray *magneticControllersArray = [NSMutableArray array];
     for (MagneticContext *magneticContext in MagneticsArray) {
         //初始化磁片控制器
@@ -390,14 +373,12 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark Magnetics
 
 //请求磁片列表
-- (void)requestMagnetics
-{
+- (void)requestMagnetics{
     [self requestMagneticsWillStart];
 }
 
 //磁片列表请求将开始
-- (void)requestMagneticsWillStart
-{
+- (void)requestMagneticsWillStart{
     //清空数据源
     if (_clearType == MagneticsClearTypeBeforeRequest) { //请求前清除数据源
         
@@ -431,8 +412,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //磁片列表请求成功
-- (void)requestMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray
-{
+- (void)requestMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray{
     if (_magneticsArray.count
         && MagneticsArray.count
         && [_magneticsArray isEqualToArray:MagneticsArray]) { //数据未变更
@@ -491,8 +471,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //磁片列表请求失败
-- (void)requestMagneticsDidFailWithError:(NSError *)error
-{
+- (void)requestMagneticsDidFailWithError:(NSError *)error{
     //清空数据源
     if (_clearType == MagneticsClearTypeAfterRequest) {
         [_magneticsArray removeAllObjects];
@@ -534,8 +513,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //请求单磁片数据
-- (void)requestMagneticDataWithController:(MagneticController *)magneticController
-{
+- (void)requestMagneticDataWithController:(MagneticController *)magneticController{
     __weak typeof(self) weakSelf = self;
     NSString *type = @"get";
     if ([magneticController respondsToSelector:@selector(magneticRequestTypeInMagneticsController:)]) {
@@ -602,8 +580,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //单磁片请求成功回调
-- (void)magneticSeparateDataBeReady:(MagneticContext *)magneticContext
-{
+- (void)magneticSeparateDataBeReady:(MagneticContext *)magneticContext{
     NSUInteger MagneticIndex = [_magneticsArray indexOfObject:magneticContext];
     if (MagneticIndex != NSNotFound && MagneticIndex < _magneticControllersArray.count) {
         [self requestMagneticDataDidSucceedWithMagneticContext:magneticContext];
@@ -619,8 +596,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //磁片数据请求成功
-- (void)requestMagneticDataDidSucceedWithMagneticContext:(MagneticContext *)magneticContext
-{
+- (void)requestMagneticDataDidSucceedWithMagneticContext:(MagneticContext *)magneticContext{
     magneticContext.error = nil;
     
     NSUInteger index = [_magneticsArray indexOfObject:magneticContext];
@@ -632,8 +608,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //磁片数据请求失败
-- (void)requestMagneticDataDidFailWithMagneticContext:(MagneticContext *)magneticContext error:(NSError *)error
-{
+- (void)requestMagneticDataDidFailWithMagneticContext:(MagneticContext *)magneticContext error:(NSError *)error{
     NSUInteger index = [_magneticsArray indexOfObject:magneticContext];
     MagneticController *magneticController = [self magneticControllerAtIndex:index];
     if (magneticController) {
@@ -665,8 +640,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark More
 
 //加载更多事件
-- (void)requestMoreData
-{
+- (void)requestMoreData{
     //触发加载更多事件
     for (int i = 0; i < _magneticControllersArray.count; i++) {
         MagneticController *magneticController = _magneticControllersArray[i];
@@ -677,8 +651,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //加载更多磁片
-- (void)requestMoreMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray
-{
+- (void)requestMoreMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray{
     if (!MagneticsArray.count) return;
     
     //记录参数
@@ -709,8 +682,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     [_tableView reloadSections:sections];
 }
 
-- (void)requestMoreMagneticsDidFailWithError:(NSError *)error
-{
+- (void)requestMoreMagneticsDidFailWithError:(NSError *)error{
     
 }
 
@@ -752,8 +724,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //刷新指定类型的磁片
-- (void)refreshMagneticWithType:(MagneticType)type animation:(UITableViewRowAnimation)animation
-{
+- (void)refreshMagneticWithType:(MagneticType)type animation:(UITableViewRowAnimation)animation{
     if (animation != UITableViewRowAnimationNone) {
         NSMutableIndexSet *sections = [NSMutableIndexSet indexSet];
         for (NSUInteger i = 0; i < _magneticControllersArray.count; i++) {
@@ -786,16 +757,19 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //刷新指定类型的磁片
-- (void)refreshMagneticWithType:(MagneticType)type
-{
+- (void)refreshMagneticWithType:(MagneticType)type{
     [self refreshMagneticWithType:type animation:UITableViewRowAnimationNone];
 }
+
+- (void)refreshMagneticWithType:(MagneticType)type json:(id)json {
+    
+}
+
 
 
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     NSArray *visibleCells = [self.tableView visibleCells];
     for (UITableViewCell *visibleCell in visibleCells) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:visibleCell];
@@ -810,13 +784,11 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 #pragma mark - UITableViewDelegate
 
-- (NSInteger)numberOfSectionsInTableView:(MagneticTableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(MagneticTableView *)tableView{
     return _magneticControllersArray.count;
 }
 
-- (CGFloat)tableView:(MagneticTableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(MagneticTableView *)tableView heightForHeaderInSection:(NSInteger)section{
     MagneticController *magneticController = [self magneticControllerAtIndex:section];
     
     CGFloat headerHeight = 0.0;
@@ -826,8 +798,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     return headerHeight;
 }
 
-- (UIView *)tableView:(MagneticTableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(MagneticTableView *)tableView viewForHeaderInSection:(NSInteger)section{
     MagneticController *magneticController = [self magneticControllerAtIndex:section];
     
     UIView *headerView = nil;
@@ -837,20 +808,17 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     return headerView;
 }
 
-- (NSInteger)tableView:(MagneticTableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(MagneticTableView *)tableView numberOfRowsInSection:(NSInteger)section{
     MagneticController *magneticController = [self magneticControllerAtIndex:section];
     return magneticController.rowCountCache;
 }
 
-- (CGFloat)tableView:(MagneticTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(MagneticTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     return (indexPath.row < magneticController.rowHeightsCache.count) ? ceil([magneticController.rowHeightsCache[indexPath.row] floatValue]) : 0.0;
 }
 
-- (UITableViewCell *)tableView:(MagneticTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(MagneticTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
@@ -954,8 +922,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
@@ -983,8 +950,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
 }
 
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
@@ -1013,8 +979,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
 }
 
-- (void)tableView:(MagneticTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(MagneticTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
@@ -1058,8 +1023,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 @implementation MagneticsController (BottomPrivate)
 
 //设置封底开关
-- (void)setEnableTableBottomView:(BOOL)enableTableBottomView
-{
+- (void)setEnableTableBottomView:(BOOL)enableTableBottomView{
     if (_enableTableBottomView != enableTableBottomView) {
         _enableTableBottomView = enableTableBottomView;
 
@@ -1070,8 +1034,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //设置封底自定义视图
-- (void)setTableBottomCustomView:(UIView *)tableBottomCustomView
-{
+- (void)setTableBottomCustomView:(UIView *)tableBottomCustomView{
     if (_tableBottomCustomView != tableBottomCustomView) {
         _tableBottomCustomView = tableBottomCustomView;
 
@@ -1082,8 +1045,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //刷新封底视图
-- (void)refreshTableBottomView
-{
+- (void)refreshTableBottomView{
     if (!_enableTableBottomView //禁用封底
         || !_magneticControllersArray.count) { //无数据源
 
@@ -1108,14 +1070,12 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //触发加载更多事件，启动加载动画
-- (void)triggerInfiniteScrollingAction
-{
+- (void)triggerInfiniteScrollingAction{
     [_tableView.mj_footer beginRefreshing];
 }
 
 //完成加载更多事件，停止加载动画
-- (void)finishInfiniteScrollingAction
-{
+- (void)finishInfiniteScrollingAction{
     [_tableView.mj_footer endRefreshing];
 }
 

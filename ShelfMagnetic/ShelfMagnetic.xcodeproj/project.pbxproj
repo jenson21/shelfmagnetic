@@ -22,6 +22,9 @@
 		D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A39F24B235AC00DEB477 /* MagneticController.m */; };
 		D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A524B2371A00DEB477 /* MagneticsController.m */; };
 		D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */; };
+		D1D23F2E25B7174F00E4BB2D /* MagneticsDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D23F2D25B7174F00E4BB2D /* MagneticsDemoViewController.m */; };
+		D1D23F3125B7277D00E4BB2D /* MagneticDemo2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D23F3025B7277D00E4BB2D /* MagneticDemo2Controller.m */; };
+		D1D23F3425B7279900E4BB2D /* MagneticDemo3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D23F3325B7279900E4BB2D /* MagneticDemo3Controller.m */; };
 		D1D393CD24B5B59400514613 /* Pods_ShelfMagnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E611EAE0C8F289C031F5CBB /* Pods_ShelfMagnetic.framework */; };
 		D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F32483D0C400F2957A /* AppDelegate.m */; };
 		D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D9E7F62483D0C400F2957A /* SceneDelegate.m */; };
@@ -88,6 +91,12 @@
 		D1B8A3A624B2371A00DEB477 /* MagneticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsController.h; sourceTree = "<group>"; };
 		D1B8A3A824B2377A00DEB477 /* MagneticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticTableView.h; sourceTree = "<group>"; };
 		D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticTableView.m; sourceTree = "<group>"; };
+		D1D23F2C25B7174F00E4BB2D /* MagneticsDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsDemoViewController.h; sourceTree = "<group>"; };
+		D1D23F2D25B7174F00E4BB2D /* MagneticsDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticsDemoViewController.m; sourceTree = "<group>"; };
+		D1D23F2F25B7277D00E4BB2D /* MagneticDemo2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemo2Controller.h; sourceTree = "<group>"; };
+		D1D23F3025B7277D00E4BB2D /* MagneticDemo2Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemo2Controller.m; sourceTree = "<group>"; };
+		D1D23F3225B7279900E4BB2D /* MagneticDemo3Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemo3Controller.h; sourceTree = "<group>"; };
+		D1D23F3325B7279900E4BB2D /* MagneticDemo3Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemo3Controller.m; sourceTree = "<group>"; };
 		D1D9E7EF2483D0C400F2957A /* ShelfMagnetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShelfMagnetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D9E7F22483D0C400F2957A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1D9E7F32483D0C400F2957A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -200,6 +209,21 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		D1D23F2B25B7172800E4BB2D /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D1411D2124B5EA53000A0C53 /* MagneticDemoController.h */,
+				D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */,
+				D1D23F2F25B7277D00E4BB2D /* MagneticDemo2Controller.h */,
+				D1D23F3025B7277D00E4BB2D /* MagneticDemo2Controller.m */,
+				D1D23F3225B7279900E4BB2D /* MagneticDemo3Controller.h */,
+				D1D23F3325B7279900E4BB2D /* MagneticDemo3Controller.m */,
+				D1D23F2C25B7174F00E4BB2D /* MagneticsDemoViewController.h */,
+				D1D23F2D25B7174F00E4BB2D /* MagneticsDemoViewController.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		D1D9E7E62483D0C400F2957A = {
 			isa = PBXGroup;
 			children = (
@@ -225,11 +249,10 @@
 		D1D9E7F12483D0C400F2957A /* ShelfMagnetic */ = {
 			isa = PBXGroup;
 			children = (
+				D1D23F2B25B7172800E4BB2D /* Demo */,
 				D133751124B59EEC00DF1392 /* Class */,
 				D1D9E7F22483D0C400F2957A /* AppDelegate.h */,
 				D1D9E7F32483D0C400F2957A /* AppDelegate.m */,
-				D1411D2124B5EA53000A0C53 /* MagneticDemoController.h */,
-				D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */,
 				D1D9E7F52483D0C400F2957A /* SceneDelegate.h */,
 				D1D9E7F62483D0C400F2957A /* SceneDelegate.m */,
 				D1D9E7F82483D0C400F2957A /* ViewController.h */,
@@ -524,18 +547,21 @@
 				D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */,
 				D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */,
 				D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */,
+				D1D23F3425B7279900E4BB2D /* MagneticDemo3Controller.m in Sources */,
 				D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */,
 				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
 				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
 				D131D77624C9D8330014ADCB /* NSDate+Extension.m in Sources */,
 				D1D9E8052483D0C500F2957A /* main.m in Sources */,
 				D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */,
+				D1D23F3125B7277D00E4BB2D /* MagneticDemo2Controller.m in Sources */,
 				D1B8A39D24B2356700DEB477 /* UIView+NetWorkError.m in Sources */,
 				D1B8A38024B230E500DEB477 /* MagneticTableFooterView.m in Sources */,
 				D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */,
 				D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */,
 				D1B8A39424B234F400DEB477 /* MagneticErrorCell.m in Sources */,
 				D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */,
+				D1D23F2E25B7174F00E4BB2D /* MagneticsDemoViewController.m in Sources */,
 				D1B8A38424B230EF00DEB477 /* MagneticContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

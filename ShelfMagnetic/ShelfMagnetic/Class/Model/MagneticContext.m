@@ -13,8 +13,7 @@
 
 @implementation MagneticContext
 
-- (void)setType:(MagneticType)type
-{
+- (void)setType:(MagneticType)type{
     if (_type != type) {
         _type = type;
         
@@ -22,8 +21,7 @@
     }
 }
 
-- (void)setExtensionType:(MagneticType)extensionType
-{
+- (void)setExtensionType:(MagneticType)extensionType{
     if (_extensionType != extensionType) {
         _extensionType = extensionType;
         
@@ -31,8 +29,7 @@
     }
 }
 
-- (void)setJson:(id)json
-{
+- (void)setJson:(id)json{
     if (_json != json) {
         _json = json;
         
@@ -40,8 +37,7 @@
     }
 }
 
-- (void)setError:(NSError *)error
-{
+- (void)setError:(NSError *)error{
     if (_error != error) {
         _error = error;
         
@@ -58,12 +54,17 @@
 
 #pragma mark - Parse
 
-- (NSString *)parseClassName:(MagneticType)type
-{
+- (NSString *)parseClassName:(MagneticType)type{
     NSString *className = nil;
     switch (type) {
-        case MagneticTypeDemo:
+            case MagneticTypeDemo:
             className = @"MagneticDemoController";
+            break;
+            case MagneticTypeDemo2:
+            className = @"MagneticDemo2Controller";
+            break;
+            case MagneticTypeDemo3:
+            className = @"MagneticDemo3Controller";
             break;
         default:
             break;

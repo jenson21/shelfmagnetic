@@ -6,10 +6,11 @@
 //  Copyright © 2020 Jenson. All rights reserved.
 //
 
-#import "MagneticsController.h"
+#import <UIKit/UIKit.h>
 
-@interface ViewController : MagneticsController
+@interface ViewController : UIViewController
 
+- (IBAction)pushMagnetic:(id)sender;
 
 @end
 
