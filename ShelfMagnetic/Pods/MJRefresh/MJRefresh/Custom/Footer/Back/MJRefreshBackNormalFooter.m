@@ -7,6 +7,7 @@
 //
 
 #import "MJRefreshBackNormalFooter.h"
+#import "NSBundle+MJRefresh.h"
 
 @interface MJRefreshBackNormalFooter()
 {
@@ -20,8 +21,7 @@
 - (UIImageView *)arrowView
 {
     if (!_arrowView) {
-        UIImage *image = [UIImage imageNamed:MJRefreshSrcName(@"arrow.png")] ?: [UIImage imageNamed:MJRefreshFrameworkSrcName(@"arrow.png")];
-        UIImageView *arrowView = [[UIImageView alloc] initWithImage:image];
+        UIImageView *arrowView = [[UIImageView alloc] initWithImage:[NSBundle mj_arrowImage]];
         [self addSubview:_arrowView = arrowView];
     }
     return _arrowView;
@@ -31,7 +31,7 @@
 - (UIActivityIndicatorView *)loadingView
 {
     if (!_loadingView) {
-        UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.activityIndicatorViewStyle];
+        UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:_activityIndicatorViewStyle];
         loadingView.hidesWhenStopped = YES;
         [self addSubview:_loadingView = loadingView];
     }
@@ -42,15 +42,23 @@
 {
     _activityIndicatorViewStyle = activityIndicatorViewStyle;
     
+    [self.loadingView removeFromSuperview];
     self.loadingView = nil;
     [self setNeedsLayout];
 }
-#pragma makr - 重写父类的方法
+#pragma mark - 重写父类的方法
 - (void)prepare
 {
     [super prepare];
     
-    self.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+    if (@available(iOS 13.0, *)) {
+        _activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
+        return;
+    }
+#endif
+        
+    _activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
 }
 
 - (void)placeSubviews
@@ -60,7 +68,7 @@
     // 箭头的中心点
     CGFloat arrowCenterX = self.mj_w * 0.5;
     if (!self.stateLabel.hidden) {
-        arrowCenterX -= 100;
+        arrowCenterX -= self.labelLeftInset + self.stateLabel.mj_textWidth * 0.5;
     }
     CGFloat arrowCenterY = self.mj_h * 0.5;
     CGPoint arrowCenter = CGPointMake(arrowCenterX, arrowCenterY);
@@ -75,6 +83,8 @@
     if (self.loadingView.constraints.count == 0) {
         self.loadingView.center = arrowCenter;
     }
+    
+    self.arrowView.tintColor = self.stateLabel.textColor;
 }
 
 - (void)setState:(MJRefreshState)state
@@ -88,6 +98,9 @@
             [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
                 self.loadingView.alpha = 0.0;
             } completion:^(BOOL finished) {
+                // 防止动画结束后，状态已经不是MJRefreshStateIdle
+                if (self.state != MJRefreshStateIdle) return;
+                
                 self.loadingView.alpha = 1.0;
                 [self.loadingView stopAnimating];
                 
