@@ -94,7 +94,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/**/*.{h,m}"
   #spec.exclude_files = "ShelfMagnetic/Exclude"
 
-  spec.public_header_files = "Classes/**/*.h"
+  #spec.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
