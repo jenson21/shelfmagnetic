@@ -91,27 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  #spec.source_files  = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/**/*.{h,m}"
-  
-  spec.subspec "Category" do |s|
-       s.source_files = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/Category/*.{h,m}"
-  end
-  
-  spec.subspec "Request" do |s|
-       s.source_files = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/Request/*.{h,m}"
-  end
-  
-  spec.subspec "Model" do |s|
-       s.source_files = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/Model/*.{h,m}"
-  end
-  
-  spec.subspec "View" do |s|
-       s.source_files = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/View/*.{h,m}"
-  end
-  
-  spec.subspec "Controller" do |s|
-       s.source_files = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/Controller/*.{h,m}"
-  end
+  spec.source_files  = "ShelfMagnetic", "ShelfMagnetic/ShelfMagnetic/Class/**/*.{h,m}"
   
   #spec.exclude_files = "ShelfMagnetic/Exclude"
 
