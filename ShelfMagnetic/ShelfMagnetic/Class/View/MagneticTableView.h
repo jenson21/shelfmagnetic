@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSIndexPath (MagneticTableView)
 ///列
-@property (nonatomic) NSInteger column;
+@property (nonatomic, assign) NSInteger column;
 
 @end
 NS_ASSUME_NONNULL_END

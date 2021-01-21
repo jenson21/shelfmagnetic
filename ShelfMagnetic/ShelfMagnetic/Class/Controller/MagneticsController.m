@@ -170,7 +170,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
                                            swizzleSelector);
                 }
                 
-                swizzleSelector = @selector(Magnetics_viewDidDisappear:);
+                swizzleSelector = @selector(magnetics_viewDidDisappear:);
                 if (![superViewController respondsToSelector:swizzleSelector]) {
                     //为父控制器添加替换方法
                     runtimeAddMethod([superViewController class],
@@ -203,16 +203,16 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 #pragma mark - Runtime
 
-- (void)Magnetics_viewWillAppear:(BOOL)animated{
-    [self Magnetics_viewWillAppear:animated];
+- (void)magnetics_viewWillAppear:(BOOL)animated{
+    [self magnetics_viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kMagneticsSuperViewWillAppearNotification
                                                         object:self
                                                       userInfo:nil];
 }
 
-- (void)Magnetics_viewDidDisappear:(BOOL)animated{
-    [self Magnetics_viewDidDisappear:animated];
+- (void)magnetics_viewDidDisappear:(BOOL)animated{
+    [self magnetics_viewDidDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kMagneticsSuperViewDidDisappearNotification
                                                         object:self
