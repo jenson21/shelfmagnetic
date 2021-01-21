@@ -738,7 +738,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.7;
+				MARKETING_VERSION = 0.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagnetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -756,7 +756,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.7;
+				MARKETING_VERSION = 0.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = jenson.shelf.com.ShelfMagnetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
