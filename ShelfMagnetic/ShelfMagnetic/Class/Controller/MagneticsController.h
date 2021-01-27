@@ -72,6 +72,9 @@ typedef NS_ENUM(NSUInteger, MagneticsClearType) {
 ///使用默认错误提示,default YES
 @property (nonatomic, assign) BOOL enableNetworkError;
 
+/// 当前磁片加载完成
+@property (nonatomic, assign) BOOL currentMagneticsLoadFinish;
+
 ///请求磁片列表（继承实现）
 - (void)requestMagnetics;
 ///加载更多数据。默认回调磁片-didTriggerRequestMoreDataActionInMagneticsController协议，可继承重写事件。
@@ -106,6 +109,12 @@ typedef NS_ENUM(NSUInteger, MagneticsClearType) {
 @property (nonatomic, assign) BOOL enableTableBottomView;
 ///封底自定义视图。默认为nil，提示“没有更多了”+LOGO。
 @property (nonatomic) UIView *tableBottomCustomView;
+
+/* refresh */
+@property (nonatomic) UIRefreshControl *refreshControl;
+
+/* more */
+//@property (nonatomic) UIRefreshControl *moreControl;
 
 ///触发加载更多事件，启动加载动画
 - (void)triggerInfiniteScrollingAction;

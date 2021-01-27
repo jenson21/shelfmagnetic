@@ -7,7 +7,6 @@ target 'ShelfMagnetic' do
 
   # Pods for ShelfMagnetic
     pod 'AFNetworking'
-    pod 'MJRefresh'
 
   target 'ShelfMagneticTests' do
     inherit! :search_paths

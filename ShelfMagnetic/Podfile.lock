@@ -14,21 +14,17 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - MJRefresh (3.5.0)
 
 DEPENDENCIES:
   - AFNetworking
-  - MJRefresh
 
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - MJRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
 
-PODFILE CHECKSUM: e8ee282f34345445eade482d9b2a1f75891e4584
+PODFILE CHECKSUM: 1c099066449b11e0bc7bd1d67c42b09f2c3d9ff1
 
 COCOAPODS: 1.10.1

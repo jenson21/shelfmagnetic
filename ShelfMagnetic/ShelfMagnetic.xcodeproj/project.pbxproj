@@ -12,6 +12,7 @@
 		D131D77624C9D8330014ADCB /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D131D77524C9D8330014ADCB /* NSDate+Extension.m */; };
 		D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */; };
 		D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = D152165624B4875100B027C1 /* NSObject+Runtime.m */; };
+		D1A50B2925C1C9FD00D937E3 /* MagneticsMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A50B2825C1C9FD00D937E3 /* MagneticsMoreFooterView.m */; };
 		D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */; };
 		D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */; };
 		D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A37624B230E500DEB477 /* JEBaseLoadingView.m */; };
@@ -70,6 +71,8 @@
 		D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemoController.m; sourceTree = "<group>"; };
 		D152165524B4875100B027C1 /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		D152165624B4875100B027C1 /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+		D1A50B2725C1C9FD00D937E3 /* MagneticsMoreFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticsMoreFooterView.h; sourceTree = "<group>"; };
+		D1A50B2825C1C9FD00D937E3 /* MagneticsMoreFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticsMoreFooterView.m; sourceTree = "<group>"; };
 		D1B8A35224B1E6AD00DEB477 /* JEHttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JEHttpManager.h; sourceTree = "<group>"; };
 		D1B8A35324B1E6AD00DEB477 /* JEHttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JEHttpManager.m; sourceTree = "<group>"; };
 		D1B8A37324B230CF00DEB477 /* JEBaseEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JEBaseEmptyView.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				D1B8A37924B230E500DEB477 /* MagneticTableFooterView.m */,
 				D1B8A37324B230CF00DEB477 /* JEBaseEmptyView.h */,
 				D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */,
+				D1A50B2725C1C9FD00D937E3 /* MagneticsMoreFooterView.h */,
+				D1A50B2825C1C9FD00D937E3 /* MagneticsMoreFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 			files = (
 				D1B8A37524B230CF00DEB477 /* JEBaseEmptyView.m in Sources */,
 				D1F148FC24B9A7BF003F84B8 /* JELoadingManager.m in Sources */,
+				D1A50B2925C1C9FD00D937E3 /* MagneticsMoreFooterView.m in Sources */,
 				D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */,
 				D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */,
 				D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */,

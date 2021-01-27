@@ -29,7 +29,7 @@
 
 // 内容行高
 - (CGFloat)magneticsController:(MagneticController *)magneticsController rowHeightForMagneticContentAtIndex:(NSInteger)index{
-    return 200;
+    return 100;
 }
 
 //复用内容视图

@@ -9,9 +9,21 @@
 #import "MagneticsController.h"
 #import "NSObject+Runtime.h"
 #import "MagneticTableFooterView.h"
-#import <MJRefresh/MJRefresh.h>
 #import "JEBaseLoadingView.h"
 #import "JEHttpManager.h"
+#import "MagneticsMoreFooterView.h"
+
+#define kIsBangsScreen ({\
+    BOOL isBangsScreen = NO; \
+    if (@available(iOS 11.0, *)) { \
+    UIWindow *window = [[UIApplication sharedApplication].windows firstObject]; \
+    isBangsScreen = window.safeAreaInsets.bottom > 0; \
+    } \
+    isBangsScreen; \
+})
+
+#define kNavgationbarHeight     (kIsBangsScreen?88.0:64.0)
+#define kStatusBarHeight     (kIsBangsScreen?44.0:20.0)
 
 #define kTagTableBottomView     3527    //磁片封底视图标记
 
@@ -32,6 +44,9 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 /* Bottom */
 @property (nonatomic, assign) BOOL enableTableBottomView;  //显示表视图封底
 @property (nonatomic) UIView *tableBottomCustomView;       //封底自定义视图
+@property (nonatomic) UIRefreshControl *refreshControl;    //刷新
+//@property (nonatomic) UIControl *moreControl;       //更多
+
 @end
 
 @implementation MagneticsController
@@ -57,24 +72,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 - (void)loadView{
     [super loadView];
     
-    CGRect frame = self.view.bounds;
-    frame.size.width = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    _tableView = [[MagneticTableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    _tableView.magneticControllersArray = _magneticControllersArray;
-    _tableView.magneticsController = self;
-    
-    if (@available(iOS 11, *)) {
-        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        _tableView.estimatedRowHeight = 0;
-        _tableView.estimatedSectionHeaderHeight = 0;
-        _tableView.estimatedSectionFooterHeight = 0;
-    }
-    
-    [self.view addSubview:_tableView];
-    
+    [self.view addSubview:self.tableView];
     self.view.clipsToBounds = YES;
 }
 
@@ -83,20 +81,14 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
     //下拉刷新
-    if ((_refreshType & MagneticsRefreshTypePullToRefresh) && !_tableView.mj_header) {
-        __weak typeof(self) weakSelf = self;
-        _tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
-            [weakSelf requestMagnetics];
-        }];
+    if (_refreshType & MagneticsRefreshTypePullToRefresh) {
+        self.tableView.refreshControl = self.refreshControl;
     }
     
     //上拉加载更多
-    if ((_refreshType & MagneticsRefreshTypeInfiniteScrolling) && !_tableView.mj_footer) {
-        __weak typeof(self) weakSelf = self;
-        _tableView.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
-            [weakSelf requestMoreData];
-        }];
-    }
+//    if ((_refreshType & MagneticsRefreshTypeInfiniteScrolling) && !_tableView.tableFooterView) {
+//        self.tableView.tableFooterView = self.moreControl;
+//    }
 }
 
 - (void)dealloc{
@@ -105,8 +97,8 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     _tableView.delegate = nil;
     _tableView.dataSource = nil;
 
-    [_tableView.mj_header endRefreshing];
-    [_tableView.mj_footer endRefreshing];
+    [_tableView.refreshControl endRefreshing];
+//    [self.moreControl endRefreshing];
 }
 
 
@@ -118,26 +110,20 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         _refreshType = refreshType;
         //下拉刷新
         if (refreshType & MagneticsRefreshTypePullToRefresh) {
-            if (!self.tableView.mj_header && self.isViewLoaded) { //下拉刷新控件依赖于表视图的加载
-                __weak typeof(self) weakSelf = self;
-                _tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
-                    [weakSelf requestMagnetics];
-                }];
+            if (!self.tableView.refreshControl && self.isViewLoaded) { //下拉刷新控件依赖于表视图的加载
+                self.tableView.refreshControl = self.refreshControl;
             } else {
-                [_tableView.mj_header endRefreshing];
+                [self.tableView.refreshControl endRefreshing];
             }
 
             //上拉加载更多
-            if (refreshType & MagneticsRefreshTypeInfiniteScrolling) {
-                if (!self.tableView.mj_footer && self.isViewLoaded) { //上拉刷新控件依赖于表视图的加载
-                    __weak typeof(self) weakSelf = self;
-                    _tableView.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
-                        [weakSelf requestMoreData];
-                    }];
-                }
-            } else {
-                [_tableView.mj_footer endRefreshing];
-            }
+//            if (refreshType & MagneticsRefreshTypeInfiniteScrolling) {
+//                if (!self.tableView.tableFooterView && self.isViewLoaded) { //上拉刷新控件依赖于表视图的加载
+//                    _tableView.tableFooterView = self.moreControl;
+//                }
+//            } else {
+//                [self.moreControl endRefreshing];
+//            }
         }
     }
 }
@@ -155,7 +141,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         if (superViewClass && superViewClass != [UIViewController class] && superViewClass != [UINavigationController class]) { //不替换基础类的IMP实现
             //监控父控制器的页面显示/隐藏
             @synchronized(self) {
-                SEL swizzleSelector = @selector(Magnetics_viewWillAppear:);
+                SEL swizzleSelector = @selector(magnetics_viewWillAppear:);
                 if (![superViewController respondsToSelector:swizzleSelector]) {
                     //为父控制器添加替换方法
                     runtimeAddMethod([superViewController class],
@@ -255,7 +241,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         if (_enableNetworkError) {
             [self.view hideErrorView];
         }
-        [_tableView.mj_header beginRefreshing];
+        [_tableView.refreshControl beginRefreshing];
     } else {
         [self requestMagnetics];
     }
@@ -418,7 +404,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         && [_magneticsArray isEqualToArray:MagneticsArray]) { //数据未变更
         
         if (_refreshType & MagneticsRefreshTypePullToRefresh) { //下拉刷新
-            [_tableView.mj_header endRefreshing];
+            [_tableView.refreshControl endRefreshing];
         }
         return;
     }
@@ -460,7 +446,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         [_loadingView removeFromSuperview];
     }
     if (_refreshType & MagneticsRefreshTypePullToRefresh) { //下拉刷新
-        [_tableView.mj_header endRefreshing];
+        [_tableView.refreshControl endRefreshing];
     }
     
     [_tableView reloadData];
@@ -486,7 +472,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         [_loadingView removeFromSuperview];
     }
     if (_refreshType & MagneticsRefreshTypePullToRefresh) { //下拉刷新
-       [_tableView.mj_header endRefreshing];
+       [_tableView.refreshControl endRefreshing];
     }
     
     //显示错误提示视图
@@ -632,9 +618,9 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
 }
 
-
+#pragma mark Refresh
 - (void)triggerRefreshAction {
-    [_tableView.mj_header beginRefreshing];
+    
 }
 
 #pragma mark More
@@ -1071,12 +1057,12 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 //触发加载更多事件，启动加载动画
 - (void)triggerInfiniteScrollingAction{
-    [_tableView.mj_footer beginRefreshing];
+//    [self.moreControl beginRefreshing];
 }
 
 //完成加载更多事件，停止加载动画
 - (void)finishInfiniteScrollingAction{
-    [_tableView.mj_footer endRefreshing];
+//    [self.moreControl endRefreshing];
 }
 
 ///完成所有数据加载，设置
@@ -1085,5 +1071,50 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     MagneticsRefreshType refreshType = self.refreshType & (MagneticsRefreshTypePullToRefresh | MagneticsRefreshTypeLoadingView);
     self.refreshType = refreshType;
 }
+
+#pragma mark - sets/gets
+
+- (MagneticTableView *)tableView{
+    if (!_tableView) {
+        CGRect frame = self.view.bounds;
+        frame.size.width = MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        _tableView = [[MagneticTableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        _tableView.magneticControllersArray = _magneticControllersArray;
+        _tableView.magneticsController = self;
+        
+        if (@available(iOS 11, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            _tableView.estimatedRowHeight = 0;
+            _tableView.estimatedSectionHeaderHeight = 0;
+            _tableView.estimatedSectionFooterHeight = 0;
+        }
+    }
+    return _tableView;
+}
+
+- (UIRefreshControl *)refreshControl{
+    
+    if (!_refreshControl) {
+        _refreshControl = [[UIRefreshControl alloc] init];
+        _refreshControl.tintColor = [UIColor grayColor];
+        _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+        [_refreshControl addTarget:self action:@selector(triggerRefreshAction) forControlEvents:UIControlEventValueChanged];
+    }
+    return _refreshControl;
+}
+
+//- (UIControl *)moreControl{
+//
+//    if (!_moreControl) {
+//        _moreControl = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 100)];
+//        _moreControl.tintColor = [UIColor grayColor];
+//        _moreControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"加载更多"];
+//        [_moreControl addTarget:self action:@selector(requestMoreData) forControlEvents:UIControlEventTouchDragEnter];
+//    }
+//    return _moreControl;
+//}
 
 @end
