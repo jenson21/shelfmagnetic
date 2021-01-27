@@ -56,12 +56,7 @@ typedef NS_ENUM(NSUInteger, MagneticsClearType) {
 @end
 
 
-
-@class JEHttpManager;
-
 @interface MagneticsController (Request)
-
-@property (nonatomic) JEHttpManager *httpManager;
 
 ///磁片列表刷新方式
 @property (nonatomic) MagneticsRefreshType refreshType;

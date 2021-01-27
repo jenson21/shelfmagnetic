@@ -8,7 +8,6 @@
 
 #import "MagneticController.h"
 #import "MagneticsController.h"
-#import "JEHttpManager.h"
 
 @interface MagneticController ()
 
@@ -58,15 +57,6 @@
 
 
 #pragma mark - Lazy Loading
-
-- (JEHttpManager *)httpManager{
-    if (!_httpManager) {
-        _httpManager = [JEHttpManager sharedHttpManager];
-    }
-    return _httpManager;
-}
-
-
 
 #pragma mark Magnetic Content
 

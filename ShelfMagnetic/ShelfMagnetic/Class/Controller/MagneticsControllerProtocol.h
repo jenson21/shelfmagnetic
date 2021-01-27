@@ -10,6 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, RequestType) {
+    RequestTypeGet = 0,
+    RequestTypePost = 1,
+    RequestTypePut = 2,
+    RequestTypeDelete = 3,
+    RequestTypeHeade = 4
+};
+
 @class MagneticsController, MagneticTableView, MagneticPreviewItem;
 
 @protocol MagneticsControllerDelegate
@@ -210,8 +218,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 ///单磁片网络请求结束，包括成功or失败
 - (void)magneticRequestDidFinishInMagneticsController:(MagneticsController *)magneticsController;
-///网络请求类型，get or post  大小写均可,默认get
-- (NSString *)magneticRequestTypeInMagneticsController:(MagneticsController *)magneticsController;
+///网络请求类型，默认get
+- (RequestType)magneticRequestTypeInMagneticsController:(MagneticsController *)magneticsController;
 ///请求的url, 异步请求必须实现
 - (NSString *)magneticRequestURLInMagneticsController:(MagneticsController *)magneticsController;
 ///请求的参数

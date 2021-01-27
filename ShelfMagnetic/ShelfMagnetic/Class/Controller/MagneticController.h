@@ -10,13 +10,10 @@
 #import "MagneticContext.h"
 
 @class MagneticsController;
-@class JEHttpManager;
 
 @protocol MagneticControllerDelegate;
 
 @interface MagneticController : NSObject <MagneticsControllerDelegate>
-
-@property (nonatomic)                   JEHttpManager                   *httpManager;
 
 ///扩展控制器
 @property (nonatomic)                   MagneticController              *extensionController;

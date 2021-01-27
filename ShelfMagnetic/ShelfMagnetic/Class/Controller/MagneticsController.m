@@ -10,8 +10,8 @@
 #import "NSObject+Runtime.h"
 #import "MagneticTableFooterView.h"
 #import "JEBaseLoadingView.h"
-#import "JEHttpManager.h"
 #import "MagneticsMoreFooterView.h"
+#import "JEHttpManager.h"
 
 #define kIsBangsScreen ({\
     BOOL isBangsScreen = NO; \
@@ -36,7 +36,6 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 @property (nonatomic) JEBaseLoadingView *loadingView;
 /* Request */
-@property (nonatomic) JEHttpManager *httpManager;
 @property (nonatomic) MagneticsRefreshType refreshType;    //磁片列表刷新方式
 @property (nonatomic) MagneticsClearType clearType;        //磁片数据清除方式
 @property (nonatomic, assign) BOOL enableNetworkError;     //使用默认错误提示
@@ -60,13 +59,6 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         _enableNetworkError = YES;
     }
     return self;
-}
-
-- (JEHttpManager *)httpManager {
-    if (!_httpManager) {
-        _httpManager = [JEHttpManager sharedHttpManager];
-    }
-    return _httpManager;
 }
 
 - (void)loadView{
@@ -501,7 +493,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 //请求单磁片数据
 - (void)requestMagneticDataWithController:(MagneticController *)magneticController{
     __weak typeof(self) weakSelf = self;
-    NSString *type = @"get";
+    RequestType type = RequestTypeGet;
     if ([magneticController respondsToSelector:@selector(magneticRequestTypeInMagneticsController:)]) {
         type = [magneticController magneticRequestTypeInMagneticsController:self];
     }
@@ -522,46 +514,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         return;
     }
 
-    if ([[type lowercaseString] isEqualToString:@"get"]) {
-        [self.httpManager requestGet:url parameters:param success:^(id responseObject) {
-            if ([responseObject isKindOfClass:[NSDictionary class]]
-                && responseObject[@"errno"] && [responseObject[@"errno"] integerValue] == 0
-                && responseObject[@"data"]) {
-//                id model = [[modelClass alloc] initWithDictionary:responseObject[@"data"] error:nil];
-//                magneticController.magneticContext.json = model;
-                magneticController.magneticContext.magneticInfo = responseObject[@"data"];
-                [weakSelf magneticSeparateDataBeReady:magneticController.magneticContext];
-            }
-            else {
-                NSError *magneticError = [NSError errorWithDomain:@"MagneticError" code:MagneticErrorCodeFailed userInfo:nil];
-                [weakSelf magneticSeparateDataUnavailable:magneticController.magneticContext error:magneticError];
-            }
-
-        } failure:^(NSError *error) {
-            NSError *magneticError = [NSError errorWithDomain:@"MagneticError" code:MagneticErrorCodeNetwork userInfo:nil];
-            [weakSelf magneticSeparateDataUnavailable:magneticController.magneticContext error:magneticError];
-        }];
-    }
-    else {
-        [self.httpManager requestPost:url parameters:param success:^(id responseObject) {
-            if ([responseObject isKindOfClass:[NSDictionary class]]
-                && [responseObject[@"error"] integerValue] == 0
-                && responseObject[@"data"]) {
-//                id model = [[modelClass alloc] initWithDictionary:responseObject[@"data"] error:nil];
-//                magneticController.magneticContext.json = model;
-                magneticController.magneticContext.magneticInfo = responseObject[@"data"];
-                [weakSelf magneticSeparateDataBeReady:magneticController.magneticContext];
-            }
-            else {
-                NSError *magneticError = [NSError errorWithDomain:@"MagneticError" code:MagneticErrorCodeFailed userInfo:nil];
-                [weakSelf magneticSeparateDataUnavailable:magneticController.magneticContext error:magneticError];
-            }
-
-        } failure:^(NSError *error) {
-            NSError *magneticError = [NSError errorWithDomain:@"MagneticError" code:MagneticErrorCodeNetwork userInfo:nil];
-            [weakSelf magneticSeparateDataUnavailable:magneticController.magneticContext error:magneticError];
-        }];
-    }
+    [JEHttpManager requestType:type requestUrl:url parameters:param success:^(id  _Nonnull responseObject) {
+        magneticController.magneticContext.magneticInfo = responseObject;
+        [weakSelf magneticSeparateDataBeReady:magneticController.magneticContext];
+    } failure:^(id  _Nonnull error) {
+        NSError *magneticError = [NSError errorWithDomain:@"MagneticError" code:MagneticErrorCodeNetwork userInfo:nil];
+        [weakSelf magneticSeparateDataUnavailable:magneticController.magneticContext error:magneticError];
+    }];
     
 }
 
