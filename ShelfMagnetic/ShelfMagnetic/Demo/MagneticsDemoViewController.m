@@ -8,6 +8,21 @@
 
 #import "MagneticsDemoViewController.h"
 
+/// 是否刘海屏
+#define kIsBangsScreen ({\
+    BOOL isBangsScreen = NO; \
+    if (@available(iOS 11.0, *)) { \
+    UIWindow *window = [[UIApplication sharedApplication].windows firstObject]; \
+    isBangsScreen = window.safeAreaInsets.bottom > 0; \
+    } \
+    isBangsScreen; \
+})
+
+#define kTabbarHeight     (kIsBangsScreen?83.0:49.0)
+#define kNavgationbarHeight     (kIsBangsScreen?88.0:64.0)
+#define kStatusBarHeight     (kIsBangsScreen?44.0:20.0)
+#define kSafeAreaInsetsBottom     (kIsBangsScreen?34.0:0.0)
+
 @interface MagneticsDemoViewController ()
 
 @end
@@ -16,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.frame = CGRectMake(0, kNavgationbarHeight, self.view.bounds.size.width, self.view.bounds.size.height - kNavgationbarHeight);
     
     self.refreshType = MagneticsRefreshTypePullToRefresh | MagneticsRefreshTypeInfiniteScrolling;
     NSMutableArray *dataArr = [NSMutableArray array];
@@ -35,6 +52,12 @@
     context.type = MagneticTypeDemo3;
     context.json = @"THREE";
     [dataArr addObject:context];
+    
+    //demo4
+    context = [[MagneticContext alloc]init];
+    context.type = MagneticTypeDemo4;
+    [dataArr addObject:context];
+    
     /**
      dataArr add more VC
      */

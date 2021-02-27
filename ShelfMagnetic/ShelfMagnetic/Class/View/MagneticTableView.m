@@ -121,7 +121,7 @@
     
     //是否显示尾部视图
     magneticController.showMagneticFooter = NO;
-    if ([MagneticController respondsToSelector:@selector(magneticsController:shouldShowMagneticFooterInTableView:)]) {
+    if ([magneticController respondsToSelector:@selector(magneticsController:shouldShowMagneticFooterInTableView:)]) {
         magneticController.showMagneticFooter = [magneticController magneticsController:magneticsController shouldShowMagneticFooterInTableView:self];
     }
     if (magneticController.showMagneticError) { //显示错误视图时隐藏尾部视图
@@ -132,7 +132,7 @@
     magneticController.showMagneticSpacing = NO;
     
     CGFloat magneticSpacing = 0.0;
-    if ([MagneticController respondsToSelector:@selector(magneticsController:heightForMagneticSpacingInTableView:)]) {
+    if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticSpacingInTableView:)]) {
         magneticSpacing = [magneticController magneticsController:magneticsController heightForMagneticSpacingInTableView:self];
         if (magneticSpacing <= 0.1) {
             magneticSpacing = 0.0;

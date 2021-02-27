@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Shelfmagnetic"
-  spec.version      = "0.0.9"
+  spec.version      = "0.1.0"
   spec.summary      = "Shelfmagnetic"
 
   # This description is used to generate tags and improve search results.

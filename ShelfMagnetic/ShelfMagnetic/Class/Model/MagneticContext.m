@@ -66,6 +66,9 @@
             case MagneticTypeDemo3:
             className = @"MagneticDemo3Controller";
             break;
+            case MagneticTypeDemo4:
+            className = @"MagneticDemo4Controller";
+            break;
         default:
             break;
     }

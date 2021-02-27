@@ -830,8 +830,14 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         cell.exclusiveTouch = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.backgroundColor = [UIColor whiteColor];
-        cell.contentView.backgroundColor = [UIColor whiteColor];
+        if ([magneticController respondsToSelector:@selector(magneticsController:colorForMagneticBackgroundInTableView:)]) {
+            cell.backgroundColor = [magneticController magneticsController:self colorForMagneticBackgroundInTableView:tableView];
+            cell.contentView.backgroundColor = [magneticController magneticsController:self colorForMagneticBackgroundInTableView:tableView];
+
+        }else{
+            cell.backgroundColor = [UIColor whiteColor];
+            cell.contentView.backgroundColor = [UIColor whiteColor];
+        }
     }
     
     if (isMagneticSpacing) { //磁片间距
