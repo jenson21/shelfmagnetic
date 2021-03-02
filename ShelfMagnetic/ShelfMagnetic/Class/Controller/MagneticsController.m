@@ -13,18 +13,6 @@
 #import "MagneticsMoreFooterView.h"
 #import "JEHttpManager.h"
 
-#define kIsBangsScreen ({\
-    BOOL isBangsScreen = NO; \
-    if (@available(iOS 11.0, *)) { \
-    UIWindow *window = [[UIApplication sharedApplication].windows firstObject]; \
-    isBangsScreen = window.safeAreaInsets.bottom > 0; \
-    } \
-    isBangsScreen; \
-})
-
-#define kNavgationbarHeight     (kIsBangsScreen?88.0:64.0)
-#define kStatusBarHeight     (kIsBangsScreen?44.0:20.0)
-
 #define kTagTableBottomView     3527    //磁片封底视图标记
 
 //磁片父控制器将显示通知
@@ -81,6 +69,20 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 //    if ((_refreshType & MagneticsRefreshTypeInfiniteScrolling) && !_tableView.tableFooterView) {
 //        self.tableView.tableFooterView = self.moreControl;
 //    }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (!self.superViewController) {
+        [self receiveMagneticsSuperViewWillAppearNotification:nil];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    if (!self.superViewController) {
+        [self receiveMagneticsSuperViewDidDisappearNotification:nil];
+    }
 }
 
 - (void)dealloc{
@@ -419,6 +421,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     //执行磁片初始化监听（可能调用了UI刷新和数据请求，需在_magneticsArray和_magneticControllersArray赋值后调用）
     for (int i = 0; i < magneticControllersArray.count; i++) {
         MagneticController *magneticController = magneticControllersArray[i];
+        magneticController.magneticContext.isChange = YES;
         if ([magneticController respondsToSelector:@selector(didFinishInitConfigurationInMagneticsController:)]) {
             [magneticController didFinishInitConfigurationInMagneticsController:self];
         }
@@ -675,6 +678,12 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         for (NSUInteger i = 0; i < _magneticControllersArray.count; i++) {
             MagneticController *magneticController = _magneticControllersArray[i];
             if (magneticController.magneticContext.type == type) {
+                
+                if (magneticController.magneticContext.asyncLoad) {
+                    [self requestMagneticDataWithController:magneticController];
+                    return;
+                }
+                
                 [sections addIndex:i];
             }
         }
@@ -691,6 +700,12 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         for (int i = 0; i < _magneticControllersArray.count; i++) {
             MagneticController *magneticController = _magneticControllersArray[i];
             if (magneticController.magneticContext.type == type) {
+                
+                if (magneticController.magneticContext.asyncLoad) {
+                    [self requestMagneticDataWithController:magneticController];
+                    return;
+                }
+                
                 [sections addObject:@(i)];
             }
         }
@@ -707,7 +722,22 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 - (void)refreshMagneticWithType:(MagneticType)type json:(id)json {
+    NSMutableArray *sections = [NSMutableArray array];
+    for (int i = 0; i < _magneticControllersArray.count; i++) {
+        MagneticController *magneticController = _magneticControllersArray[i];
+        if (magneticController.magneticContext.type == type) {
+            [sections addObject:@(i)];
+            magneticController.magneticContext.json = json;
+            magneticController.magneticContext.isChange = YES;
+            if ([magneticController respondsToSelector:@selector(didFinishInitConfigurationInMagneticsController:)]) {
+                [magneticController didFinishInitConfigurationInMagneticsController:self];
+            }
+        }
+    }
     
+    if (sections.count > 0) {
+        [_tableView reloadSections:sections];
+    }
 }
 
 

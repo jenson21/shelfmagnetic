@@ -90,6 +90,8 @@ typedef NS_ENUM(NSInteger, MagneticErrorCode) {
 
 ///扩展控制器Class
 @property (nonatomic, copy) NSString *extensionClazz;
+// 数据源是否更改
+@property (nonatomic, assign) BOOL isChange;
 @end
 
 NS_ASSUME_NONNULL_END
