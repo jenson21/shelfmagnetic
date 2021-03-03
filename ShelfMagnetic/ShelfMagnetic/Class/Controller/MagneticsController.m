@@ -321,9 +321,9 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 #pragma mark Parser
 
 //解析磁片数据源，创建磁片控制器
-- (NSArray *)parseMagneticControllersWithMagneticsArray:(NSArray *)MagneticsArray{
+- (NSArray *)parseMagneticControllersWithMagneticsArray:(NSArray *)magneticsArray{
     NSMutableArray *magneticControllersArray = [NSMutableArray array];
-    for (MagneticContext *magneticContext in MagneticsArray) {
+    for (MagneticContext *magneticContext in magneticsArray) {
         //初始化磁片控制器
         Class class = NSClassFromString(magneticContext.clazz);
         if (![class isSubclassOfClass:[MagneticController class]]) {
@@ -392,10 +392,10 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //磁片列表请求成功
-- (void)requestMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray{
+- (void)requestMagneticsDidSucceedWithMagneticsArray:(NSArray *)magneticsArray{
     if (_magneticsArray.count
-        && MagneticsArray.count
-        && [_magneticsArray isEqualToArray:MagneticsArray]) { //数据未变更
+        && magneticsArray.count
+        && [_magneticsArray isEqualToArray:magneticsArray]) { //数据未变更
         
         if (_refreshType & MagneticsRefreshTypePullToRefresh) { //下拉刷新
             [_tableView.refreshControl endRefreshing];
@@ -412,11 +412,11 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
     
     //解析数据源
-    NSArray *magneticControllersArray = [self parseMagneticControllersWithMagneticsArray:MagneticsArray];
+    NSArray *magneticControllersArray = [self parseMagneticControllersWithMagneticsArray:magneticsArray];
     
     //更新数据源
     _magneticControllersArray.array = magneticControllersArray;
-    _magneticsArray.array = MagneticsArray;
+    _magneticsArray.array = magneticsArray;
     
     //执行磁片初始化监听（可能调用了UI刷新和数据请求，需在_magneticsArray和_magneticControllersArray赋值后调用）
     for (int i = 0; i < magneticControllersArray.count; i++) {
@@ -636,32 +636,32 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 #pragma mark - MagneticControllerDelegate
 
-- (void)addSectionWithType:(MagneticType)MagneticType
-           withMagneticContext:(MagneticContext *)MagneticContext
+- (void)addSectionWithType:(MagneticType)magneticType
+           withMagneticContext:(MagneticContext *)magneticContext
         withMagneticController:(MagneticController *)magneticController
                  withIndex:(NSUInteger)index
              withAnimation:(UITableViewRowAnimation)animation{
     NSMutableIndexSet *sections = [NSMutableIndexSet indexSet];
-    [self.magneticsArray insertObject:MagneticContext atIndex:index];
+    [self.magneticsArray insertObject:magneticContext atIndex:index];
     [self.magneticControllersArray insertObject:magneticController atIndex:index];
     //计算需要操作的section
     for (NSUInteger i = 0; i < self.magneticControllersArray.count; i++) {
         MagneticController *magneticController = self.magneticControllersArray[i];
-        if (magneticController.magneticContext.type == MagneticType) {
+        if (magneticController.magneticContext.type == magneticType) {
             [sections addIndex:i];
         }
     }
     [self.tableView insertSections:sections withRowAnimation:animation];
 }
 
-- (void)deleteSectionWithType:(MagneticType)MagneticType
+- (void)deleteSectionWithType:(MagneticType)magneticType
                     withIndex:(NSUInteger)index
                 withAnimation:(UITableViewRowAnimation)animation{
     NSMutableIndexSet *sections = [NSMutableIndexSet indexSet];
     //计算需要操作的section
     for (NSUInteger i = 0; i < self.magneticControllersArray.count; i++) {
         MagneticController *magneticController = self.magneticControllersArray[i];
-        if (magneticController.magneticContext.type == MagneticType) {
+        if (magneticController.magneticContext.type == magneticType) {
             [sections addIndex:i];
         }
     }
