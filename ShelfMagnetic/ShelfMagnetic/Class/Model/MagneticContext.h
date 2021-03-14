@@ -78,7 +78,7 @@ typedef NS_ENUM(NSInteger, MagneticErrorCode) {
 @property (nonatomic) id json;
 
 ///错误
-@property (nonatomic) NSError *error;
+@property (nonatomic) NSError * __nullable error;
 
 /**
  *  Extension
