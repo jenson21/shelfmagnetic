@@ -58,7 +58,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//    self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
     //下拉刷新
     if (_refreshType & MagneticsRefreshTypePullToRefresh) {
@@ -1085,6 +1085,8 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
             _tableView.estimatedRowHeight = 0;
             _tableView.estimatedSectionHeaderHeight = 0;
             _tableView.estimatedSectionFooterHeight = 0;
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = NO;
         }
     }
     return _tableView;
