@@ -53,10 +53,10 @@ typedef NS_ENUM(NSInteger, MagneticErrorCode) {
 @property (nonatomic, copy) NSString *clazz;
 
 ///组件id
-@property (nonatomic, copy) NSString *MagneticId;
+@property (nonatomic, copy) NSString *magneticId;
 
 ///磁片顺序
-@property (nonatomic, assign) NSInteger MagneticIndex;
+@property (nonatomic, assign) NSInteger magneticIndex;
 
 ///是否支持加载更多
 @property (nonatomic, assign) BOOL hasMore;

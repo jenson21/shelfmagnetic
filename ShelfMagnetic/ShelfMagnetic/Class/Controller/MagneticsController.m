@@ -529,16 +529,16 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 //单磁片请求成功回调
 - (void)magneticSeparateDataBeReady:(MagneticContext *)magneticContext{
-    NSUInteger MagneticIndex = [_magneticsArray indexOfObject:magneticContext];
-    if (MagneticIndex != NSNotFound && MagneticIndex < _magneticControllersArray.count) {
+    NSUInteger magneticIndex = [_magneticsArray indexOfObject:magneticContext];
+    if (magneticIndex != NSNotFound && magneticIndex < _magneticControllersArray.count) {
         [self requestMagneticDataDidSucceedWithMagneticContext:magneticContext];
     }
 }
 
 //单磁片请求失败回调
 - (void)magneticSeparateDataUnavailable:(MagneticContext *)magneticContext error:(NSError *)error{
-    NSUInteger MagneticIndex = [_magneticsArray indexOfObject:magneticContext];
-    if (MagneticIndex != NSNotFound && MagneticIndex < _magneticControllersArray.count) {
+    NSUInteger magneticIndex = [_magneticsArray indexOfObject:magneticContext];
+    if (magneticIndex != NSNotFound && magneticIndex < _magneticControllersArray.count) {
         [self requestMagneticDataDidFailWithMagneticContext:magneticContext error:error];
     }
 }
