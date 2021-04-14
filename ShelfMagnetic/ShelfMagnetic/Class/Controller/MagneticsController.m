@@ -599,19 +599,19 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 }
 
 //加载更多磁片
-- (void)requestMoreMagneticsDidSucceedWithMagneticsArray:(NSArray *)MagneticsArray{
-    if (!MagneticsArray.count) return;
+- (void)requestMoreMagneticsDidSucceedWithMagneticsArray:(NSArray *)magneticsArray{
+    if (!magneticsArray.count) return;
     
     //记录参数
     NSMutableArray *sections = [NSMutableArray array]; //新增磁片对应的sections
     NSInteger startSection = _magneticsArray.count;
     
     //解析数据源
-    NSArray *magneticControllersArray = [self parseMagneticControllersWithMagneticsArray:MagneticsArray];
+    NSArray *magneticControllersArray = [self parseMagneticControllersWithMagneticsArray:magneticsArray];
     
     //更新数据源
     [_magneticControllersArray addObjectsFromArray:magneticControllersArray];
-    [_magneticsArray addObjectsFromArray:MagneticsArray];
+    [_magneticsArray addObjectsFromArray:magneticsArray];
     
     //执行磁片初始化监听（可能调用了UI刷新和数据请求，需在_magneticsArray和_magneticControllersArray赋值后调用）
     for (int i = 0; i < magneticControllersArray.count; i++) {
