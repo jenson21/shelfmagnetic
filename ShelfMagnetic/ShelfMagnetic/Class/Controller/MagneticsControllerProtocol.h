@@ -145,6 +145,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
 ///磁片颜色。
 - (UIColor *)magneticsController:(MagneticsController *)magneticsController colorForMagneticBackgroundInTableView:(MagneticTableView *)tableView;
 
+///是否展示磁片背景(内容区域)
+- (BOOL)magneticsController:(MagneticsController *)magneticsController isShowMagneticBackground:(UIView *)magneticBackground aTableView:(MagneticTableView *)tableView;
 
 
 /**

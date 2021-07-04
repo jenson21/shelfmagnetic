@@ -25,6 +25,9 @@
 		D1B8A3A324B235AC00DEB477 /* MagneticController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A39F24B235AC00DEB477 /* MagneticController.m */; };
 		D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A524B2371A00DEB477 /* MagneticsController.m */; };
 		D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */; };
+		D1C7D44F26920BCB009A0ADB /* MagneticTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C7D44E26920BCB009A0ADB /* MagneticTableViewCell.m */; };
+		D1C7D45226920E2E009A0ADB /* MagneticDemo5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C7D45126920E2E009A0ADB /* MagneticDemo5Controller.m */; };
+		D1C7D45626920E80009A0ADB /* MagneticDemo5TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C7D45526920E80009A0ADB /* MagneticDemo5TableViewCell.m */; };
 		D1D23F2E25B7174F00E4BB2D /* MagneticsDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D23F2D25B7174F00E4BB2D /* MagneticsDemoViewController.m */; };
 		D1D23F3125B7277D00E4BB2D /* MagneticDemo2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D23F3025B7277D00E4BB2D /* MagneticDemo2Controller.m */; };
 		D1D23F3425B7279900E4BB2D /* MagneticDemo3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D23F3325B7279900E4BB2D /* MagneticDemo3Controller.m */; };
@@ -99,6 +102,12 @@
 		D1B8A3A624B2371A00DEB477 /* MagneticsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsController.h; sourceTree = "<group>"; };
 		D1B8A3A824B2377A00DEB477 /* MagneticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticTableView.h; sourceTree = "<group>"; };
 		D1B8A3A924B2377A00DEB477 /* MagneticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticTableView.m; sourceTree = "<group>"; };
+		D1C7D44D26920BCB009A0ADB /* MagneticTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticTableViewCell.h; sourceTree = "<group>"; };
+		D1C7D44E26920BCB009A0ADB /* MagneticTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticTableViewCell.m; sourceTree = "<group>"; };
+		D1C7D45026920E2E009A0ADB /* MagneticDemo5Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemo5Controller.h; sourceTree = "<group>"; };
+		D1C7D45126920E2E009A0ADB /* MagneticDemo5Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemo5Controller.m; sourceTree = "<group>"; };
+		D1C7D45426920E80009A0ADB /* MagneticDemo5TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemo5TableViewCell.h; sourceTree = "<group>"; };
+		D1C7D45526920E80009A0ADB /* MagneticDemo5TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagneticDemo5TableViewCell.m; sourceTree = "<group>"; };
 		D1D23F2C25B7174F00E4BB2D /* MagneticsDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagneticsDemoViewController.h; sourceTree = "<group>"; };
 		D1D23F2D25B7174F00E4BB2D /* MagneticsDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagneticsDemoViewController.m; sourceTree = "<group>"; };
 		D1D23F2F25B7277D00E4BB2D /* MagneticDemo2Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagneticDemo2Controller.h; sourceTree = "<group>"; };
@@ -211,9 +220,19 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		D1C7D45326920E4D009A0ADB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1C7D45426920E80009A0ADB /* MagneticDemo5TableViewCell.h */,
+				D1C7D45526920E80009A0ADB /* MagneticDemo5TableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D1D23F2B25B7172800E4BB2D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				D1C7D45326920E4D009A0ADB /* View */,
 				D1411D2124B5EA53000A0C53 /* MagneticDemoController.h */,
 				D1411D2224B5EA53000A0C53 /* MagneticDemoController.m */,
 				D1D23F2F25B7277D00E4BB2D /* MagneticDemo2Controller.h */,
@@ -222,6 +241,8 @@
 				D1D23F3325B7279900E4BB2D /* MagneticDemo3Controller.m */,
 				D140D48825EA78FB008650D5 /* MagneticDemo4Controller.h */,
 				D140D48925EA78FB008650D5 /* MagneticDemo4Controller.m */,
+				D1C7D45026920E2E009A0ADB /* MagneticDemo5Controller.h */,
+				D1C7D45126920E2E009A0ADB /* MagneticDemo5Controller.m */,
 				D1D23F2C25B7174F00E4BB2D /* MagneticsDemoViewController.h */,
 				D1D23F2D25B7174F00E4BB2D /* MagneticsDemoViewController.m */,
 				D1A50B2A25C1DCC900D937E3 /* MagneticDemoRequest.h */,
@@ -319,6 +340,8 @@
 				D1B8A37424B230CF00DEB477 /* JEBaseEmptyView.m */,
 				D1A50B2725C1C9FD00D937E3 /* MagneticsMoreFooterView.h */,
 				D1A50B2825C1C9FD00D937E3 /* MagneticsMoreFooterView.m */,
+				D1C7D44D26920BCB009A0ADB /* MagneticTableViewCell.h */,
+				D1C7D44E26920BCB009A0ADB /* MagneticTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -557,12 +580,14 @@
 				D1B8A3A724B2371A00DEB477 /* MagneticsController.m in Sources */,
 				D1B8A35424B1E6AD00DEB477 /* JEHttpManager.m in Sources */,
 				D1B8A37E24B230E500DEB477 /* JEBaseLoadingView.m in Sources */,
+				D1C7D44F26920BCB009A0ADB /* MagneticTableViewCell.m in Sources */,
 				D1D23F3425B7279900E4BB2D /* MagneticDemo3Controller.m in Sources */,
 				D1411D2324B5EA53000A0C53 /* MagneticDemoController.m in Sources */,
 				D1D9E7FA2483D0C400F2957A /* ViewController.m in Sources */,
 				D1D9E7F42483D0C400F2957A /* AppDelegate.m in Sources */,
 				D140D48A25EA78FB008650D5 /* MagneticDemo4Controller.m in Sources */,
 				D1D9E8052483D0C500F2957A /* main.m in Sources */,
+				D1C7D45626920E80009A0ADB /* MagneticDemo5TableViewCell.m in Sources */,
 				D1B8A3AA24B2377A00DEB477 /* MagneticTableView.m in Sources */,
 				D1A50B2C25C1DCCA00D937E3 /* MagneticDemoRequest.m in Sources */,
 				D1D23F3125B7277D00E4BB2D /* MagneticDemo2Controller.m in Sources */,
@@ -573,6 +598,7 @@
 				D152165724B4875100B027C1 /* NSObject+Runtime.m in Sources */,
 				D1B8A39424B234F400DEB477 /* MagneticErrorCell.m in Sources */,
 				D1D9E7F72483D0C400F2957A /* SceneDelegate.m in Sources */,
+				D1C7D45226920E2E009A0ADB /* MagneticDemo5Controller.m in Sources */,
 				D1D23F2E25B7174F00E4BB2D /* MagneticsDemoViewController.m in Sources */,
 				D1B8A38424B230EF00DEB477 /* MagneticContext.m in Sources */,
 			);

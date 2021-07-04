@@ -38,7 +38,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.text = self.magneticContext.json;
     label.backgroundColor = [UIColor magentaColor];
-    [cell addSubview:label];
+    [cell.contentView addSubview:label];
 }
 
 ///磁片间距大小。默认为10.0，当高度为0.0时无间距（不占用cell）。

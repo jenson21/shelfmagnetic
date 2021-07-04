@@ -58,6 +58,12 @@
     context.type = MagneticTypeDemo4;
     [dataArr addObject:context];
     
+    //demo5
+    context = [[MagneticContext alloc]init];
+    context.type = MagneticTypeDemo5;
+    context.json = @"FIVE";
+    [dataArr addObject:context];
+    
     /**
      dataArr add more VC
      */

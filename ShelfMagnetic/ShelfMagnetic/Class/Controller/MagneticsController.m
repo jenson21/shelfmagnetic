@@ -8,10 +8,11 @@
 
 #import "MagneticsController.h"
 #import "NSObject+Runtime.h"
-#import "MagneticTableFooterView.h"
-#import "JEBaseLoadingView.h"
-#import "MagneticsMoreFooterView.h"
 #import "JEHttpManager.h"
+#import "JEBaseLoadingView.h"
+#import "MagneticTableFooterView.h"
+#import "MagneticsMoreFooterView.h"
+#import "MagneticTableViewCell.h"
 
 #define kTagTableBottomView     3527    //磁片封底视图标记
 
@@ -746,7 +747,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     NSArray *visibleCells = [self.tableView visibleCells];
-    for (UITableViewCell *visibleCell in visibleCells) {
+    for (MagneticTableViewCell *visibleCell in visibleCells) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:visibleCell];
         MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
         
@@ -805,7 +806,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     Class class = nil;
     NSString *identifier = nil;
     if (isMagneticSpacing) { //磁片间距
-        class = [UITableViewCell class];
+        class = [MagneticTableViewCell class];
         identifier = @"MagneticSpacingCell";
     } else if (isMagneticHeader) { //头部视图
         if ([magneticController respondsToSelector:@selector(magneticsController:cellClassForMagneticHeaderInTableView:)]) {
@@ -847,13 +848,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     }
     
     if (!class) {
-        class = [UITableViewCell class];
+        class = [MagneticTableViewCell class];
     }
     if (!identifier.length) {
         identifier = [NSString stringWithFormat:@"%@_%ld", NSStringFromClass(class), (long)magneticController.magneticContext.type]; //同类磁片内部复用cell
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MagneticTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[class alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.clipsToBounds = YES;
@@ -896,6 +897,17 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
             } else { //磁片扩展
                 NSInteger rowIndex = indexPath.row - magneticController.extensionRowIndex; //数据源对应的index
                 [magneticController.extensionController magneticsController:self reuseCell:cell forMagneticContentAtIndex:rowIndex];
+            }
+            
+            if ([magneticController respondsToSelector:@selector(magneticsController:isShowMagneticBackground:aTableView:)]) {
+                CGFloat height = (indexPath.row < magneticController.rowHeightsCache.count) ? ceil([magneticController.rowHeightsCache[indexPath.row] floatValue]) : 0.0;
+                cell.magneticBackground.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, height);
+                cell.magneticBackground.backgroundColor = UIColor.whiteColor;
+                cell.magneticBackground.hidden = ![magneticController magneticsController:self isShowMagneticBackground:cell.magneticBackground aTableView:tableView];
+                if (!cell.magneticBackground.hidden) {
+                    cell.backgroundColor = [UIColor clearColor];
+                    cell.contentView.backgroundColor = [UIColor clearColor];
+                }
             }
         }
     }
