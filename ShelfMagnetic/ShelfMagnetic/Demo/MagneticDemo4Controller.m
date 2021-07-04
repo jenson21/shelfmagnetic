@@ -22,6 +22,21 @@
 #pragma mark - Magnetic Content
 
 /**
+ * Magnetic Spacing
+ * @brief 磁片头部间距
+ */
+
+///磁片头部间距大小。默认为0.0，当高度为0.0时无间距（不占用cell）。
+- (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticHeaderSpacingInTableView:(MagneticTableView *)tableView{
+    return 20;
+}
+
+///磁片头部间距颜色。默认为透明。
+- (UIColor *)magneticsController:(MagneticsController *)magneticsController colorForMagneticHeaderSpacingInTableView:(MagneticTableView *)tableView{
+    return [UIColor lightTextColor];
+}
+
+/**
  * Magnetic Header
  * @brief 磁片头部
  */
@@ -59,6 +74,11 @@
 
 - (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticSpacingInTableView:(MagneticTableView *)tableView{
     return 0;
+}
+
+///内容视图Class。默认为UITableViewCell。
+- (Class)magneticsController:(MagneticsController *)magneticsController cellClassForMagneticContentAtIndex:(NSInteger)index{
+    return UITableViewCell.class;
 }
 
 #pragma mark - MagneticCollectionControllerProtocol

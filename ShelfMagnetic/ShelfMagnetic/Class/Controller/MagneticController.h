@@ -58,7 +58,10 @@
 ///是否显示尾部视图
 @property (nonatomic, assign)           BOOL        showMagneticFooter;
 
-///是否显示磁片间距
+///是否显示磁片头部间距
+@property (nonatomic, assign)           BOOL        showMagneticHeaderSpacing;
+
+///是否显示磁片底部间距
 @property (nonatomic, assign)           BOOL        showMagneticSpacing;
 
 ///行数缓存

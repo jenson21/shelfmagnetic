@@ -128,7 +128,21 @@
         magneticController.showMagneticFooter = NO;
     }
     
-    //是否显示磁片间距
+    //是否显示磁片头部间距
+    magneticController.showMagneticHeaderSpacing = NO;
+    
+    CGFloat magneticHeaderSpacing = 0.0;
+    if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticHeaderSpacingInTableView:)]) {
+        magneticHeaderSpacing = [magneticController magneticsController:magneticsController heightForMagneticHeaderSpacingInTableView:self];
+        if (magneticHeaderSpacing <= 0.1) {
+            magneticHeaderSpacing = 0.0;
+        }
+    }
+    if (magneticHeaderSpacing > 0.0) {
+        magneticController.showMagneticHeaderSpacing = YES;
+    }
+    
+    //是否显示磁片底部间距
     magneticController.showMagneticSpacing = NO;
     
     CGFloat magneticSpacing = 0.0;
@@ -156,7 +170,7 @@
         }
         
         //扩展行数
-        magneticController.extensionRowIndex = rowCount + (magneticController.showMagneticHeader ? 1 : 0);
+        magneticController.extensionRowIndex = rowCount + (magneticController.showMagneticHeader ? 1 : 0) + (magneticController.showMagneticHeaderSpacing ? 1 : 0);
         
         if (!magneticController.isFold) { //折叠状态不显示扩展区
             count = [magneticController.extensionController magneticsController:magneticsController rowCountForMagneticContentInTableView:self];
@@ -170,6 +184,7 @@
         if (magneticController.showMagneticHeader)  rowCount++; //显示头部视图
         if (magneticController.showMagneticFooter)  rowCount++; //显示尾部视图
         if (magneticController.showMagneticSpacing) rowCount++; //显示磁片间距
+        if (magneticController.showMagneticHeaderSpacing) rowCount++;//显示磁片头部间距
     }
     magneticController.rowCountCache = rowCount;
     
@@ -178,6 +193,7 @@
     for (int row = 0; row < rowCount; row++) {
         CGFloat rowHeight = 0.0;
         
+        BOOL isMagneticHeaderSpacing = (magneticController.showMagneticHeaderSpacing && row == 0); //磁片头部间距
         BOOL isMagneticSpacing = (magneticController.showMagneticSpacing && row == rowCount - 1); //磁片间距
         BOOL isMagneticHeader = (magneticController.showMagneticHeader && row == 0); //头部视图
         BOOL isMagneticFooter = NO; //尾部视图
@@ -190,7 +206,9 @@
             }
         }
         
-        if (isMagneticSpacing) { //磁片间距
+        if(isMagneticHeaderSpacing) { //磁片头部间距
+            rowHeight = magneticHeaderSpacing;
+        } else if (isMagneticSpacing) { //磁片间距
             rowHeight = magneticSpacing;
         } else if (isMagneticHeader) { //头部视图
             if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticHeaderInTableView:)]) {

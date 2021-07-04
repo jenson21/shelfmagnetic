@@ -249,6 +249,11 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     return (index < _magneticControllersArray.count) ? _magneticControllersArray[index] : nil;
 }
 
+//是否为磁片头部间距
+- (BOOL)isMagneticHeaderSpacing:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
+    return (magneticController.showMagneticHeaderSpacing && indexPath && indexPath.row == 0);
+}
+
 //是否为磁片间距
 - (BOOL)isMagneticSpacing:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
     return (magneticController.showMagneticSpacing && indexPath && indexPath.row == magneticController.rowCountCache - 1);
@@ -256,6 +261,10 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 
 //是否为磁片头部
 - (BOOL)isMagneticHeader:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
+    
+    if (magneticController.showMagneticHeaderSpacing) {
+        return (magneticController.showMagneticHeader && indexPath && indexPath.row == 1);
+    }
     return (magneticController.showMagneticHeader && indexPath && indexPath.row == 0);
 }
 
@@ -277,6 +286,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
 - (BOOL)isValidMagneticContent:(MagneticController *)magneticController atIndexPath:(NSIndexPath *)indexPath{
     if (!magneticController || !indexPath) return NO;
     
+    if ([self isMagneticHeaderSpacing:magneticController atIndexPath:indexPath]) return NO; //磁片头部间距
     if ([self isMagneticSpacing:magneticController atIndexPath:indexPath]) return NO; //磁片间距
     if ([self isMagneticHeader:magneticController atIndexPath:indexPath]) return NO; //头部视图
     if ([self isMagneticFooter:magneticController atIndexPath:indexPath]) return NO; //尾部视图
@@ -798,6 +808,7 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
+    BOOL isMagneticHeaderSpacing = [self isMagneticHeaderSpacing:magneticController atIndexPath:indexPath]; //磁片头部间距
     BOOL isMagneticSpacing = [self isMagneticSpacing:magneticController atIndexPath:indexPath]; //磁片间距
     BOOL isMagneticHeader = [self isMagneticHeader:magneticController atIndexPath:indexPath]; //头部视图
     BOOL isMagneticFooter = [self isMagneticFooter:magneticController atIndexPath:indexPath]; //尾部视图
@@ -805,6 +816,10 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     //复用参数
     Class class = nil;
     NSString *identifier = nil;
+    if (isMagneticHeaderSpacing) {//磁片头部间距
+        class = [MagneticTableViewCell class];
+        identifier = @"MagneticHeaderSpacingCell";
+    } else
     if (isMagneticSpacing) { //磁片间距
         class = [MagneticTableViewCell class];
         identifier = @"MagneticSpacingCell";
@@ -870,8 +885,14 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
             cell.contentView.backgroundColor = [UIColor whiteColor];
         }
     }
-    
-    if (isMagneticSpacing) { //磁片间距
+    if (isMagneticHeaderSpacing) {//磁片头部间距
+        UIColor *backgroundColor = [UIColor clearColor];
+        if ([magneticController respondsToSelector:@selector(magneticsController:colorForMagneticHeaderSpacingInTableView:)]) {
+            backgroundColor = [magneticController magneticsController:self colorForMagneticHeaderSpacingInTableView:tableView];
+        }
+        cell.backgroundColor = backgroundColor;
+        cell.contentView.backgroundColor = backgroundColor;
+    } else if (isMagneticSpacing) { //磁片间距
         UIColor *backgroundColor = [UIColor clearColor];
         if ([magneticController respondsToSelector:@selector(magneticsController:colorForMagneticSpacingInTableView:)]) {
             backgroundColor = [magneticController magneticsController:self colorForMagneticSpacingInTableView:tableView];
@@ -919,12 +940,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
+    BOOL isMagneticHeaderSpacing = [self isMagneticHeaderSpacing:magneticController atIndexPath:indexPath]; //磁片头部间距
     BOOL isMagneticSpacing = [self isMagneticSpacing:magneticController atIndexPath:indexPath]; //磁片间距
     BOOL isMagneticHeader = [self isMagneticHeader:magneticController atIndexPath:indexPath]; //头部视图
     BOOL isMagneticFooter = [self isMagneticFooter:magneticController atIndexPath:indexPath]; //尾部视图
     
     //磁片回调
-    if (!isMagneticSpacing && !isMagneticHeader && !isMagneticFooter && !magneticController.showMagneticError) { //数据源
+    if (!isMagneticHeaderSpacing && !isMagneticSpacing && !isMagneticHeader && !isMagneticFooter && !magneticController.showMagneticError) { //数据源
         if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
             if ([magneticController respondsToSelector:@selector(magneticsController:willDisplayCell:forMagneticContentAtIndex:)]) {
                 NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
@@ -947,12 +969,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
+    BOOL isMagneticHeaderSpacing = [self isMagneticHeaderSpacing:magneticController atIndexPath:indexPath]; //磁片头部间距
     BOOL isMagneticSpacing = [self isMagneticSpacing:magneticController atIndexPath:indexPath]; //磁片间距
     BOOL isMagneticHeader = [self isMagneticHeader:magneticController atIndexPath:indexPath]; //头部视图
     BOOL isMagneticFooter = [self isMagneticFooter:magneticController atIndexPath:indexPath]; //尾部视图
     
     //磁片回调
-    if (!isMagneticSpacing && !isMagneticHeader && !isMagneticFooter && !magneticController.showMagneticError) { //数据源
+    if (!isMagneticHeaderSpacing && !isMagneticSpacing && !isMagneticHeader && !isMagneticFooter && !magneticController.showMagneticError) { //数据源
         if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
             if ([magneticController respondsToSelector:@selector(magneticsController:didEndDisplayingCell:forMagneticContentAtIndex:)]) {
                 NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
@@ -976,12 +999,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     MagneticController *magneticController = [self magneticControllerAtIndex:indexPath.section];
     
     //布局参数
+    BOOL isMagneticHeaderSpacing = [self isMagneticHeaderSpacing:magneticController atIndexPath:indexPath]; //磁片头部间距
     BOOL isMagneticSpacing = [self isMagneticSpacing:magneticController atIndexPath:indexPath]; //磁片间距
     BOOL isMagneticHeader = [self isMagneticHeader:magneticController atIndexPath:indexPath]; //头部视图
     BOOL isMagneticFooter = [self isMagneticFooter:magneticController atIndexPath:indexPath]; //尾部视图
     
     //点击事件
-    if (isMagneticSpacing) { //磁片间距
+    if (isMagneticSpacing || isMagneticHeaderSpacing) { //磁片间距
         //无效点击
     } else if (isMagneticHeader) { //头部视图
         if ([magneticController respondsToSelector:@selector(magneticsController:didSelectMagneticHeaderInTableView:)]) {

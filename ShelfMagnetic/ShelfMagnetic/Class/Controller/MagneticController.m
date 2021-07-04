@@ -15,6 +15,7 @@
 @property (nonatomic, assign) BOOL showMagneticError;
 @property (nonatomic, assign) BOOL showMagneticHeader;
 @property (nonatomic, assign) BOOL showMagneticFooter;
+@property (nonatomic, assign) BOOL showMagneticHeaderSpacing;
 @property (nonatomic, assign) BOOL showMagneticSpacing;
 @property (nonatomic, assign) NSInteger rowCountCache;
 @property (nonatomic, assign) NSInteger extensionRowIndex;
@@ -76,6 +77,11 @@
 }
 
 #pragma mark Magnetic Spacing
+
+//磁片头部间距
+- (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticHeaderSpacingInTableView:(MagneticTableView *)tableView{
+    return 0.0;
+}
 
 //磁片底部间距
 - (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticSpacingInTableView:(MagneticTableView *)tableView{

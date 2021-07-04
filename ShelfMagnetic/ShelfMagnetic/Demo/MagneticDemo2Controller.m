@@ -17,6 +17,46 @@
     
 }
 
+/**
+ * Magnetic Spacing
+ * @brief 磁片头部间距
+ */
+
+///磁片头部间距大小。默认为0.0，当高度为0.0时无间距（不占用cell）。
+- (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticHeaderSpacingInTableView:(MagneticTableView *)tableView{
+    return 20;
+}
+
+///磁片头部间距颜色。默认为透明。
+- (UIColor *)magneticsController:(MagneticsController *)magneticsController colorForMagneticHeaderSpacingInTableView:(MagneticTableView *)tableView{
+    return [UIColor lightTextColor];
+}
+
+/**
+ * Magnetic Header
+ * @brief 磁片头部
+ */
+
+///是否显示头部视图。默认为NO。
+- (BOOL)magneticsController:(MagneticsController *)magneticsController shouldShowMagneticHeaderInTableView:(MagneticTableView *)tableView{
+    return YES;
+}
+
+///头部行高
+- (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticHeaderInTableView:(MagneticTableView *)tableView{
+    return 10;
+}
+
+///复用头部视图
+- (void)magneticsController:(MagneticsController *)magneticsController reuseCell:(UITableViewCell *)cell forMagneticHeaderInTableView:(MagneticTableView *)tableView{
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 10)];
+    title.font = [UIFont boldSystemFontOfSize:10];
+    title.textColor = [UIColor blackColor];
+    title.text = @"TWO";
+    title.textAlignment = NSTextAlignmentCenter;
+    [cell.contentView addSubview:title];
+}
+
 #pragma mark - Magnetic Content
 - (UIColor *)magneticsController:(MagneticController *)magneticsController colorForMagneticBackgroundInTableView:(MagneticTableView *)tableView{
     return [UIColor clearColor];
