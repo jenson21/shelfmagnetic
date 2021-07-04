@@ -38,12 +38,6 @@
 
 ///复用头部视图
 - (void)magneticsController:(MagneticsController *)magneticsController reuseCell:(UITableViewCell *)cell forMagneticHeaderInTableView:(MagneticTableView *)tableView{
-    
-    [[cell.contentView.subviews copy] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIView* child = cell.contentView.subviews.lastObject;
-        [child removeFromSuperview];
-    }];
-    
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 10)];
     title.font = [UIFont boldSystemFontOfSize:10];
     title.textColor = [UIColor blackColor];

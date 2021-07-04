@@ -16,12 +16,17 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        _labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 200)];
+        _labelTitle = [[UILabel alloc] init];
         _labelTitle.textAlignment = NSTextAlignmentCenter;
-        _labelTitle.backgroundColor = [UIColor magentaColor];
-        [self.contentView addSubview:_labelTitle];
+        _labelTitle.backgroundColor = UIColor.magentaColor;
+        [self.magneticBackground addSubview:_labelTitle];
     }
     return self;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    _labelTitle.frame = CGRectMake(15, 15, self.magneticBackground.bounds.size.width - 30, self.magneticBackground.bounds.size.height - 30);
 }
 
 - (void)setContent:(NSString *)content{
