@@ -29,7 +29,7 @@
 
 ///磁片头部间距颜色。默认为透明。
 - (UIColor *)magneticsController:(MagneticsController *)magneticsController colorForMagneticHeaderSpacingInTableView:(MagneticTableView *)tableView{
-    return [UIColor lightTextColor];
+    return [UIColor lightGrayColor];
 }
 
 /**
@@ -44,15 +44,16 @@
 
 ///头部行高
 - (CGFloat)magneticsController:(MagneticsController *)magneticsController heightForMagneticHeaderInTableView:(MagneticTableView *)tableView{
-    return 10;
+    return 50;
 }
 
 ///复用头部视图
 - (void)magneticsController:(MagneticsController *)magneticsController reuseCell:(UITableViewCell *)cell forMagneticHeaderInTableView:(MagneticTableView *)tableView{
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 10)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 50)];
     title.font = [UIFont boldSystemFontOfSize:10];
-    title.textColor = [UIColor blackColor];
-    title.text = @"TWO";
+    title.textColor = [UIColor whiteColor];
+    title.text = @"TWO Title";
+    title.backgroundColor = UIColor.blackColor;
     title.textAlignment = NSTextAlignmentCenter;
     [cell.contentView addSubview:title];
 }
@@ -77,7 +78,7 @@
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 200)];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = self.magneticContext.json;
-    label.backgroundColor = [UIColor magentaColor];
+    label.backgroundColor = [UIColor yellowColor];
     [cell.contentView addSubview:label];
 }
 

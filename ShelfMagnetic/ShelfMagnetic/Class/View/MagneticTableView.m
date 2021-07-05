@@ -193,11 +193,11 @@
     for (int row = 0; row < rowCount; row++) {
         CGFloat rowHeight = 0.0;
         
-        BOOL isMagneticSpacing = (magneticController.showMagneticSpacing && row == rowCount - 1); //磁片头部间距
-        BOOL isMagneticHeaderSpacing = (magneticController.showMagneticHeaderSpacing && row == 0); //磁片间距
+        BOOL isMagneticHeaderSpacing = (magneticController.showMagneticHeaderSpacing && row == 0); //磁片头部间距
+        BOOL isMagneticSpacing = (magneticController.showMagneticSpacing && row == rowCount - 1); //磁片间距
         
         BOOL isMagneticHeader = NO; //头部视图
-        if (isMagneticHeaderSpacing) {
+        if (magneticController.showMagneticHeaderSpacing) {
             isMagneticHeader = (magneticController.showMagneticHeader && row == 1);
         } else {
             isMagneticHeader = (magneticController.showMagneticHeader && row == 0); //头部视图
@@ -213,7 +213,9 @@
             }
         }
         
-        if (isMagneticSpacing) { //磁片间距
+        if(isMagneticHeaderSpacing) { //磁片头部间距
+            rowHeight = magneticHeaderSpacing;
+        } else if (isMagneticSpacing) { //磁片间距
             rowHeight = magneticSpacing;
         } else if (isMagneticHeader) { //头部视图
             if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticHeaderInTableView:)]) {
@@ -223,8 +225,6 @@
             if ([magneticController respondsToSelector:@selector(magneticsController:heightForMagneticFooterInTableView:)]) {
                 rowHeight = [magneticController magneticsController:magneticsController heightForMagneticFooterInTableView:self];
             }
-        } else if(isMagneticHeaderSpacing) {
-            rowHeight = magneticHeaderSpacing;
         } else {
             if (magneticController.showMagneticError) { //错误视图
                 rowHeight = HEIGHT_ERROR;
