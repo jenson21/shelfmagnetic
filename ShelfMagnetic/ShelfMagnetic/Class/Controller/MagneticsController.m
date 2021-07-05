@@ -843,7 +843,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
             identifier = NSStringFromClass(class);
         } else { //数据源
             if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
-                NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
+                NSInteger rowIndex = indexPath.row;//数据源对应的index
+                if (magneticController.showMagneticHeaderSpacing) {
+                    rowIndex -= 1;
+                }
+                if (magneticController.showMagneticHeader) {
+                    rowIndex -= 1;
+                }
                 if ([magneticController respondsToSelector:@selector(magneticsController:cellClassForMagneticContentAtIndex:)]) {
                     class = [magneticController magneticsController:self cellClassForMagneticContentAtIndex:rowIndex];
                 }
@@ -913,7 +919,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
             [magneticErrorCell refreshMagneticErrorView];
         } else {
             if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
-                NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
+                NSInteger rowIndex = indexPath.row;//数据源对应的index
+                if (magneticController.showMagneticHeaderSpacing) {
+                    rowIndex -= 1;
+                }
+                if (magneticController.showMagneticHeader) {
+                    rowIndex -= 1;
+                }
                 [magneticController magneticsController:self reuseCell:cell forMagneticContentAtIndex:rowIndex];
             } else { //磁片扩展
                 NSInteger rowIndex = indexPath.row - magneticController.extensionRowIndex; //数据源对应的index
@@ -949,7 +961,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     if (!isMagneticHeaderSpacing && !isMagneticSpacing && !isMagneticHeader && !isMagneticFooter && !magneticController.showMagneticError) { //数据源
         if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
             if ([magneticController respondsToSelector:@selector(magneticsController:willDisplayCell:forMagneticContentAtIndex:)]) {
-                NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
+                NSInteger rowIndex = indexPath.row;//数据源对应的index
+                if (magneticController.showMagneticHeaderSpacing) {
+                    rowIndex -= 1;
+                }
+                if (magneticController.showMagneticHeader) {
+                    rowIndex -= 1;
+                }
                 [magneticController magneticsController:self willDisplayCell:cell forMagneticContentAtIndex:rowIndex];
             }
         } else { //磁片扩展
@@ -978,7 +996,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
     if (!isMagneticHeaderSpacing && !isMagneticSpacing && !isMagneticHeader && !isMagneticFooter && !magneticController.showMagneticError) { //数据源
         if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
             if ([magneticController respondsToSelector:@selector(magneticsController:didEndDisplayingCell:forMagneticContentAtIndex:)]) {
-                NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
+                NSInteger rowIndex = indexPath.row;//数据源对应的index
+                if (magneticController.showMagneticHeaderSpacing) {
+                    rowIndex -= 1;
+                }
+                if (magneticController.showMagneticHeader) {
+                    rowIndex -= 1;
+                }
                 [magneticController magneticsController:self didEndDisplayingCell:cell forMagneticContentAtIndex:rowIndex];
             }
         } else { //磁片扩展
@@ -1021,7 +1045,13 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         } else {
             if (indexPath.row < magneticController.extensionRowIndex) { //磁片内容
                 if ([magneticController respondsToSelector:@selector(magneticsController:didSelectMagneticContentAtIndex:)]) {
-                    NSInteger rowIndex = magneticController.showMagneticHeader ? indexPath.row - 1 : indexPath.row; //数据源对应的index
+                    NSInteger rowIndex = indexPath.row;//数据源对应的index
+                    if (magneticController.showMagneticHeaderSpacing) {
+                        rowIndex -= 1;
+                    }
+                    if (magneticController.showMagneticHeader) {
+                        rowIndex -= 1;
+                    }
                     [magneticController magneticsController:self didSelectMagneticContentAtIndex:rowIndex];
                 }
             } else { //磁片扩展
