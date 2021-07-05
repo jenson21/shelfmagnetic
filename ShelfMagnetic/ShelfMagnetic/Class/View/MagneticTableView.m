@@ -10,7 +10,7 @@
 #import "MagneticController.h"
 #import "MagneticsController.h"
 
-#define HEIGHT_ERROR        120.0   //错误提示高度
+static const CGFloat kHEIGHT_ERROR = 120.0;  //错误提示高度
 
 @interface MagneticTableView ()
 @end
@@ -227,7 +227,7 @@
             }
         } else {
             if (magneticController.showMagneticError) { //错误视图
-                rowHeight = HEIGHT_ERROR;
+                rowHeight = kHEIGHT_ERROR;
             } else { //数据源
                 if (row < magneticController.extensionRowIndex) { //磁片内容
                     

@@ -14,8 +14,7 @@
 #import "MagneticsMoreFooterView.h"
 #import "MagneticTableViewCell.h"
 
-#define kTagTableBottomView     3527    //磁片封底视图标记
-
+static const NSInteger kTagTableBottomView = 3527; //磁片封底视图标记
 //磁片父控制器将显示通知
 NSString * const kMagneticsSuperViewWillAppearNotification = @"MagneticsSuperViewWillAppearNotification";
 //磁片父控制器已消失通知
