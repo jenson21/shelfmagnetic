@@ -907,11 +907,15 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
         if ([magneticController respondsToSelector:@selector(magneticsController:reuseCell:forMagneticSpaingInTableView:)]) {
             [magneticController magneticsController:self reuseCell:cell forMagneticSpaingInTableView:tableView];
         }
-    } else if (isMagneticHeader) { //头部视图
-        [magneticController magneticsController:self reuseCell:cell forMagneticHeaderInTableView:tableView];
-    } else if (isMagneticFooter) { //尾部视图
-        [magneticController magneticsController:self reuseCell:cell forMagneticFooterInTableView:tableView];
-    } else { //数据源
+    } else {
+        if (isMagneticHeader && [magneticController respondsToSelector:@selector(magneticsController:reuseCell:forMagneticHeaderInTableView:)]) {//头部视图
+            [magneticController magneticsController:self reuseCell:cell forMagneticHeaderInTableView:tableView];
+        }
+        if (isMagneticFooter && [magneticController respondsToSelector:@selector(magneticsController:reuseCell:forMagneticFooterInTableView:)]) { //尾部视图
+            [magneticController magneticsController:self reuseCell:cell forMagneticFooterInTableView:tableView];
+        }
+        
+        //数据源
         if (magneticController.showMagneticError) { //错误磁片
             MagneticErrorCell *magneticErrorCell = (MagneticErrorCell *)cell;
             magneticErrorCell.magneticController = magneticController;
@@ -933,10 +937,10 @@ NSString * const kMagneticsSuperViewDidDisappearNotification = @"MagneticsSuperV
             
             if ([magneticController respondsToSelector:@selector(magneticsController:isShowMagneticBackground:aTableView:)]) {
                 CGFloat height = (indexPath.row < magneticController.rowHeightsCache.count) ? ceil([magneticController.rowHeightsCache[indexPath.row] floatValue]) : 0.0;
-                cell.magneticBackground.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, height);
-                cell.magneticBackground.backgroundColor = UIColor.whiteColor;
-                cell.magneticBackground.hidden = ![magneticController magneticsController:self isShowMagneticBackground:cell.magneticBackground aTableView:tableView];
-                if (!cell.magneticBackground.hidden) {
+                cell.magneticCellBackground.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, height);
+                cell.magneticCellBackground.backgroundColor = UIColor.whiteColor;
+                cell.magneticCellBackground.hidden = ![magneticController magneticsController:self isShowMagneticBackground:cell.magneticCellBackground aTableView:tableView];
+                if (!cell.magneticCellBackground.hidden) {
                     cell.backgroundColor = [UIColor clearColor];
                     cell.contentView.backgroundColor = [UIColor clearColor];
                 }

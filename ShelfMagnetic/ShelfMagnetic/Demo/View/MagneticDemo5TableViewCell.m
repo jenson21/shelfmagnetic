@@ -19,14 +19,14 @@
         _labelTitle = [[UILabel alloc] init];
         _labelTitle.textAlignment = NSTextAlignmentCenter;
         _labelTitle.backgroundColor = UIColor.magentaColor;
-        [self.magneticBackground addSubview:_labelTitle];
+        [self.magneticCellBackground addSubview:_labelTitle];
     }
     return self;
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    _labelTitle.frame = CGRectMake(15, 15, self.magneticBackground.bounds.size.width - 30, self.magneticBackground.bounds.size.height - 30);
+    _labelTitle.frame = CGRectMake(15, 15, self.magneticCellBackground.bounds.size.width - 30, self.magneticCellBackground.bounds.size.height - 30);
 }
 
 - (void)setContent:(NSString *)content{

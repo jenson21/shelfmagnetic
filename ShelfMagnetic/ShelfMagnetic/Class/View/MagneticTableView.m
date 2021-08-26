@@ -25,7 +25,7 @@ static const CGFloat kHEIGHT_ERROR = 120.0;  //错误提示高度
         self.backgroundView = nil;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.canCancelContentTouches = YES;
-        [self setDelaysContentTouches:NO];
+//        [self setDelaysContentTouches:NO];
     }
     return self;
 }

@@ -12,17 +12,17 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        [self.contentView addSubview:self.magneticBackground];
+        [self.contentView addSubview:self.magneticCellBackground];
     }
     return self;
 }
 
-- (UIView *)magneticBackground{
-    if (!_magneticBackground) {
-        _magneticBackground = [[UIView alloc] init];
-        _magneticBackground.hidden = YES;
+- (UIView *)magneticCellBackground{
+    if (!_magneticCellBackground) {
+        _magneticCellBackground = [[UIView alloc] init];
+        _magneticCellBackground.hidden = YES;
     }
-    return _magneticBackground;
+    return _magneticCellBackground;
 }
 
 @end
